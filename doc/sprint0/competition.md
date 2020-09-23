@@ -6,7 +6,8 @@ Kialo: https://www.kialo.com/
 	-holds news of sports
 	-A platform for discussion
 Procon: https://www.procon.org/ 
-	-Website for debating topics 
+	-Website providing debatable topics with questions
+	-can provide insights in the comments 
 
 How is your product different ?
 
