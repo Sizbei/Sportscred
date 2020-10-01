@@ -34,7 +34,7 @@ Team BBQED Contract
     | Role                                     | Members                       |
     | ---------------------------------------- | ----------------------------- |
     | Backend [ Database (Mongo), Node.Js ]    | Deon Li, Alex Wan, Frank Chen |
-    | Frontend [ React.js, HTML, etc. ]        | Cherrie Fong, Alex Yang       |
+    | Frontend [ React.js, HTML, etc. ]        | Cherie Kong, Alex Yang       |
     | Fullstack [ Everything ]                 | Andy Phylim, Raymond Chen     |
     |                                          |                               |
     
@@ -49,7 +49,7 @@ Team BBQED Contract
             - 4 - Alex Wan
             - 5 - Alex Yang
             - 6 - Raymond
-            - 7 - Cherrie
+            - 7 - Cherie
 
 - It is expected that for the each sprint presentation, there is at least 1 rehersal that everyone attends.
 
@@ -69,10 +69,11 @@ Team BBQED Contract
 - We will try our best to avoid having multiple people working on the same file in order to avoid having lots of merge conflicts
 - In the event that a merge conflict does happen, then the person who is doing the merge will find which file is having the conflict
     - They will reach out to team members who have worked on that file through a message on discord to figure out how to resolve the conflict
-- Anyone can do pull requests, though we should
+- Anyone can do pull requests, though we should have another person that is not the requester to accept the pull request 
 
 ### **Team Signatures**
 
 We accept these guidelines and intend to fulfill them:
 
 Deon Li - lideon - 1003349263
+Cherie Kong - kongcher - 1004800986
