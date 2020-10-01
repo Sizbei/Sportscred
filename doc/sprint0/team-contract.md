@@ -77,3 +77,4 @@ We accept these guidelines and intend to fulfill them:
 
 Deon Li - lideon - 1003349263
 Cherie Kong - kongcher - 1004800986
+Raymond Chen - chenray5 - 1005333337
