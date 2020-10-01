@@ -24,7 +24,7 @@ Team BBQED Contract
 
 ### **Contengency**
 
-- In the event a team member drops the course, an emergency meeting will be called to determine how to redistrubute the work
+- In the event a team member drops the course, an emergency meeting will be called to determine how to redistribute the work
 - In the event a team member plagiarizes and the code has not been submitted for the sprint, the team member is expected to redo the portion before submission. If the code has been submitted, the instructor will be informed immediately and will be asked on how to proceed
 - In the event a team member is consistently, significantly late (10 minutes) or absent (2+ times) from meetings without good reason, an emergency meeting will be called to determine the reason why and adjust meeting schedules and planning accordingly. If the team member ignores warnings and continues their behaviour, the instructor will be notified
 
@@ -78,3 +78,4 @@ We accept these guidelines and intend to fulfill them:
 Deon Li - lideon - 1003349263
 Cherie Kong - kongcher - 1004800986
 Raymond Chen - chenray5 - 1005333337
+Andy PhyLim - phyiman - 1005157937
