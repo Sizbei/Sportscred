@@ -13,7 +13,7 @@ Team BBQED Contract
 
         | Monday  | Tuesday | Wednesday | Thursday | Friday |
         |---------|---------|-----------|----------|--------|
-        | 10:15PM | 10:15PM |  10:15PM  | 10:15PM  | 1:30PM |
+        | 10:15PM | 10:15PM |  10:15PM  | 10:15PM  | 10:15PM |
         *Note that these roles were decided from a meeting called on 2020-09-17*
 
 - Non-standup meetings (30min - 1hr) can be called by anyone in the group and must be scheduled at least 3 days in advance.
