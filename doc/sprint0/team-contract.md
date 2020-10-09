@@ -78,7 +78,7 @@ We accept these guidelines and intend to fulfill them:
 Deon Li - lideon - 1003349263\
 Cherie Kong - kongcher - 1004800986\
 Raymond Chen - chenray5 - 1005333337\
-Andy PhyLim - phyiman - 1005157937\
+Andy PhyLim - phyliman - 1005157937\
 Alex Wan - wanalex- 1004382562\
 Alexis Yang - yangale8 - 1005350111\
 Hongfei Chen - chenho50 - 1002917025\
