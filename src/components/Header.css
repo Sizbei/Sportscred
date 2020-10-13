@@ -1,0 +1,73 @@
+.logo {
+  width:300px;
+}
+
+.navbar {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar-item {
+  /* horizontal list */
+  /* display: inline; */
+  
+  float: left;
+}
+
+.nav-link {
+  color: white;
+  font-size: 24px;
+  display: block;
+  margin-left: 80px;
+  text-decoration: none;
+}
+
+.user-info {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.user-photo {
+  display: flex;
+  align-items: center;
+
+  height: 100px;
+  width: 100px;
+  display: block;
+  background-image: url('../res/ACSBorder.png');
+  background-size: contain;
+}
+
+.user-given-photo {
+  margin-left: 17px;
+  margin-top: 20px;
+
+  display: block;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.profile-link {
+  text-decoration: none;
+}
+
+.username {
+  color: white;
+  margin-left: 20px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #222629;
+}
