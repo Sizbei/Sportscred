@@ -1,0 +1,34 @@
+.form-container {
+  height: 100vh;
+  display:flex;
+  justify-content: center;
+  /* align-items: center; */
+  background-color: #222629;
+}
+
+h1 {
+  color: #86C232;
+}
+
+label {
+  display: block;
+  color: white;
+  margin-top: 10px;
+}
+
+input {
+  display:block;
+  margin-top: 2px;
+}
+
+.select-gender {
+  margin-top: 15px;
+}
+
+.submit {
+  margin-top: 5px;
+  margin-left: auto;
+  color: white;
+  background-color: #86C232;
+  border-radius: 10%;
+}
