@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 //Create necessary schemas 
 const Schema = mongoose.Schema;
-const exampleSchema = new Schema({
+const profileSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -16,26 +16,35 @@ const exampleSchema = new Schema({
     required: false,
     unique: true,
     trim: true,
-    //minlength: 3
   },
   interest: {
     type: String,
     required: false,
     unique: true,
     trim: true,
-    //minlength: 3
   },
   status: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
     trim: true,
-    // minlength: 3
+  },
+  image: {
+    type: String,
+    required: false,
+    unique: true,
+    trim: true,
+  },
+  acs: {
+    type: Number,
+    required: false,
+    unique: true,
+    trim: true,
   },
 }, {
   timestamps: true,
 });
-const example = mongoose.model('Example', exampleSchema);
+const profile = mongoose.model('Profile', profileSchema);
 
 //End every model with this line
-module.exports = example;
+module.exports = profile;

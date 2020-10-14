@@ -15,7 +15,7 @@ export default class Example extends Component {
             users: []
           }
     }
-
+      
     //One of react's lifecycle methods - method is called before displaying this component
     componentDidMount() {
         axios.get('http://localhost:5000/example/')
