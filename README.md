@@ -48,6 +48,7 @@ In terminal, you should see:
      (This may involve install jquery and popper as well)
      npm install react-router-dom
      npm install axios
+     npm install react-hook-form
      
 7. Test that everything related to frontend is working by typing the following:
      npm start 
