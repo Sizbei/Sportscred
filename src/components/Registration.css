@@ -6,6 +6,35 @@
   background-color: #222629;
 }
 
+.preview {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.registration-photo {
+  /* display: flex;
+  margin-left: auto; */
+  /* align-items: center;  */
+  /* justify-content: center; */
+
+  height: 200px;
+  width: 200px;
+  display: block;
+  background-image: url('../res/ACSBorder.png');
+  background-size: contain;
+}
+
+.registration-user-given-photo {
+  margin-left: 33px;
+  margin-top: 40px;
+
+  display: block;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+
 h1 {
   color: #86C232;
 }
@@ -19,10 +48,6 @@ label {
 input {
   display:block;
   margin-top: 2px;
-}
-
-.select-gender {
-  margin-top: 15px;
 }
 
 .submit {

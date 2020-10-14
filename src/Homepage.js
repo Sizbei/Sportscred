@@ -9,6 +9,7 @@ import Trivia from "./components/Trivia";
 import Analysis from "./components/Analysis";
 import PicksAndPredictions from "./components/PicksAndPredictions";
 import Profile from "./components/Profile";
+import Registration from "./components/Registration"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/Analysis" component={Analysis} />
       <Route path="/PicksAndPredictions" component={PicksAndPredictions} />
       <Route path="/Profile" component={Profile} />
+      <Route path="/Registration" component={Registration} />
       </div>
     </Router>
   );

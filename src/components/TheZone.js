@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-import Navbar from "./Navbar"
+import Header from "./Header"
 
 export default class TheZone extends Component {
     render() {
         return( 
         <div>
-            <Navbar></Navbar>
+            <Header />
             <p>You're on The Zone.</p>
         </div>
         );
