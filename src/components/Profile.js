@@ -8,7 +8,7 @@ class ProfilePicture extends React.Component {
         super(props); 
         this.state = { 
             image: 'https://i.imgur.com/55sUslQ.png',
-            acsscore: '0',
+            acsscore: '200',
         }
     }
     
@@ -23,7 +23,8 @@ class ProfilePicture extends React.Component {
 
             <div className="profile-photo">
                 <img src={this.state.image} className="profile-user-given-photo"/>
-                <label className="profile-user-score"> {this.state.acsscore} </label>    
+                <label className="profile-badge"></label> 
+                <label className="profile-user-score">{this.state.acsscore}</label>   
             </div>
             
             
@@ -42,6 +43,7 @@ class UserInfo extends React.Component {
         this.setState((state, props) => ({
             title: this.props.title ? this.props.title : "placeholder_title",
             content: this.props.content ? this.props.content : "placeholder_content",  
+
         })); 
     }
     render() {
@@ -65,6 +67,37 @@ class ACSHistory extends React.Component {
 
 }
 export default class Profile extends Component {
+    constructor(props) {
+        super(props); 
+        this.state = { 
+            username: 'blank' ,
+            status: 'blank',
+            about: 'blank' ,
+            interest: 'blank',  
+        }
+    }
+    componentDidMount(){ 
+        const exampleBody = {
+            username: 'user1'
+        }
+        axios.get('http://localhost:5000/profile/username', exampleBody)
+        .then(response => {
+          console.print(response.data.length);   
+          if (response.data.length > 0) {
+            this.setState({
+                username: 'response.data.map(user => user.username)',
+                status: response.data.map(user => user.status) ,
+                about: response.data.map(user => user.about),
+                interest: response.data.map(user => user.interest),              
+            })
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        
+    }
+    
     render(){
         return (
             <div className="container">
@@ -81,9 +114,10 @@ export default class Profile extends Component {
                 </div>
                 
                 <div className="container-middle-section"> 
-                    <UserInfo title={"Status"} content={"askldhsalkdjaslkjdasklj dklsajdlksajdlksajdlksajlkdjaslkdjaslkdjslakjdlksajdklasjkldjsalk djlsadjlksajdlkasjdkljaslkdjklasjdklsajdl kasjdlkjasldkasjkldjaslkdjaklaj lkdjklajdklasjlsjlkjdkljsaldkjaslkdjaslkdjaskldjlaksjdlkajdklajdkljalkajskl"}/>
-                    <UserInfo title={"About"}/> 
-                    <UserInfo title={"Interest"}/> 
+                    <h1> {this.state.username} </h1> 
+                    <UserInfo title={"Status"} content={this.state.status} />
+                    <UserInfo title={"About"} content={this.state.about}/> 
+                    <UserInfo title={"Interest"} content={this.state.interest}/> 
                     <UserInfo title={"Radar List"}/> 
                 </div> 
 
