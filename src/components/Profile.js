@@ -1,12 +1,14 @@
-import React, {Component} from 'react';
+import React, {Component, useDebugValue} from 'react';
 import axios from 'axios';
+import { PieChart } from 'react-minimal-pie-chart';
 import '../styling/Profile.css'
 
 class ProfilePicture extends React.Component {
     constructor(props) {
         super(props); 
         this.state = { 
-            image: 'https://i.imgur.com/9fyUaFV.jpg'
+            image: 'https://i.imgur.com/55sUslQ.png',
+            acsscore: '0',
         }
     }
     
@@ -18,14 +20,13 @@ class ProfilePicture extends React.Component {
     }
     render() {
         return ( 
-         <div className = "container">
-            <div className="preview">
-                <div className="photo">
-                    <img src={this.state.image} className="user-given-photo" />
-                    <span class="badge badge-light">9</span>
-                </div>
+
+            <div className="profile-photo">
+                <img src={this.state.image} className="profile-user-given-photo"/>
+                <label className="profile-user-score"> {this.state.acsscore} </label>    
             </div>
-         </div>   
+            
+            
         )
     }
 }
@@ -45,24 +46,48 @@ class UserInfo extends React.Component {
     }
     render() {
         return (
-        <div className="container"> 
-            <h2>{this.state.title}</h2>
-            <p>{this.state.content}</p>
-        </div>
+            <div className="information"> 
+                <h2 className="title">{this.state.title}</h2>
+                <p className="content">{this.state.content}</p>
+            </div>
+            
         )    
     }
 }
 
+class ACSHistory extends React.Component { 
+    constructor(props) {
+        super(props); 
+        this.state = { 
+            
+        }
+    }
 
+}
 export default class Profile extends Component {
     render(){
         return (
-            <div>
-                <ProfilePicture />
-                <UserInfo title={"Status"} content={"Fanlyst"}/>
-                <UserInfo title={"About"}/>
-                <UserInfo title={"Interest"}/> 
-                <UserInfo title={"ACS History"}/> 
+            <div className="container">
+                <div className="container-top-section"> 
+                    <ProfilePicture />
+                    <PieChart className="piechart"
+                        data={[
+                            { title: 'One', value: 10, color: '#E38627' },
+                            { title: 'Two', value: 15, color: '#C13C37' },
+                            { title: 'Three', value: 20, color: '#6A2135' },
+                        ]}
+
+                    />;
+                </div>
+                
+                <div className="container-middle-section"> 
+                    <UserInfo title={"Status"} content={"askldhsalkdjaslkjdasklj dklsajdlksajdlksajdlksajlkdjaslkdjaslkdjslakjdlksajdklasjkldjsalk djlsadjlksajdlkasjdkljaslkdjklasjdklsajdl kasjdlkjasldkasjkldjaslkdjaklaj lkdjklajdklasjlsjlkjdkljsaldkjaslkdjaslkdjaskldjlaksjdlkajdklajdkljalkajskl"}/>
+                    <UserInfo title={"About"}/> 
+                    <UserInfo title={"Interest"}/> 
+                    <UserInfo title={"Radar List"}/> 
+                </div> 
+
+                
             </div>
             
         )
