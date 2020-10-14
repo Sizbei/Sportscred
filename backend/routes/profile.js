@@ -4,11 +4,11 @@ let Example = require('../models/profile');
 
 //get method
 router.route('/profile/:id').get((req, res) => {
-  Example.find()
-    .then(username => res.json(name))
-    .then(about => res.json(about))
-    .then(interest => res.json(interst))
-    .then(status => res.json(status))
+  Example.findById(req.params.id)
+    .then(user => res.json(user.username,
+                            user.about,
+                            user.interest,
+                            user.status),)
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
