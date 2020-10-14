@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../res/whitesportcred.png';
+import logo from '../res/SportCredLogo.png';
 
 import "./Header.css"
 
