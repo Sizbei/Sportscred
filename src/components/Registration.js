@@ -9,7 +9,7 @@ export default function Registration() {
 
   let history = useHistory();
   const { register, handleSubmit, watch, errors } = useForm();
-  const [imgPreview, setImgPreview] = useState("https://i.imgur.com/9fyUaFV.jpg")
+  const [imgPreview, setImgPreview] = useState("")
   const prev = "";
 
   const onSubmit = data => {
@@ -25,6 +25,11 @@ export default function Registration() {
     console.log({imgPreview})
   };
   
+  const handleURLChange = (e) => {
+    console.log(e.target.value);
+    setImgPreview(e.target.value);
+  }
+
   return(   
     <div className="form-container">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -32,17 +37,20 @@ export default function Registration() {
 
         <div className="preview">
           <div className="registration-photo">
-            <img src={imgPreview} key={imgPreview} className="registration-user-given-photo" alt="Preview!" />
+            {/* <img src={imgPreview} key={imgPreview} className="registration-user-given-photo" onerror="this.src='../res/account-circle.svg'" alt=" " /> */}
+            <img src={imgPreview} key={imgPreview} className="registration-user-given-photo" alt="" />
+            {/* <object className="registration-user-given-photo" data={imgPreview} type="image"></object> */}
           </div>
         </div>
 
-        <label>Profile Picture URL: {imgPreview} </label>
-        <input type="text" name="url" ref={register({ required: true })} />
-        <button onClick={updatePreview}>Preview!</button>
+        <label>Profile Picture URL: </label>
+        <input type="text"name="url" ref={register({ required: true })} onInput={handleURLChange}/>
+        {/* <button onClick={updatePreview}>Preview!</button> */}
+        {/* <br></br> */}
         {errors.url && <span className="required-error">This field is required.</span>}
 
         <label>First Name:</label>
-        <input name="firstName" ref={register({ required: true, maxLength: 20 })} />
+        <input name="firstName" ref={register({ required: true })} />
         {errors.firstName && <span className="required-error">This field is required.</span>}
 
         <label>Last Name:</label>

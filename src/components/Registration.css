@@ -33,6 +33,10 @@
   height: 120px;
   width: 120px;
   border-radius: 50%;
+
+  text-indent: -10000px; /* A hack to hide the broken image icon */ 
+  background-image: url('../res/account-circle.svg');
+  background-size: contain;
 }
 
 h1 {
@@ -60,5 +64,5 @@ input {
 
 .required-error {
   font-size: 12px;
-  color: red;
+  color: crimson;
 }
