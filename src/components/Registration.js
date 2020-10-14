@@ -1,8 +1,8 @@
 import React, { Component, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { BrowserRouter as Router, Route, useHistory} from "react-router-dom";
-import TheZone from "./TheZone";
-import preview from '../res/account-circle.svg';
+import axios from 'axios';
+
 import './Registration.css'
 
 export default function Registration() {
@@ -47,7 +47,7 @@ export default function Registration() {
         <input name="lastName" ref={register({ required: true })} />
 
         <label>Age:</label>
-        <input name="lastName" ref={register({ required: true })} />
+        <input name="age" ref={register({ required: true })} />
 
         <label>Username:</label>
         <input name="userName" ref={register({ required: true })} />
@@ -74,10 +74,10 @@ export default function Registration() {
         </select>
 
         <label>What sport would you like to know/learn about?</label>
-        <input name="firstName" ref={register({ required: true })} />
+        <input name="sportInterests" ref={register({ required: true })} />
 
         <label>What are your favorite sports teams?</label>
-        <input name="firstName" ref={register({ required: true })} />
+        <input name="favoriteTeams" ref={register({ required: true })} />
 
         {errors.exampleRequired && <span>This field is required.</span>}
         <input type="submit" className="submit" value="Continue" />
