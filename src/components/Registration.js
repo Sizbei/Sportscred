@@ -39,21 +39,35 @@ export default function Registration() {
         <label>Profile Picture URL: {imgPreview} </label>
         <input type="text" name="url" ref={register({ required: true })} />
         <button onClick={updatePreview}>Preview!</button>
+        {errors.url && <span className="required-error">This field is required.</span>}
 
         <label>First Name:</label>
         <input name="firstName" ref={register({ required: true, maxLength: 20 })} />
+        {errors.firstName && <span className="required-error">This field is required.</span>}
 
         <label>Last Name:</label>
         <input name="lastName" ref={register({ required: true })} />
-
-        <label>Age:</label>
-        <input name="age" ref={register({ required: true })} />
+        {errors.lastName && <span className="required-error">This field is required.</span>}
 
         <label>Username:</label>
         <input name="userName" ref={register({ required: true })} />
+        {errors.userName && <span className="required-error">This field is required.</span>}
 
         <label>Password:</label>
-        <input type="password" name="password" ref={register({ required: true })} />
+        <input type="password" name="password" ref={ register({ required: true }) } />
+        {errors.password && <span className="required-error">This field is required.</span>}
+
+        <label>Age:</label>
+        <input name="age" ref={register({ required: true })} />
+        {errors.age && <span className="required-error">This field is required.</span>}
+
+        <label>Email:</label>
+        <input name="email" ref={register({ required: true })} />
+        {errors.email && <span className="required-error">This field is required.</span>}
+
+        <label>Phone Number:</label>
+        <input name="phoneNumber" ref={register({ required: true })} />
+        {errors.phoneNumber && <span className="required-error">This field is required.</span>}
 
         <label>Gender:</label>
         <select name="gender" ref={register} >
@@ -64,6 +78,7 @@ export default function Registration() {
 
         <label>Favorite sport?</label>
         <input name="favoriteSport" ref={register({ required: true })} />
+        {errors.favoriteSport && <span className="required-error">This field is required.</span>}
 
         <label>Highest level of play?</label>
         <select name="highestLevelOfPlay" ref={register} className="" >
@@ -75,12 +90,13 @@ export default function Registration() {
 
         <label>What sport would you like to know/learn about?</label>
         <input name="sportInterests" ref={register({ required: true })} />
+        {errors.sportInterests && <span className="required-error">This field is required.</span>}
 
         <label>What are your favorite sports teams?</label>
         <input name="favoriteTeams" ref={register({ required: true })} />
+        {errors.favoriteTeams && <span className="required-error">This field is required.</span>}
 
-        {errors.exampleRequired && <span>This field is required.</span>}
-        <input type="submit" className="submit" value="Continue" />
+        <input type="submit" className="submit" value="Continue" /> 
       </form>
     </div>
   );
