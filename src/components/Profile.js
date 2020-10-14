@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import '../styling/Profile.css'
 
 class ProfilePicture extends React.Component {
     constructor(props) {
         super(props); 
         this.state = { 
-            image: "https://lh3.googleusercontent.com/proxy/6Cwu6lDL8z6tWttjlMJOb8Ogcc0WYX5lhS5jbSIWQk2WlGdVZvXkK2rIzvYRRKo8fBKMY9R5DPQiVkTWlv9t8LITl6zUwHl8PljBgvXfejsZyqkQdAewKHYQiDNuWZKbEumb8ZUlMu5Ud12CAw" 
+            image: 'https://i.imgur.com/9fyUaFV.jpg'
         }
     }
     
@@ -18,7 +19,12 @@ class ProfilePicture extends React.Component {
     render() {
         return ( 
          <div className = "container">
-             <img src={this.state.image} />
+            <div className="preview">
+                <div className="photo">
+                    <img src={this.state.image} className="user-given-photo" />
+                    <span class="badge badge-light">9</span>
+                </div>
+            </div>
          </div>   
         )
     }
