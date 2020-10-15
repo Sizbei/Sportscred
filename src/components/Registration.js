@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { BrowserRouter as Router, Route, useHistory} from "react-router-dom";
 import axios from 'axios';
 
+import Header from "./Header"
 import './Registration.css'
 
 export default function Registration() {
@@ -27,7 +28,7 @@ export default function Registration() {
     axios.post('http://localhost:5000/signup/add', data)
     .then(processResponse);
 
-    history.push("/morequestions") // Navigate to profile next 
+    history.push("/profile") // Navigate to where next?
   };
 
   const updatePreview = () => {
@@ -43,81 +44,86 @@ export default function Registration() {
   }
 
   return(   
-    <div className="form-container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>Sign Up</h1>
+    <div className="registration">
+      <Header />
+      
+      <div className="form-container">
+        <form onSubmit={handleSubmit(onSubmit)}>
 
-        <div className="preview">
-          <div className="registration-photo">
-            {/* <img src={imgPreview} key={imgPreview} className="registration-user-given-photo" onerror="this.src='../res/account-circle.svg'" alt=" " /> */}
-            <img src={imgPreview} key={imgPreview} className="registration-user-given-photo" alt="" />
-            {/* <object className="registration-user-given-photo" data={imgPreview} type="image"></object> */}
+          <h1>Sign Up</h1>
+
+          <div className="preview">
+            <div className="registration-photo">
+              {/* <img src={imgPreview} key={imgPreview} className="registration-user-given-photo" onerror="this.src='../res/account-circle.svg'" alt=" " /> */}
+              <img src={imgPreview} key={imgPreview} className="registration-user-given-photo" alt="" />
+              {/* <object className="registration-user-given-photo" data={imgPreview} type="image"></object> */}
+            </div>
           </div>
-        </div>
 
-        <label>Profile Picture URL: </label>
-        <input type="text"name="url" ref={register({ required: true })} onInput={handleURLChange}/>
-        {/* <button onClick={updatePreview}>Preview!</button> */}
-        {/* <br></br> */}
-        {errors.url && <span className="required-error">This field is required.</span>}
+          <label>Profile Picture URL: </label>
+          <input type="text"name="url" ref={register({ required: true })} onInput={handleURLChange}/>
+          {/* <button onClick={updatePreview}>Preview!</button> */}
+          {/* <br></br> */}
+          {errors.url && <span className="required-error">This field is required.</span>}
 
-        <label>First Name:</label>
-        <input name="firstName" ref={register({ required: true })} />
-        {errors.firstName && <span className="required-error">This field is required.</span>}
+          <label>First Name:</label>
+          <input name="firstName" ref={register({ required: true })} />
+          {errors.firstName && <span className="required-error">This field is required.</span>}
 
-        <label>Last Name:</label>
-        <input name="lastName" ref={register({ required: true })} />
-        {errors.lastName && <span className="required-error">This field is required.</span>}
+          <label>Last Name:</label>
+          <input name="lastName" ref={register({ required: true })} />
+          {errors.lastName && <span className="required-error">This field is required.</span>}
 
-        <label>Username:</label>
-        <input name="username" ref={register({ required: true })} />
-        {errors.userName && <span className="required-error">This field is required.</span>}
+          <label>Username:</label>
+          <input name="username" ref={register({ required: true })} />
+          {errors.username && <span className="required-error">This field is required.</span>}
 
-        <label>Password:</label>
-        <input type="password" name="password" ref={ register({ required: true }) } />
-        {errors.password && <span className="required-error">This field is required.</span>}
+          <label>Password:</label>
+          <input type="password" name="password" ref={ register({ required: true }) } />
+          {errors.password && <span className="required-error">This field is required.</span>}
 
-        <label>Age:</label>
-        <input name="age" ref={register({ required: true })} />
-        {errors.age && <span className="required-error">This field is required.</span>}
+          <label>Age:</label>
+          <input name="age" ref={register({ required: true })} />
+          {errors.age && <span className="required-error">This field is required.</span>}
 
-        <label>Email:</label>
-        <input name="email" ref={register({ required: true })} />
-        {errors.email && <span className="required-error">This field is required.</span>}
+          <label>Email:</label>
+          <input name="email" ref={register({ required: true })} />
+          {errors.email && <span className="required-error">This field is required.</span>}
 
-        <label>Phone Number:</label>
-        <input name="phoneNumber" ref={register({ required: true })} />
-        {errors.phoneNumber && <span className="required-error">This field is required.</span>}
+          <label>Phone Number:</label>
+          <input name="phoneNumber" ref={register({ required: true })} />
+          {errors.phoneNumber && <span className="required-error">This field is required.</span>}
 
-        <label>Gender:</label>
-        <select name="gender" ref={register} >
-          <option value="male">male</option>
-          <option value="female">female</option>
-          <option value="other">other</option>
-        </select>
+          <label>Gender:</label>
+          <select name="gender" ref={register} >
+            <option value="male">male</option>
+            <option value="female">female</option>
+            <option value="other">other</option>
+          </select>
 
-        <label>Favorite sport?</label>
-        <input name="favoriteSport" ref={register({ required: true })} />
-        {errors.favoriteSport && <span className="required-error">This field is required.</span>}
+          <label>Favorite sport?</label>
+          <input name="favoriteSport" ref={register({ required: true })} />
+          {errors.favoriteSport && <span className="required-error">This field is required.</span>}
 
-        <label>Highest level of play?</label>
-        <select name="highestLevelOfPlay" ref={register} className="" >
-          <option value="noHistory">No History</option>
-          <option value="highschool">High School</option>
-          <option value="university">University</option>
-          <option value="professional">Professional</option>
-        </select>
+          <label>Highest level of play?</label>
+          <select name="highestLevelOfPlay" ref={register} className="" >
+            <option value="noHistory">No History</option>
+            <option value="highschool">High School</option>
+            <option value="university">University</option>
+            <option value="professional">Professional</option>
+          </select>
 
-        <label>What sport would you like to know/learn about?</label>
-        <input name="sportInterest" ref={register({ required: true })} />
-        {errors.sportInterests && <span className="required-error">This field is required.</span>}
+          <label>What sport would you like to know/learn about?</label>
+          <input name="sportInterest" ref={register({ required: true })} />
+          {errors.sportInterest && <span className="required-error">This field is required.</span>}
 
-        <label>What are your favorite sports teams?</label>
-        <input name="favoriteTeam" ref={register({ required: true })} />
-        {errors.favoriteTeams && <span className="required-error">This field is required.</span>}
+          <label>What are your favorite sports teams?</label>
+          <input name="favoriteTeam" ref={register({ required: true })} />
+          {errors.favoriteTeam && <span className="required-error">This field is required.</span>}
 
-        <input type="submit" className="submit" value="Continue" /> 
-      </form>
+          <input type="submit" className="submit" value="Continue" /> 
+        </form>
+      </div>
     </div>
   );
 }
