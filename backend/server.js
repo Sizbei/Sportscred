@@ -24,6 +24,9 @@ const loginRouter = require('./routes/login');
 app.use('/example', exampleRouter);
 app.use('/login', loginRouter);
 
+const profileRouter = require('./routes/profile');
+app.use('/profile', profileRouter);
+
 //App is now listening for calls
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
