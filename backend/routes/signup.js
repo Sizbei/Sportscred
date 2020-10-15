@@ -8,7 +8,12 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/findExisting').get((req,res) => {
-    const username = req.body.username;
+    console.log(req);
+    console.log(req.query);
+    // console.log(res);
+    const username = req.query.username;
+    console.log("backend got:");
+    console.log(username);
     User.findOne({username: username})
         .then((user) => {
             if (user) {
