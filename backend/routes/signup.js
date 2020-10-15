@@ -1,22 +1,30 @@
 const router = require('Express').Router();
-let User = require('../models/user');
+let user = require('../models/user');
 
 router.route('/').get((req, res) => {
-    User.find()
+    user.find()
       .then(ex => res.json(ex))
       .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/findExisting').get((req,res) => {
-    console.log(req);
-    console.log(req.query);
-    // console.log(res);
+router.route('/existingUsername').get((req,res) => {
     const username = req.query.username;
-    console.log("backend got:");
-    console.log(username);
-    User.findOne({username: username})
-        .then((user) => {
-            if (user) {
+    user.findOne({username: username})
+        .then((res) => {
+            if (res) {
+                res.json({"exists":true});
+            } else {
+                res.json({"exists":false});
+            }
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/existingEmail').get((req, res) => {
+    const email = req.query.email;
+    user.findOne({email:email})
+        .then((result) => {
+            if (result) {
                 res.json({"exists":true});
             } else {
                 res.json({"exists":false});
