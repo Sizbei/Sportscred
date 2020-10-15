@@ -17,16 +17,15 @@ export default class Profile extends Component {
         }
     }
     componentDidMount(){ 
+
         axios.get('http://localhost:5000/profile/username')
         .then(response => {   
-          if (response.data.length > 0) {
             this.setState({
-                username: 'response.data.map(user => user.username)',
-                status: 'response.data.map(user => user.status)' ,
-                about: 'response.data.map(user => user.about)',
-                interest: 'response.data.map(user => user.interest)',              
-            })
-          }
+                username: response.data.username,
+                status: response.data.status,
+                about: response.data.about,
+                interest: response.data.interest,     
+            }) 
         })
         .catch((error) => {
           console.log(error);
