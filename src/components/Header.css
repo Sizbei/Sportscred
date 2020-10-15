@@ -1,25 +1,29 @@
 .logo {
-  width:300px;
+  width:15em;
 }
 
 .navbar {
   list-style-type: none;
   padding: 0;
   overflow: hidden;
+
+  /* white-space: nowrap; */
+  min-width: 30%;
 }
 
 .navbar-item {
   /* horizontal list */
   /* display: inline; */
   
-  float: left;
+  /* float: left; */
+  display: inline-block;
 }
 
 .nav-link {
   color: white;
-  font-size: 24px;
+  font-size: 1em;
   display: block;
-  margin-left: 80px;
+  margin-left: 2em;
   text-decoration: none;
 }
 
@@ -61,7 +65,7 @@
 
 .username {
   color: white;
-  margin-left: 20px;
+  margin-left: 1.5em;
 }
 
 .header {
@@ -70,9 +74,9 @@
   align-items: center;
   text-align: center;
 
-  padding-left: 60px;
-  padding-right: 60px;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
   background-color: black;
 }
