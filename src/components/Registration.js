@@ -12,9 +12,21 @@ export default function Registration() {
   const [imgPreview, setImgPreview] = useState("")
   const prev = "";
 
+  const processResponse = res => {
+    console.log("Got:");
+    console.log(res.data);
+  }
+
   const onSubmit = data => {
     console.log(data);
+    console.log(typeof data);
     
+    
+    // axios.post('http://localhost:5000/signup/add', data)
+    // .then(res => console.log(res.data));
+    axios.post('http://localhost:5000/signup/add', data)
+    .then(processResponse);
+
     history.push("/morequestions") // Navigate to profile next 
   };
 
@@ -58,7 +70,7 @@ export default function Registration() {
         {errors.lastName && <span className="required-error">This field is required.</span>}
 
         <label>Username:</label>
-        <input name="userName" ref={register({ required: true })} />
+        <input name="username" ref={register({ required: true })} />
         {errors.userName && <span className="required-error">This field is required.</span>}
 
         <label>Password:</label>
@@ -97,11 +109,11 @@ export default function Registration() {
         </select>
 
         <label>What sport would you like to know/learn about?</label>
-        <input name="sportInterests" ref={register({ required: true })} />
+        <input name="sportInterest" ref={register({ required: true })} />
         {errors.sportInterests && <span className="required-error">This field is required.</span>}
 
         <label>What are your favorite sports teams?</label>
-        <input name="favoriteTeams" ref={register({ required: true })} />
+        <input name="favoriteTeam" ref={register({ required: true })} />
         {errors.favoriteTeams && <span className="required-error">This field is required.</span>}
 
         <input type="submit" className="submit" value="Continue" /> 
