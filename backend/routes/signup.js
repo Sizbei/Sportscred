@@ -1,11 +1,24 @@
 const router = require('Express').Router();
-let user = require('../models/user');
+let User = require('../models/user');
 
 router.route('/').get((req, res) => {
-    user.find()
+    User.find()
       .then(ex => res.json(ex))
       .catch(err => res.status(400).json('Error: ' + err));
-  });
+});
+
+router.route('/findExisting').get((req,res) => {
+    const username = req.body.username;
+    User.findOne({username: username})
+        .then((user) => {
+            if (user) {
+                res.json({"exists":true});
+            } else {
+                res.json({"exists":false});
+            }
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
 
 router.route('/add').post((req, res) =>{
     const email = req.body.email;
@@ -23,7 +36,7 @@ router.route('/add').post((req, res) =>{
     const firstName = req.body.firstName;
     const imageURL = req.body.url;
     
-    const newUser = new user({
+    const newUser = new User({
         email: email,
         username: username,
         password: password,
