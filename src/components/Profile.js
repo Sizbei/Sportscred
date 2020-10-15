@@ -8,6 +8,7 @@ export default class Profile extends Component {
     constructor(props) {
         super(props); 
         this.state = { 
+            path: props.location.pathname, 
             username: '',
             status: '',
             about: '' ,
@@ -18,7 +19,7 @@ export default class Profile extends Component {
     }
     componentDidMount(){ 
 
-        axios.get('http://localhost:5000/profile/username')
+        axios.get('http://localhost:5000/' + this.state.path)
         .then(response => {   
             this.setState({
                 username: response.data.username,
