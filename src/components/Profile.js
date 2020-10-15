@@ -2,6 +2,7 @@ import React, {Component, useDebugValue} from 'react';
 import axios from 'axios';
 import { PieChart } from 'react-minimal-pie-chart';
 import '../styling/Profile.css'
+import Header from './Header';
 
 
 export default class Profile extends Component {
@@ -38,7 +39,8 @@ export default class Profile extends Component {
     render(){
         
         return (
-            <div className="container">
+          <div className="container">
+            <Header />
             <div className="container-top-section"> 
                 <div className="profile-photo">
                     <img src={this.state.image} className="profile-user-given-photo"/>
