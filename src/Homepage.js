@@ -1,5 +1,5 @@
 import React from 'react';
-import './Homepage.css';
+import './Styling/Homepage.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import { BrowserRouter as Router, Route} from "react-router-dom";
 
@@ -11,7 +11,7 @@ import Analysis from "./components/Analysis";
 import PicksAndPredictions from "./components/PicksAndPredictions";
 import Profile from "./components/Profile";
 
-function App() {
+function Home() {
   return (
     <Router>
       <div className="container">
@@ -28,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

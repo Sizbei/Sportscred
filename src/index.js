@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Homepage from './Homepage';
+import './styling/index.css';
+import Login from './Login';
 
 //Tells the app to open the App.js 
+
 ReactDOM.render(
   <React.StrictMode>
-    <Homepage />
+    <Login />
   </React.StrictMode>,
   document.getElementById('root')
 );
