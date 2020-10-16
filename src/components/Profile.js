@@ -36,6 +36,7 @@ export default class Profile extends Component {
     }
     
     render(){
+        
         return (
             <div className="container">
             <div className="container-top-section"> 
@@ -59,17 +60,19 @@ export default class Profile extends Component {
                 <div className="information"> 
                     <h2 className="title">Status</h2>
                     <p className="content">{this.state.status}</p>
-                </div>
-                <div className="information"> 
+                
                     <h2 className="title"> About</h2>
                     <p className="content">{this.state.about}</p>
-                </div>
-                <div className="information"> 
+                
                     <h2 className="title">Interest</h2>
                     <p className="content">{this.state.interest}</p>
+
+                    <h2 className="title"> ACS History </h2>
+                    <h2 className="title"> Current Picks </h2>
+                    <h2 className="title"> Pick History </h2>
+                    <h2 className="title"> Radar List </h2>
                 </div>
-                
-                
+                 
             </div>         
             </div>
             
