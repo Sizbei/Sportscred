@@ -12,7 +12,7 @@
     bottom: 0;
     right: 0;
     overflow: auto;
-    background-image: url("../resources/LoginBackground.png");
+    background-image: url("../resources/images/LoginBackground.png");
     background-size: cover;
 }
 
@@ -70,9 +70,7 @@
     height: 65px;
     width: 30%;
     color: white;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    font-family:'Anton';
     text-align: center;
     display: inline-block;
     font-size: 24px;
@@ -134,5 +132,5 @@
 @font-face {
   font-family: 'Anton';
 
-  src: local('Anton'), url(./fonts/Anton/Anton-Regular.ttf) format('truetype');
+  src: local('Anton'), url(../fonts/Anton/Anton-Regular.ttf) format('truetype');
 }

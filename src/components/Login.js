@@ -1,9 +1,7 @@
 import axios from 'axios';
 import '../styling/Login.css';
-import logo from '../resources/Logo.png';
+import logo from '../resources/images/Logo.png';
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
-
 
 export default class Login extends Component{
     
