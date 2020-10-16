@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../res/SportCredLogo.png';
 
-import "./Header.css"
+import '../styling/Header.css'
 
 export default function Header() {
   return (    

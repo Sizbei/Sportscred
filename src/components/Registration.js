@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, useHistory} from "react-router-dom";
 import axios from 'axios';
 import preview from '../res/account-circle.svg'
 import Header from "./Header"
-import './Registration.css'
+import '../styling/Registration.css'
 
 function ErrorMessage(props) {
   const flag = props.flag;
