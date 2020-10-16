@@ -54,6 +54,7 @@
 .boldtext {
     color:white;
     font-weight: 600;
+    font-size:20px;
     float:right;
 }
 
@@ -105,7 +106,7 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-    float:right;
+    float: right;
     font-weight: 700;
     text-decoration: none;
     
@@ -117,10 +118,9 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-    
+    float:right;
     font-weight: 700;
     text-decoration: none;
-    float:right;
 }
 
 .right {

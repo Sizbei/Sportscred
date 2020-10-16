@@ -86,11 +86,13 @@ export default class Login extends Component{
                         <a href="" class="passwordlink">Forgot Password?</a>
                     </div>
                     <button class="loginBtn" onClick={this.onLogin}>Log In</button>
+                    <br></br>
                     <div class="signup">
                         <label class ="boldtext">Not a Member?</label>
-                        <br></br>
-                        <a href="/Registration" class="signuplink">Sign Up</a> 
                     </div>
+                    <div class="signup">
+                        <a href="/Registration" class="signuplink">Sign Up</a> 
+                    </div>               
                 </div>
             </div>
         );
