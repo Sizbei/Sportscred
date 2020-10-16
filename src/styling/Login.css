@@ -131,8 +131,14 @@
     width:70%;
 }
 
-.commisioner{
+.extrafonts{
+    font-family: 'Anton', sans-serif;
+
     font-family: 'Commissioner', sans-serif;
+
+    font-family: 'Open Sans', sans-serif;
+
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 
