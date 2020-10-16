@@ -55,6 +55,7 @@ export default function Registration() {
   const { register, handleSubmit, watch, errors } = useForm();
   const [imgPreview, setImgPreview] = useState("")
   const [usernameExists, setUsernameExists] = useState(false)
+  const [emailExists, setEmailExists] = useState(false)
   const [remainingError, setRemainingError] = useState(false)
   const prev = "";
 
@@ -73,21 +74,19 @@ export default function Registration() {
       return;
     }
 
+    if (await (checkEmailExists(data.email))) {
+      console.log("Username already exists!");
+      setRemainingError(true);
+      return;
+    }
+
     axios.post('http://localhost:5000/signup/add', data)
     .then(processResponse);
 
     history.push("/profile") // Navigate to where next?
   };
-
-  const updatePreview = () => {
-    console.log("preview")
-    console.log({prev})
-    setImgPreview('https://i.imgur.com/55sUslQ.png')
-    console.log({imgPreview})
-  };
   
   const handleURLChange = (e) => {
-    console.log(e.target.value);
     setImgPreview(e.target.value);
   }
 
@@ -98,13 +97,27 @@ export default function Registration() {
       }
     }
     
-    const returnValue = await axios.get('http://localhost:5000/signup/findExisting', send);
-    console.log(returnValue.data.exists);
+    const returnValue = await axios.get('http://localhost:5000/signup/existingUsername', send);
     return returnValue.data.exists;
   }
 
   const handleUsernameChange = async (username) => {    
     setUsernameExists(await checkUsernameExists(username.target.value));
+  }
+
+  const checkEmailExists = async (email) => {
+    const send = {
+      params: {
+        email: email
+      }
+    }
+    
+    const returnValue = await axios.get('http://localhost:5000/signup/existingEmail', send);
+    return returnValue.data.exists;
+  }
+
+  const handleEmailChange = async (email) => {    
+    setEmailExists(await checkEmailExists(email.target.value));
   }
 
   return(   
@@ -151,8 +164,14 @@ export default function Registration() {
           {errors.age && <span className="error-message">This field is required.</span>}
 
           <label>Email:</label>
-          <input name="email" ref={register({ required: true })} />
-          {errors.email && <span className="error-message">This field is required.</span>}
+          <input name="email" ref={register({ required: true,
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+          }})} onInput={handleEmailChange} />
+          
+          <ErrorMessage flag={emailExists} text="This email has already been used." />
+          {errors.email && errors.email.type === "required" && <span className="error-message">This field is required.</span>}
+          {errors.email && errors.email.type === "pattern" && <span className="error-message">Invalid email address.</span>}
 
           <label>Phone Number:</label>
           <input name="phoneNumber" ref={register({ required: true })} />

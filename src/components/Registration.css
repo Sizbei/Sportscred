@@ -70,4 +70,5 @@ input {
 .error-message {
   font-size: 12px;
   color: crimson;
+  display: block;
 }

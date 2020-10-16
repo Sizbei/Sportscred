@@ -8,10 +8,12 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/existingUsername').get((req,res) => {
+    console.log(req);
     const username = req.query.username;
+    console.log(username);
     user.findOne({username: username})
-        .then((res) => {
-            if (res) {
+        .then((result) => {
+            if (result) {
                 res.json({"exists":true});
             } else {
                 res.json({"exists":false});
@@ -49,7 +51,7 @@ router.route('/add').post((req, res) =>{
     const firstName = req.body.firstName;
     const imageURL = req.body.url;
     
-    const newUser = new User({
+    const newUser = new user({
         email: email,
         username: username,
         password: password,
