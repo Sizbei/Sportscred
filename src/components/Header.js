@@ -43,7 +43,7 @@ function User() {
   return (
     <div className="user-info">
       <div className="user-photo">
-        <img src="https://i.imgur.com/9fyUaFV.jpg" className="user-given-photo" alt="" />
+        <Link to="/profile" className="profile-link"><img src="https://i.imgur.com/9fyUaFV.jpg" className="user-given-photo" alt="" /></Link>
       </div>
       <Link to="/profile" className="profile-link"><span> <p className="username"> Username </p> </span></Link>
     </div>
