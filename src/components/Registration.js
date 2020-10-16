@@ -6,11 +6,56 @@ import axios from 'axios';
 import Header from "./Header"
 import './Registration.css'
 
+function ErrorMessage(props) {
+  const flag = props.flag;
+  const text = props.text;
+
+  if (flag) {
+    return <span className="error-message"> {text} </span>;
+  } else {
+    return null;
+  }
+} 
+
+// function ExistsField(props) {
+//   const dbField = props.field;
+//   const text = props.text;
+//   const [exists, setExists] = useState(false);
+//   const { register, handleSubmit, watch, errors } = useForm();
+
+//   const checkExists = async (exists) => {
+//     const send = {
+//       params: {
+//       }
+//     }
+
+//     send["params"][dbField] = exists
+    
+//     const returnValue = await axios.get('http://localhost:5000/signup/findExisting', send);
+//     console.log(returnValue.data.exists);
+//     return returnValue.data.exists;
+//   }
+
+//   const handleFieldChange = async (field) => {    
+//     setExists(await checkExists(field.target.value));
+//   }
+
+//   return (
+//     <div>
+//       <input name={dbField} ref={register({ required: true })} onInput={handleFieldChange} />
+//       {errors.username && <span className="error-message">This field is required.</span>}
+//       <ErrorMessage flag={exists} text={text} />
+//     </div>
+//   )
+// }
+
 export default function Registration() {
 
   let history = useHistory();
   const { register, handleSubmit, watch, errors } = useForm();
   const [imgPreview, setImgPreview] = useState("")
+  const [usernameExists, setUsernameExists] = useState(false)
+  const [remainingError, setRemainingError] = useState(false)
   const prev = "";
 
   const processResponse = res => {
@@ -18,13 +63,16 @@ export default function Registration() {
     console.log(res.data);
   }
 
-  const onSubmit = data => {
+  const onSubmit = async data => {
     console.log(data);
     console.log(typeof data);
     
-    
-    // axios.post('http://localhost:5000/signup/add', data)
-    // .then(res => console.log(res.data));
+    if (await checkUsernameExists(data.username)) {
+      console.log("Username already exists!");
+      setRemainingError(true);
+      return;
+    }
+
     axios.post('http://localhost:5000/signup/add', data)
     .then(processResponse);
 
@@ -43,9 +91,26 @@ export default function Registration() {
     setImgPreview(e.target.value);
   }
 
+  const checkUsernameExists = async (username) => {
+    const send = {
+      params: {
+        username: username
+      }
+    }
+    
+    const returnValue = await axios.get('http://localhost:5000/signup/findExisting', send);
+    console.log(returnValue.data.exists);
+    return returnValue.data.exists;
+  }
+
+  const handleUsernameChange = async (username) => {    
+    setUsernameExists(await checkUsernameExists(username.target.value));
+  }
+
   return(   
     <div className="registration">
       <Header />
+      
       
       <div className="form-container">
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -54,45 +119,44 @@ export default function Registration() {
 
           <div className="preview">
             <div className="registration-photo">
-              {/* <img src={imgPreview} key={imgPreview} className="registration-user-given-photo" onerror="this.src='../res/account-circle.svg'" alt=" " /> */}
               <img src={imgPreview} key={imgPreview} className="registration-user-given-photo" alt="" />
-              {/* <object className="registration-user-given-photo" data={imgPreview} type="image"></object> */}
             </div>
           </div>
 
           <label>Profile Picture URL: </label>
           <input type="text"name="url" ref={register({ required: true })} onInput={handleURLChange}/>
-          {/* <button onClick={updatePreview}>Preview!</button> */}
-          {/* <br></br> */}
-          {errors.url && <span className="required-error">This field is required.</span>}
+          {errors.url && <span className="error-message">This field is required.</span>}
 
           <label>First Name:</label>
           <input name="firstName" ref={register({ required: true })} />
-          {errors.firstName && <span className="required-error">This field is required.</span>}
+          {errors.firstName && <span className="error-message">This field is required.</span>}
 
           <label>Last Name:</label>
           <input name="lastName" ref={register({ required: true })} />
-          {errors.lastName && <span className="required-error">This field is required.</span>}
+          {errors.lastName && <span className="error-message">This field is required.</span>}
 
           <label>Username:</label>
-          <input name="username" ref={register({ required: true })} />
-          {errors.username && <span className="required-error">This field is required.</span>}
+          <input name="username" ref={register({ required: true })} onInput={handleUsernameChange} />
+          <ErrorMessage flag={usernameExists} text="This username already exists." />
+          {errors.username && <span className="error-message">This field is required.</span>}
+
+          {/* <ExistsField field="username" text="This username already exists." /> */}
 
           <label>Password:</label>
           <input type="password" name="password" ref={ register({ required: true }) } />
-          {errors.password && <span className="required-error">This field is required.</span>}
+          {errors.password && <span className="error-message">This field is required.</span>}
 
           <label>Age:</label>
           <input name="age" ref={register({ required: true })} />
-          {errors.age && <span className="required-error">This field is required.</span>}
+          {errors.age && <span className="error-message">This field is required.</span>}
 
           <label>Email:</label>
           <input name="email" ref={register({ required: true })} />
-          {errors.email && <span className="required-error">This field is required.</span>}
+          {errors.email && <span className="error-message">This field is required.</span>}
 
           <label>Phone Number:</label>
           <input name="phoneNumber" ref={register({ required: true })} />
-          {errors.phoneNumber && <span className="required-error">This field is required.</span>}
+          {errors.phoneNumber && <span className="error-message">This field is required.</span>}
 
           <label>Gender:</label>
           <select name="gender" ref={register} >
@@ -103,7 +167,7 @@ export default function Registration() {
 
           <label>Favorite sport?</label>
           <input name="favoriteSport" ref={register({ required: true })} />
-          {errors.favoriteSport && <span className="required-error">This field is required.</span>}
+          {errors.favoriteSport && <span className="error-message">This field is required.</span>}
 
           <label>Highest level of play?</label>
           <select name="highestLevelOfPlay" ref={register} className="" >
@@ -115,15 +179,17 @@ export default function Registration() {
 
           <label>What sport would you like to know/learn about?</label>
           <input name="sportInterest" ref={register({ required: true })} />
-          {errors.sportInterest && <span className="required-error">This field is required.</span>}
+          {errors.sportInterest && <span className="error-message">This field is required.</span>}
 
           <label>What are your favorite sports teams?</label>
           <input name="favoriteTeam" ref={register({ required: true })} />
-          {errors.favoriteTeam && <span className="required-error">This field is required.</span>}
+          {errors.favoriteTeam && <span className="error-message">This field is required.</span>}
 
           <input type="submit" className="submit" value="Continue" /> 
+          {/* <div className="submit-missing-message"><ErrorMessage flag={remainingError} text="There are still uncompleted field(s)." /></div> */}
         </form>
       </div>
     </div>
   );
 }
+

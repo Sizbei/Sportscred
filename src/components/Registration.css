@@ -62,7 +62,12 @@ input {
   border-radius: 10%;
 }
 
-.required-error {
+.submit-missing-message {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.error-message {
   font-size: 12px;
   color: crimson;
 }
