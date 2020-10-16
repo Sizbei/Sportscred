@@ -131,15 +131,8 @@
     width:70%;
 }
 
-.extrafonts{
-    font-family: 'Anton', sans-serif;
+@font-face {
+  font-family: 'Anton';
 
-    font-family: 'Commissioner', sans-serif;
-
-    font-family: 'Open Sans', sans-serif;
-
-    font-family: 'Roboto Condensed', sans-serif;
+  src: local('Anton'), url(./fonts/Anton/Anton-Regular.ttf) format('truetype');
 }
-
-
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Commissioner:wght@500&family=Open+Sans&family=Roboto+Condensed:wght@400;700&display=swap');
