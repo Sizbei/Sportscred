@@ -62,34 +62,34 @@ export default class Login extends Component{
 
     render() {
         return (
-            <div class="page">
-                <div class="login">
-                    <img src={logo} class="logo"/>
-                    <label class="slogan">Start Building Your ACS Score</label>
-                    <div class ="identifier">
-                        <label class="text">Username or Email</label>
-                        <input class="input"
+            <div className="page">
+                <div className="login">
+                    <img src={logo} className="logo"/>
+                    <label className="slogan">Start Building Your ACS Score</label>
+                    <div className="identifier">
+                        <label className="text">Username or Email</label>
+                        <input className="input"
                             id="username"
                             type="string"  
                             value={this.state.username}
                             onChange={this.onChangeUsername} />
                     </div>
-                    <div class="identifier">
-                        <label class="text" >Password</label>
-                        <input class="input" 
+                    <div className="identifier">
+                        <label className="text" >Password</label>
+                        <input className="input" 
                             id="password"
                             type="password"
                             value={this.state.password}
                             onChange={this.onChangePassword}/>
-                        <a href="" class="passwordlink">Forgot Password?</a>
+                        <a href="" className="passwordlink">Forgot Password?</a>
                     </div>
-                    <button class="loginBtn" onClick={this.onLogin}>Log In</button>
+                    <button className="loginBtn" onClick={this.onLogin}>Log In</button>
                     <br></br>
-                    <div class="signup">
-                        <label class ="boldtext">Not a Member?</label>
+                    <div className="signup">
+                        <label className="boldtext">Not a Member?</label>
                     </div>
-                    <div class="signup">
-                        <a href="/Registration" class="signuplink">Sign Up</a> 
+                    <div className="signup">
+                        <a href="/Registration" className="signuplink">Sign Up</a> 
                     </div>               
                 </div>
             </div>
