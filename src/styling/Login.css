@@ -130,3 +130,10 @@
 .signup {
     width:70%;
 }
+
+.commisioner{
+    font-family: 'Commissioner', sans-serif;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Commissioner:wght@500&family=Open+Sans&family=Roboto+Condensed:wght@400;700&display=swap');
