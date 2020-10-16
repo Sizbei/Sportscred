@@ -1,0 +1,150 @@
+.page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background-image: url("../res/images/LoginBackground.png");
+    background-size: cover;
+}
+
+.login {
+    position: relative;
+    left:50%;
+    margin-top:7%;
+    width: 45%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 100%;
+}
+
+.slogan {
+    color: white;
+    position: center;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-size: xx-large;
+}
+
+.identifier {
+    width: 70%;
+    margin-top: 20px;
+}
+
+.text {
+    color:white;
+    position: center;
+}
+
+.boldtext {
+    color:white;
+    font-weight: 600;
+    font-size:20px;
+    float:right;
+}
+
+.input {
+    width:100%;
+    height:30px;
+}
+
+.loginBtn {
+    background-color: #FF7e1F;
+    border: none;
+    border-radius: 50px;
+    height: 65px;
+    width: 30%;
+    color: white;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 650;
+    margin: 20px;
+}
+
+.passwordlink {
+    color: #FF7e1F;
+    font-size:18px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.passwordlink:hover {
+    color: #FF7e1F;
+    font-size:18px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.signuplink {
+    color: #FF7e1F;
+    font-size:24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    float: right;
+    font-weight: 700;
+    text-decoration: none;
+    
+}
+
+.signuplink:hover {
+    color: #FF7e1F;
+    font-size:24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    float:right;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.right {
+    width:100%;
+}
+
+.signup {
+    width:70%;
+}
+
+@font-face {
+
+  font-family: 'Anton';
+  font-family: 'Commissioner';
+  font-family: 'Roboto Condensed';
+  font-family: 'Open Sans';
+  font-family: 'Tahoma';
+  font-family: 'Oxygen';
+  font-family: 'Helveticaneue';
+  font-family: 'Uni Sans';
+
+  src: local('Anton'), url(../res/fonts/Anton/Anton-Regular.ttf) format('truetype');
+  src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-VariableFont_wght.ttf) format('truetype');
+  src: local('Roboto Condensed'), local('RobotoCondensed'), url(../res/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf) format('truetype');
+  src: local('Open Sans'), local('OpenSans'),
+       url(../res/fonts/Open_Sans/OpenSans-Regular.ttf) format('truetype');
+
+  src: local('Oxygen'), url(../res/fonts/Oxygen/Oxygen-Regular.ttf) format('truetype');
+  src: local('Tahoma'), url(../res/fonts/Tahoma/Tahoma-Regular.ttf) format('truetype');
+  src: local('Helveticaneue'), url(../res/fonts/Helveticaneue/HelveticaNeue.ttf) format('truetype');
+  /* src: local('Uni Sans'), url(../res/fonts/Uni-Sans/Uni-Sans-Thin.ttf) format('truetype'); */
+
+}
+
