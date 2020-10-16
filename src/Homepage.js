@@ -3,7 +3,7 @@ import './styling/Homepage.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 import { BrowserRouter as Router, Route} from "react-router-dom";
 
-import Login from "./components/Login"
+import Login from "./components/Login";
 import TheZone from "./components/TheZone";
 import Trivia from "./components/Trivia";
 import Analysis from "./components/Analysis";
@@ -22,8 +22,6 @@ function App() {
       <Route path="/Profile" component={Profile} />
       </div>
     </Router>
-
-
   );
 }
 

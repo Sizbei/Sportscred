@@ -1,6 +1,6 @@
 import axios from 'axios';
 import '../styling/Login.css';
-import logo from '../resources/images/Logo.png';
+import logo from '../res/images/Logo.png';
 import React, {Component} from 'react';
 
 export default class Login extends Component{
