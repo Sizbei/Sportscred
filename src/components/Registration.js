@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { BrowserRouter as Router, Route, useHistory} from "react-router-dom";
 import axios from 'axios';
-
+import preview from '../res/account-circle.svg'
 import Header from "./Header"
 import './Registration.css'
 
@@ -53,9 +53,10 @@ export default function Registration() {
 
   let history = useHistory();
   const { register, handleSubmit, watch, errors } = useForm();
-  const [imgPreview, setImgPreview] = useState("")
+  const [imgPreview, setImgPreview] = useState(require('../res/account-circle.svg'))
   const [usernameExists, setUsernameExists] = useState(false)
   const [emailExists, setEmailExists] = useState(false)
+  const [imageExists, setImageExists] = useState(false)
   const [remainingError, setRemainingError] = useState(false)
   const prev = "";
 
@@ -120,6 +121,16 @@ export default function Registration() {
     setEmailExists(await checkEmailExists(email.target.value));
   }
 
+  const handleImageError = () => {
+    console.log("failed to load image.");
+    setImageExists(true);
+    setImgPreview(require('../res/account-circle.svg'))
+  }
+
+  const handleImageLoad = () => {
+    setImageExists(false);
+  }
+
   return(   
     <div className="registration">
       <Header />
@@ -132,8 +143,9 @@ export default function Registration() {
 
           <div className="preview">
             <div className="registration-photo">
-              <img src={imgPreview} key={imgPreview} className="registration-user-given-photo" alt="" />
+              <img src={imgPreview} key={imgPreview} className="registration-user-given-photo" alt="" onError={handleImageError} onLoad={handleImageLoad} />
             </div>
+            <ErrorMessage flag={imageExists} text="Improper url." />
           </div>
 
           <label>Profile Picture URL: </label>
@@ -168,7 +180,7 @@ export default function Registration() {
           pattern: {
             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
           }})} onInput={handleEmailChange} />
-          
+
           <ErrorMessage flag={emailExists} text="This email has already been used." />
           {errors.email && errors.email.type === "required" && <span className="error-message">This field is required.</span>}
           {errors.email && errors.email.type === "pattern" && <span className="error-message">Invalid email address.</span>}
