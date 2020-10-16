@@ -142,6 +142,6 @@
   src: local('Commissioner'), url(../resources/fonts/Commissioner/Commissioner-VariableFont_wght.ttf) format('truetype');
   src: local('Roboto Condensed'), local('RobotoCondensed'), url(../resources/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf) format('truetype');
   src: local('Open Sans'), local('OpenSans'),
-       url('../resources/fonts/OpenSans-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url(../resources/fonts/Open_Sans/OpenSans-Regular.ttf) format('truetype'), /* Safari, Android, iOS */
 }
 
