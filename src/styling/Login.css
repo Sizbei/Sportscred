@@ -137,11 +137,21 @@
   font-family: 'Commissioner';
   font-family: 'Roboto Condensed';
   font-family: 'Open Sans';
+  font-family: 'Tahoma';
+  font-family: 'Oxygen';
+  font-family: 'Helveticaneue';
+  font-family: 'Uni Sans';
 
   src: local('Anton'), url(../resources/fonts/Anton/Anton-Regular.ttf) format('truetype');
   src: local('Commissioner'), url(../resources/fonts/Commissioner/Commissioner-VariableFont_wght.ttf) format('truetype');
   src: local('Roboto Condensed'), local('RobotoCondensed'), url(../resources/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf) format('truetype');
   src: local('Open Sans'), local('OpenSans'),
-       url(../resources/fonts/Open_Sans/OpenSans-Regular.ttf) format('truetype'), /* Safari, Android, iOS */
+       url(../resources/fonts/Open_Sans/OpenSans-Regular.ttf) format('truetype');
+
+  src: local('Oxygen'), url(../resources/fonts/Oxygen/Oxygen-Regular.ttf) format('truetype');
+  src: local('Tahoma'), url(../resources/fonts/Tahoma/Tahoma-Regular.ttf) format('truetype');
+  src: local('Helveticaneue'), url(../resources/fonts/Helveticaneue/HelveticaNeue.ttf) format('truetype');
+  src: local('Uni Sans'), url(../resources/fonts/Uni-Sans/Uni-Sans-Thin.ttf) format('truetype');
+
 }
 
