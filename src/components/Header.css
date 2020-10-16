@@ -8,20 +8,26 @@
   overflow: hidden;
 
   /* white-space: nowrap; */
-  min-width: 30%;
+  min-width: 40%;
 }
 
 .navbar-item {
-  /* horizontal list */
-  /* display: inline; */
-  
-  /* float: left; */
   display: inline-block;
+}
+
+@media only screen and (max-width: 1200px) {
+  .navbar-item {
+    display: list-item;
+  }
+
+  .nav-link {
+    text-align: start;
+  }
 }
 
 .nav-link {
   color: white;
-  font-size: 1em;
+  font-size: 1.1em;
   display: block;
   margin-left: 2em;
   text-decoration: none;
@@ -76,7 +82,7 @@
 
   padding-left: 2em;
   padding-right: 2em;
-  padding-top: 0.8em;
-  padding-bottom: 0.8em;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
   background-color: black;
 }
