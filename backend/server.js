@@ -2,12 +2,14 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 //Mongoose connects to the db based on uri
 const uri = process.env.URI;
@@ -20,9 +22,13 @@ connection.once('open', () => {
 //Adds routes for express to use
 //Example route: http://localhost:5000/example/add
 const exampleRouter = require('./routes/example');
-const loginRouter = require('./routes/login');
 app.use('/example', exampleRouter);
+
+const loginRouter = require('./routes/login');
 app.use('/login', loginRouter);
+
+const logoutRouter = require('./routes/logout');
+app.use('/logout', logoutRouter);
 
 const profileRouter = require('./routes/profile');
 app.use('/profile', profileRouter);
