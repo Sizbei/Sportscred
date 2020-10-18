@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const passportConfig = require('../passport');
 const User = require('../models/user');
 
+// generate a token based on user id
 const signToken = id => {
     return jwt.sign({
         iss: 'SportCred',
@@ -18,6 +19,8 @@ router.route('/').post(passport.authenticate('local', {session : false}), (req, 
         const username = req.user.username;
         const email = req.user.email;
         const permissions = req.user.permissions;
+        
+        // assign the token and response
         const token = signToken(id);
         res.cookie("access_token", token, {httpOnly: true, sameSite: true});
         res.status(200).json({isAuthenticated: true,
