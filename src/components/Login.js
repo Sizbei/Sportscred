@@ -1,7 +1,10 @@
-import axios from 'axios';
+//import axios from 'axios';
+import AuthService from '../Services/AuthService';
 import '../styling/Login.css';
 import logo from '../res/images/Logo.png';
-import React, {Component} from 'react';
+import React, {Component, useState, useContext} from 'react';
+import {AuthContext} from '../Context/AuthContext';
+
 
 export default class Login extends Component{
     
@@ -24,7 +27,7 @@ export default class Login extends Component{
     onChangeUsername(e) {
         this.setState({
             username: e.target.value
-        })
+        });
         document.getElementById('username').style.borderColor = "transparent";
         document.getElementById('password').style.borderColor = "transparent";
     }
@@ -33,7 +36,7 @@ export default class Login extends Component{
     onChangePassword(e) {
         this.setState({
             password: e.target.value
-        })
+        });
         document.getElementById('username').style.borderColor = "transparent";
         document.getElementById('password').style.borderColor = "transparent";
     }
@@ -41,23 +44,40 @@ export default class Login extends Component{
     onLogin(e) {
         //prevents default html form submit from taking place
         e.preventDefault();
-        //Creates a body for a db call with the current variables
-        const userBody = {params:{
-            username: this.state.username,
-            password: this.state.password
-        }}
+        // generate a consumer of authContext
+        const authContext = useContext(AuthContext);
+        AuthService.login({username: this.state.username, password: this.state.password})
+            .then(data => {
+                const isAuthenticated = data.isAuthenticated;
+                const user = data.user;
+                if(isAuthenticated) {
+                    this.authContext.setUser(user);
+                    this.authContext.setIsAuthenticated(isAuthenticated);
+                    window.location.href = '/TheZone';
+                } else {
+                    document.getElementById('username').style.borderColor = "red";
+                    document.getElementById('password').style.borderColor = "red";
+                }
+            })
+        
+        
+        //Creates a body for a db call with the current variabe
+        //const userBody = {params:{
+        //    username: this.state.username,
+        //    password: this.state.password
+        //}}
        
-        axios.get('http://localhost:5000/login', userBody)
-        .then(res => {
-            if (res.data.authenticated) {
-                window.location.href = '/TheZone'; 
-            }
-            else {
-                 document.getElementById('username').style.borderColor = "red";
-                document.getElementById('password').style.borderColor = "red";
-            }
-        });
-        console.log(userBody);
+        //axios.post('http://localhost:5000/login', userBody)
+        //.then(res => {
+        //    if (res.data.isAuthenticated) {
+        //        window.location.href = '/TheZone'; 
+        //    }
+        //    else {
+        //         document.getElementById('username').style.borderColor = "red";
+        //        document.getElementById('password').style.borderColor = "red";
+        //    }
+        //});
+        //console.log(userBody);
     }
 
     render() {

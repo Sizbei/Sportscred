@@ -28,6 +28,7 @@ From the sportcred folder, cd to backend folder and type:
 
 3. Type the below line:
      npm install express cors mongoose dotenv
+     npm install cookie-parser passport passport-local possport-jwt jsonwebtoken
 
 4. Install nodemon.
      npm install -g nodemon

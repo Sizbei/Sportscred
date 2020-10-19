@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './styling/Homepage.css';
 import { BrowserRouter as Router, Route} from "react-router-dom";
+
+import {AuthContext} from './Context/AuthContext';
 
 import Login from "./components/Login";
 import TheZone from "./components/TheZone";
@@ -11,6 +13,10 @@ import Profile from "./components/Profile";
 import Registration from "./components/Registration"
 
 function App() {
+  const authContext = useContext(AuthContext);
+  console.log(authContext.user);
+  console.log(authContext.isAuthenticated);
+
   return (
     <Router>
       <div className="container">

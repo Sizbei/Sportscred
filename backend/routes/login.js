@@ -28,6 +28,14 @@ router.route('/').post(passport.authenticate('local', {session : false}), (req, 
     }
 });
 
+router.route('/authenticated').get(passport.authenticate('jwt', {session : false}), (req, res) => {
+    const username = req.user.username;
+    const email = req.user.email;
+    const permissions = req.user.permissions;
+    res.status(200).json({isAuthenticated: true,
+        user:{username: username, email: email, permissions: permissions}});
+});
+
 //router.route('').get((req,res) => {
 //    const username = req.query.username;
 //    const password = req.query.password;
