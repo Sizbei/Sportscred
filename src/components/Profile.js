@@ -5,12 +5,16 @@ import '../styling/Profile.css'
 import Header from './Header';
 import PostPopup from './ProfilePostPopup';
 import ImageSelect from './ImageSelect';
+import {AuthContext} from '../Context/AuthContext';
 
 const defaultLabelStyle = {
     fontSize: '5px',
     fontFamily: 'sans-serif',
   };
 export default class Profile extends Component {
+    
+    static contextType = AuthContext;
+
     constructor(props) {
         super(props);
         //console.log(props.location.pathname); 
@@ -51,8 +55,10 @@ export default class Profile extends Component {
 
     /************************GET REQUEST FOR USER INFRORMATION ***********************/
     componentDidMount(){ 
-
-        axios.get('http://localhost:5000' + this.state.path)
+        console.log(this.state.path);
+        console.log(this.state.username);
+        console.log(this.context.user.username);
+        axios.get('http://localhost:5000' + this.state.path + '/' + this.context.user.username)
         .then(response => {
    
             const tag = 10; 

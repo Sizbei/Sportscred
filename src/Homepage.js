@@ -25,14 +25,14 @@ function App() {
     <Router>
       <div className="container">
       <Header />
-      <Route path="/" exact component={Login} />
-      <Route path="/TheZone" exact component={TheZone} />
-      <Route path="/Trivia" component={Trivia} />
-      <Route path="/Analysis" component={Analysis} />
-      <Route path="/PicksAndPredictions" component={PicksAndPredictions} />
-      <Route path="/Profile" component={Profile} />
-      <Route path="/Registration" component={Registration} />
-      <Route path="/Settings" component={Settings} />
+      <PublicRoute path="/" exact component={Login} />
+      <PrivateRoute path="/TheZone" exact component={TheZone} />
+      <PrivateRoute path="/Trivia" component={Trivia} />
+      <PrivateRoute path="/Analysis" component={Analysis} />
+      <PrivateRoute path="/PicksAndPredictions" component={PicksAndPredictions} />
+      <PrivateRoute path="/Profile" component={Profile} />
+      <PublicRoute path="/Registration" component={Registration} />
+      <PrivateRoute path="/Settings" component={Settings} />
       </div>
     </Router>
   );
