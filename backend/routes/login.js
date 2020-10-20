@@ -10,7 +10,7 @@ const signToken = id => {
     return jwt.sign({
         iss: 'SportCred',
         sub: id
-    }, "SportCredKey", {expiresIn: '4h'});
+    }, "SportCredKey", {expiresIn: 3600 * 4});
 };
 
 router.route('/').post(passport.authenticate('local', {session : false}), (req, res) => {

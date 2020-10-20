@@ -54,11 +54,10 @@ export default class Login extends Component{
             .then(data => {
                 const isAuthenticated = data.isAuthenticated;
                 const user = data.user;
-                console.log(this.context);
                 if(isAuthenticated) {
                     this.context.setUser(user);
                     this.context.setIsAuthenticated(isAuthenticated);
-                    window.location.href = '/TheZone';
+                    this.props.history.push('/TheZone');
                 } else {
                     document.getElementById('username').style.borderColor = "red";
                     document.getElementById('password').style.borderColor = "red";
