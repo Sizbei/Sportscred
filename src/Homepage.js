@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
 import './styling/Homepage.css';
 import { BrowserRouter as Router, Route} from "react-router-dom";
-
 import {AuthContext} from './Context/AuthContext';
+import PrivateRoute from './hocs/PrivateRoute';
+import PublicRoute from './hocs/PublicRoute';
 
 import Login from "./components/Login";
 import TheZone from "./components/TheZone";
@@ -21,13 +22,13 @@ function App() {
   return (
     <Router>
       <div className="container">
-      <Route path="/" exact component={Login} />
-      <Route path="/TheZone" exact component={TheZone} />
-      <Route path="/Trivia" component={Trivia} />
-      <Route path="/Analysis" component={Analysis} />
-      <Route path="/PicksAndPredictions" component={PicksAndPredictions} />
-      <Route path="/Profile" component={Profile} />
-      <Route path="/Registration" component={Registration} />
+      <PublicRoute path="/" exact component={Login} />
+      <PrivateRoute path="/TheZone" exact component={TheZone} />
+      <PrivateRoute path="/Trivia" component={Trivia} />
+      <PrivateRoute path="/Analysis" component={Analysis} />
+      <PrivateRoute path="/PicksAndPredictions" component={PicksAndPredictions} />
+      <PrivateRoute path="/Profile" component={Profile} />
+      <PublicRoute path="/Registration" component={Registration} />
       </div>
     </Router>
   );
