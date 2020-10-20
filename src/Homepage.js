@@ -13,6 +13,7 @@ import Profile from "./components/Profile";
 import Registration from "./components/Registration"
 
 function App() {
+  //example of using authContext in function
   const authContext = useContext(AuthContext);
   console.log(authContext.user);
   console.log(authContext.isAuthenticated);

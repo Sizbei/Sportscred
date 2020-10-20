@@ -8,6 +8,11 @@ import {AuthContext} from '../Context/AuthContext';
 
 export default class Login extends Component{
     
+    //example of using authContext in class
+    //define contextType in the class using AuthContext
+    //so that we are able to access it through this.context
+    static contextType = AuthContext;
+
     constructor(props) {
         super(props);
 
@@ -45,14 +50,14 @@ export default class Login extends Component{
         //prevents default html form submit from taking place
         e.preventDefault();
         // generate a consumer of authContext
-        const authContext = useContext(AuthContext);
         AuthService.login({username: this.state.username, password: this.state.password})
             .then(data => {
                 const isAuthenticated = data.isAuthenticated;
                 const user = data.user;
+                console.log(this.context);
                 if(isAuthenticated) {
-                    this.authContext.setUser(user);
-                    this.authContext.setIsAuthenticated(isAuthenticated);
+                    this.context.setUser(user);
+                    this.context.setIsAuthenticated(isAuthenticated);
                     window.location.href = '/TheZone';
                 } else {
                     document.getElementById('username').style.borderColor = "red";
