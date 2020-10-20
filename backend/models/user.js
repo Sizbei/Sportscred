@@ -18,9 +18,9 @@ const userSchema = new Schema({
         required: true,
         trim: true
     },
-    age:{
-        type: Number,
-        required: true,
+    dateOfBirth:{
+        type: Date,
+        required: true
     },
     favoriteSport:{
         type: String,
@@ -31,7 +31,7 @@ const userSchema = new Schema({
         required: true
     },
     favoriteTeam:{
-        type: String,
+        type: [String],
         required: true
     },
     sportInterest:{
@@ -63,11 +63,6 @@ const userSchema = new Schema({
         required: true,
         default: "User"
     },
-    imageURL:{
-        type: String,
-        required: false,
-        default: ""
-    }
 },{
     timestamps:true
 });

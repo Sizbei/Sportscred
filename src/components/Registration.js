@@ -133,7 +133,6 @@ export default function Registration() {
 
   return(   
     <div className="registration">
-      <Header />
       
       
       <div className="form-container">

@@ -63,9 +63,7 @@ export default class Example extends Component {
     
     render() {
       return (
-      <div>
-        <Header />
-        
+      <div>        
         <h3>Create New Example</h3>
         <form onSubmit={this.onSubmit}>
         <div className="form-group"> 

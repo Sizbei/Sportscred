@@ -1,80 +1,229 @@
 /**************************** STYLING FOR OVERALL PROFILE PAGE ***********************************/
-.container-top-section , .container-middle-section { 
-    display: flex;  
-    background: #222629 ;
-    padding: 10px; 
+.prof-background { 
+  background-size: cover; 
+  background-color: #2c2c2c;
+  padding-bottom: 50px;
+  color: white;  
+}
+.prof-container-middle-section, .prof-container-profile{ 
+  justify-content: center;
+  display: flex;
 }
 
-.container-middle-section { 
-    position: relative; 
-    flex-direction: column; 
-    color: white; 
+.prof-container-middle-section{ 
+  flex-wrap: column;
 }
 
-.container-middle-section h1{ 
-    padding-left: 20%;
+
+.prof-interest-content, .prof-picks-content , .prof-radar-list-content, .prof-about-content, .prof-acs-content { 
+  border-radius: 8px;
+  padding: 12px;
 }
-.container-top-section {
-    position: relative;
-    justify-content: center;
-    padding-right: 5%; 
+/******************************STYLES FOR FEATURE POSITIONING **********************************/
+.prof-left-content{
+  order: 1; 
+  padding: 0% 1%; 
 }
 
-/**************************** STYLING FOR PROFILE + PIE CHART SECTION  ***********************************/
-.profile-photo {
-    height: 230px;
-    width: 230px;
-    display: block;
-    background-image: url('../res/ACSBorder.png');
-    background-size: contain;
-  }
+.prof-right-content {
+  order: 2;
+}
+.prof-bottom-right-content {
+  display: flex; 
+}
+
+/**************************** STYLING FOR PROFILE  ***********************************/
+.prof-profile-preview{
+  display: flex;
+}
+.prof-profile-photo {
+  height: 230px;
+  width: 230px;
+  display: block;
+  background-image: url('../res/ACSBorder.png');
+  background-size: contain;
+}
+
+.prof-profile-user-given-photo {
+  margin-left: 35px;
+  margin-top: 43px;
+
+  display: block;
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+
+  text-indent: -10000px; /* A hack to hide the broken image icon */ 
+  background-image: url('../res/account-circle.svg');
+  background-size: contain;
+}
+.prof-profile-user-score{ 
+  margin-top: -85px ; 
+  margin-left: 200px;
+  position: absolute;
+}
+.prof-profile-info {
+  padding-left: 50px; 
+
+}
+
+.prof-profile-info h1 {
+  color:  #61b305;
+}
+.prof-edit-profile {
   
-  .profile-user-given-photo {
-    margin-left: 33px;
-    margin-top: 40px;
+  align-self: flex-end ; 
+  margin-left: 600px;
+  margin-bottom: 10px; 
+
+}
+
+.prof-edit-profile button, .prof-create-post-button{
+  padding: 10px 20px; 
+  color: white; 
+  background-color: #61b305;
+  border-color: transparent;
+  border-radius: 5%; 
+}
+
+.prof-edit-profile button:hover ,.prof-create-post-button:hover{
+  background-color: #539B04;
+ 
+}
+/**************************** STYLING FOR ABOUT + RADAR LIST***********************************/
+ 
+.prof-about-content{ 
+  background-color: #747474;
+  min-height: 250px;
+  max-height: 250px;  
+  min-width: 250px ;
+  max-width: 250px;      
+  word-break:break-all;  
+}
+
+.prof-radar-list-content {
+  background-color: #747474;
+  min-height: 450px; 
+  max-height: 450px; 
+  display: flex;
   
-    display: block;
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-  }
+}
+.prof-radar-list-content button {
+  align-self: flex-end;
+  padding: 2px 10px;
+  margin-left: 40px; 
+  border-color: white; 
+  border-style: solid; 
+  background-color:  #747474;
+  color: white;  
+}
+.prof-radar-list-content button:hover {
+  border-color: white; 
+  border-style: solid; 
+  color:  #747474;
+  background-color: white;  
+}
+/********************************** STYLING FOR INTEREST + PICKS ***********************************************************/
 
-.profile-badge {
-    margin-top: -120px ; 
-    margin-left: 160px;
-    padding: 44px; 
-    border-radius: 50%; 
-    position: absolute;
-    background-color: black; 
-    
+.prof-picks{
+  padding-left: 2%;
+}
+
+.prof-interest-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prof-interest-content, .prof-picks-content{
+  background-color: #747474;
+  min-height: 400px; 
+  max-height: 400px; 
+  min-width: 375px ; 
+  max-width: 375px; 
+  word-break:break-all; 
+}
+
+.prof-interest-content .imageselect-tile {
+  display: table-cell;
+  padding: 0;
+  padding-left: 1px;
+  padding-top: 1px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding: 7px;
+}
+
+.prof-interest-content .image-tile-selected {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 107px;
+  height: 107px;
+
+  border-radius: 5%;
+  border: 1px solid black;
+
+  background-color: lightskyblue;
+}
+
+.prof-interest-content .image-tile-unselected {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 107px;
+  height: 107px;
+
+  border-radius: 5%;
+  border: 1px solid black;
+
+  background-color: white;
+}
+
+.prof-interest-content .imageselect-image {
+  max-height: px;
+  max-width: 80px;
+}
+
+
+
+
+/*********************STYLES FOR ACS HISTORY*********************/
+.prof-piechart {
+  padding-left: 50px ; 
+  padding-right: 100px ; 
+  padding-top: 50px; 
+  padding-bottom: 50px;
+  height: 200px;
+  width: 200px;
+}
+.prof-acs-content {
+  background-color: #747474;
+  color: white; 
+  display: flex;
+  max-width: 1100px;
 
 }
-.profile-user-score{ 
-    margin-top: -85px ; 
-    margin-left: 190px;
-    position: absolute;
+.prof-acs-content td {
+  padding: 10px; 
 }
-.piechart {
-    padding-left: 10%; 
-    padding-top: 2%; 
-    height: 170px;
-    width: 170px;
-  }
+.prof-acs-content th {
+  padding: 10px; 
+}
+.prof-score-content-pos { 
+  color:#61b305;
+} 
+.prof-score-content-neg { 
+  color: #B33838;
+} 
 
-/**************************** STYLING FOR USER INFORMATION ***********************************/
-  .information {
-    position: relative; 
-    padding-left: 20%;
-    padding-right: 20%;
-    word-break:break-all;
-  }
 
-  .content { 
-    border-color: #747474;
-    border-style: solid; 
-    background-color: #747474;
-    padding-top: 10px;
-    padding-bottom: 50px; 
-    padding-left: 10px; 
-    padding-right: 10px;      
-  }
+@font-face {
+  font-family: 'Commissioner';
+  src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+}
+

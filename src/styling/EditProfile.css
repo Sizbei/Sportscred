@@ -1,0 +1,157 @@
+/**************************** STYLING FOR OVERALL PROFILE PAGE ***********************************/
+.editprofile-container {
+  display: flex; 
+  flex-direction: column;
+
+  /* cover the remaining of the page... https://stackoverflow.com/a/23908106 */
+  height: 100%;
+  width: 100%;
+
+  /* width: 100vw; */
+
+  background-color: #222629;
+}
+
+.editprofile-container-mid { 
+  display: flex;
+  padding-bottom: 100px;
+  color: white;
+  justify-content: center;
+  flex-wrap: column;
+  /* padding: 10px;  */
+}
+
+
+/**************************** STYLING FOR USER INFORMATION ***********************************/
+.info {
+  position: relative; 
+  padding-left: 20%;
+  padding-right: 20%;
+  word-break:break-all;
+}
+
+.status-edit { 
+  border-color:white;
+  border-style: solid; 
+  background-color:white;   
+  width: 100%;
+  height: auto;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.settings-hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0;
+  width: 101.5%;
+  margin-inline-end: 0;
+}
+  
+.about-edit {
+  border-color: white;
+  border-style: solid; 
+  background-color: white;   
+  width: 100%;
+  height: auto;
+  padding-top: 7px;
+  padding-bottom: 70px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+
+.preview {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+.editPP-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.registration-photo {
+  /* display: flex;
+  margin-left: auto; */
+  /* align-items: center;  */
+  /* justify-content: center; */
+
+  height: 200px;
+  width: 200px;
+  display: block;
+  background-image: url('../res/ACSBorder.png');
+  background-size: contain;
+}
+
+.registration-user-given-photo {
+  margin-left: 33px;
+  margin-top: 40px;
+
+  display: block;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+
+  text-indent: -10000px; /* A hack to hide the broken image icon */ 
+  background-image: url('../res/account-circle.svg');
+  background-size: contain;
+}
+
+.editPP-input-field {
+  padding: 5px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 8px;
+  width: 300px;
+  font-size: 15px;
+  border-color: white;
+  border-style: solid; 
+}
+
+.editPP-imageselect-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-submit {
+  margin-left: 1em;
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+
+  background-color: #FF7e1F;
+  border: none;
+  border-radius: 3em;
+  height: 1.8em;
+  color: white;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.image-submit:hover {
+  background-color: #da6817;
+}
+
+.error-message {
+  font-size: 12px;
+  color: crimson;
+  display: block;
+}
+
+.characters {
+  font-size: 12px;
+  margin-bottom: 25px;
+}

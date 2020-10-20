@@ -6,7 +6,6 @@ export default class Analysis extends Component {
     render() {
         return(
         <div>
-          <Header />
           <p>You're on Analysis.</p>
         </div>
         );

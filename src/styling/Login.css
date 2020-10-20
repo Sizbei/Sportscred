@@ -1,3 +1,4 @@
+/**************************** STYLING FOR OVERALL LOGIN PAGE ***********************************/
 .page {
     position: fixed;
     top: 0;
@@ -10,10 +11,9 @@
 }
 
 .login {
-    position: relative;
-    left:50%;
+    position: center;
     margin-top:7%;
-    width: 45%;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -21,85 +21,93 @@
     justify-content: center;
 }
 
+/**************************** STYLING FOR HEADER/LOGO SECTION  ***********************************/
+
 .logo {
-    width: 100%;
+    min-width: 35%;
 }
 
-.slogan {
+.sloganLogin {
     color: white;
-    position: center;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    font-size: xx-large;
+    font-family: 'CommissionerBold';
+    font-size: 40px;
 }
+
+/**************************** STYLING FOR USER INPUT SECTION  ***********************************/
 
 .identifier {
-    width: 70%;
+    width: 25%;
     margin-top: 20px;
 }
 
 .text {
     color:white;
     position: center;
-}
-
-.boldtext {
-    color:white;
-    font-weight: 600;
-    font-size:20px;
-    float:right;
+    font-size: 20px;
+    font-family: 'CommissionerMedium';
 }
 
 .input {
     width:100%;
-    height:30px;
+    height:50px;
+    font-size:25px;
+    border-width:5px;
 }
 
-.loginBtn {
-    background-color: #FF7e1F;
-    border: none;
-    border-radius: 50px;
-    height: 65px;
-    width: 30%;
-    color: white;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    text-align: center;
-    display: inline-block;
-    font-size: 24px;
-    font-weight: 650;
-    margin: 20px;
+.input:focus {
+    outline:none;
 }
 
 .passwordlink {
     color: #FF7e1F;
-    font-size:18px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    font-size:22px;
+    font-family: 'CommissionerMedium';
     font-weight: 500;
     text-decoration: none;
 }
 
 .passwordlink:hover {
     color: #FF7e1F;
-    font-size:18px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    font-size:22px;
+    font-family: 'CommissionerMedium';
     font-weight: 500;
     text-decoration: none;
+}
+
+/**************************** STYLING FOR LOGIN BUTTON  ***********************************/
+
+.loginBtn {
+    background-color: #FF7e1F;
+    border: none;
+    border-radius: 50px;
+    height: 65px;
+    width: 15%;
+    color: white;
+    font-family: 'CommissionerMedium';
+    text-align: center;
+    display: inline-block;
+    font-size: 28px;
+    font-weight: 650;
+    margin: 20px;
+}
+
+.loginBtn:focus {
+    outline:none;
+}
+
+/**************************** STYLING FOR SIGN UP SECTION  ***********************************/
+
+.boldtext {
+    color:white;
+    font-weight: 600;
+    font-size:25px;
+    font-family: 'CommissionerMedium';
 }
 
 .signuplink {
     color: #FF7e1F;
     font-size:24px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    float: right;
+    font-family: 'CommissionerMedium';
     font-weight: 700;
     text-decoration: none;
     
@@ -108,43 +116,54 @@
 .signuplink:hover {
     color: #FF7e1F;
     font-size:24px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    float:right;
+    font-family: 'CommissionerMedium';
     font-weight: 700;
     text-decoration: none;
 }
 
-.right {
-    width:100%;
+.signup {
+    position:center;
 }
 
-.signup {
-    width:70%;
+/**************************** FONT SECTION  ***********************************/
+
+@font-face {
+    font-family: 'CommissionerExtraBold';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-ExtraBold.ttf) format('truetype');
 }
 
 @font-face {
-
-  font-family: 'Anton';
-  font-family: 'Commissioner';
-  font-family: 'Roboto Condensed';
-  font-family: 'Open Sans';
-  font-family: 'Tahoma';
-  font-family: 'Oxygen';
-  font-family: 'Helveticaneue';
-  font-family: 'Uni Sans';
-
-  src: local('Anton'), url(../res/fonts/Anton/Anton-Regular.ttf) format('truetype');
-  src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-VariableFont_wght.ttf) format('truetype');
-  src: local('Roboto Condensed'), local('RobotoCondensed'), url(../res/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf) format('truetype');
-  src: local('Open Sans'), local('OpenSans'),
-       url(../res/fonts/Open_Sans/OpenSans-Regular.ttf) format('truetype');
-
-  src: local('Oxygen'), url(../res/fonts/Oxygen/Oxygen-Regular.ttf) format('truetype');
-  src: local('Tahoma'), url(../res/fonts/Tahoma/Tahoma-Regular.ttf) format('truetype');
-  src: local('Helveticaneue'), url(../res/fonts/Helveticaneue/HelveticaNeue.ttf) format('truetype');
-  /* src: local('Uni Sans'), url(../res/fonts/Uni-Sans/Uni-Sans-Thin.ttf) format('truetype'); */
-
+    font-family: 'CommissionerBold';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Bold.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: 'CommissionerMedium';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'CommissionerRegular';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'CommissionerBlack';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Black.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'CommissionerLight';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Light.ttf) format('truetype');
+}
+
+
+@font-face {
+    font-family: 'CommissionerThin';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Thin.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'CommissionerSemiBold';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-SemiBold.ttf) format('truetype');
+}

@@ -62,7 +62,6 @@
   text-indent: -10000px; /* A hack to hide the broken image icon */ 
   background-image: url('../res/account-circle.svg');
   background-size: contain;
-  background-color: white;
 }
 
 .profile-link {

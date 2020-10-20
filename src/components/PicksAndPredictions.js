@@ -6,7 +6,6 @@ export default class PicksAndPredictions extends Component {
     render() {
         return(
         <div>
-            <Header />
             <p>You're on Picks and Predictions.</p>
         </div>
         );

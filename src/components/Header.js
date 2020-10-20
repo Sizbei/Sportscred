@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../res/SportCredLogo.png';
+import axios from 'axios';
 
 import '../styling/Header.css'
 
@@ -40,10 +41,27 @@ function Navbar() {
 }
 
 function User() {
+  const [imgUrl, setImgUrl] = useState("");
+
+  useEffect(() => {
+    const body = {
+      params: {
+        username: "user3"
+      }
+    }
+    axios.get("http://localhost:5000/settings/profile", body).then(
+      e => {
+        console.log("headeer data", e.data.image);
+        setImgUrl(e.data.image);
+      } 
+    )
+  })
+
+
   return (
     <div className="user-info">
       <div className="user-photo">
-        <Link to="/profile" className="profile-link"><img src="https://i.imgur.com/9fyUaFV.jpg" className="user-given-photo" alt="" /></Link>
+        <Link to="/profile" className="profile-link"><img src={imgUrl} className="user-given-photo" alt="" /></Link>
       </div>
       <Link to="/profile" className="profile-link"><span> <p className="username"> Username </p> </span></Link>
     </div>

@@ -14,33 +14,71 @@ const profileSchema = new Schema({
   about: {
     type: String,
     required: false,
-    unique: true,
+    unique: false,
     trim: true,
+    maxlength: 300
   },
   interest: {
-    type: String,
+    type: [String],
     required: false,
-    unique: true,
+    unique: false,
     trim: true,
   },
   status: {
     type: String,
     required: false,
-    unique: true,
+    unique: false,
     trim: true,
+    maxlength: 30
   },
   image: {
     type: String,
     required: false,
-    unique: true,
+    unique: false,
     trim: true,
   },
-  acs: {
-    type: Number,
-    required: false,
-    unique: true,
-    trim: true,
-  },
+  acsHistory: [{
+    category: {
+      type: String,
+      required: true
+    },
+    points: {
+      type: Number,
+      required: true
+    },
+    date: {
+      type: Date,
+      required: true
+    }
+  }],
+  acsTotal: [{
+    total: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    triviaGamesPc: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    analysisDebatePc: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    picksPredicitonPc: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    participationHistoryPc: {
+      type: Number,
+      required: true,
+      default: 0
+    }
+  }]
+  
 }, {
   timestamps: true,
 });

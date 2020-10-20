@@ -6,7 +6,6 @@ export default class TheZone extends Component {
     render() {
         return( 
         <div>
-            <Header />
             <p>You're on The Zone.</p>
         </div>
         );
