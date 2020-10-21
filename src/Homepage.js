@@ -1,28 +1,28 @@
 import React from 'react';
-import './Homepage.css';
-import "bootstrap/dist/css/bootstrap.min.css"
+import './styling/Homepage.css';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 
-import Navbar from "./components/Navbar"
-import Example from "./components/Example"
+import Login from "./components/Login";
 import TheZone from "./components/TheZone";
 import Trivia from "./components/Trivia";
 import Analysis from "./components/Analysis";
 import PicksAndPredictions from "./components/PicksAndPredictions";
 import Profile from "./components/Profile";
+import Registration from "./components/Registration"
+import Settings from "./components/Settings"
 
 function App() {
   return (
     <Router>
       <div className="container">
-      <Navbar />
-      <br/>
-      <Route path="/" exact component={Example} />
+      <Route path="/" exact component={Login} />
       <Route path="/TheZone" exact component={TheZone} />
       <Route path="/Trivia" component={Trivia} />
       <Route path="/Analysis" component={Analysis} />
       <Route path="/PicksAndPredictions" component={PicksAndPredictions} />
       <Route path="/Profile" component={Profile} />
+      <Route path="/Registration" component={Registration} />
+      <Route path="/Settings" component={Settings} />
       </div>
     </Router>
   );

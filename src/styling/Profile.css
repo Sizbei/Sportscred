@@ -1,0 +1,80 @@
+/**************************** STYLING FOR OVERALL PROFILE PAGE ***********************************/
+.container-top-section , .container-middle-section { 
+    display: flex;  
+    background: #222629 ;
+    padding: 10px; 
+}
+
+.container-middle-section { 
+    position: relative; 
+    flex-direction: column; 
+    color: white; 
+}
+
+.container-middle-section h1{ 
+    padding-left: 20%;
+}
+.container-top-section {
+    position: relative;
+    justify-content: center;
+    padding-right: 5%; 
+}
+
+/**************************** STYLING FOR PROFILE + PIE CHART SECTION  ***********************************/
+.profile-photo {
+    height: 230px;
+    width: 230px;
+    display: block;
+    background-image: url('../res/ACSBorder.png');
+    background-size: contain;
+  }
+  
+  .profile-user-given-photo {
+    margin-left: 33px;
+    margin-top: 40px;
+  
+    display: block;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }
+
+.profile-badge {
+    margin-top: -120px ; 
+    margin-left: 160px;
+    padding: 44px; 
+    border-radius: 50%; 
+    position: absolute;
+    background-color: black; 
+    
+
+}
+.profile-user-score{ 
+    margin-top: -85px ; 
+    margin-left: 190px;
+    position: absolute;
+}
+.piechart {
+    padding-left: 10%; 
+    padding-top: 2%; 
+    height: 170px;
+    width: 170px;
+  }
+
+/**************************** STYLING FOR USER INFORMATION ***********************************/
+  .information {
+    position: relative; 
+    padding-left: 20%;
+    padding-right: 20%;
+    word-break:break-all;
+  }
+
+  .content { 
+    border-color: #747474;
+    border-style: solid; 
+    background-color: #747474;
+    padding-top: 10px;
+    padding-bottom: 50px; 
+    padding-left: 10px; 
+    padding-right: 10px;      
+  }

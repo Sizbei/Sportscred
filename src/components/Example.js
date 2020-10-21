@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Header from './Header';
 
 export default class Example extends Component {
     constructor(props) {
@@ -15,7 +16,7 @@ export default class Example extends Component {
             users: []
           }
     }
-
+      
     //One of react's lifecycle methods - method is called before displaying this component
     componentDidMount() {
         axios.get('http://localhost:5000/example/')
@@ -63,6 +64,8 @@ export default class Example extends Component {
     render() {
       return (
       <div>
+        <Header />
+        
         <h3>Create New Example</h3>
         <form onSubmit={this.onSubmit}>
         <div className="form-group"> 

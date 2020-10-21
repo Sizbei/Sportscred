@@ -13,7 +13,7 @@ Team BBQED Contract
 
         | Monday  | Tuesday | Wednesday | Thursday | Friday |
         |---------|---------|-----------|----------|--------|
-        | 10:15PM | 10:15PM |  10:15PM  | 10:15PM  | 1:30PM |
+        | 10:15PM | 10:15PM |  10:15PM  | 10:15PM  | 10:15PM |
         *Note that these roles were decided from a meeting called on 2020-09-17*
 
 - Non-standup meetings (30min - 1hr) can be called by anyone in the group and must be scheduled at least 3 days in advance.
@@ -78,7 +78,7 @@ We accept these guidelines and intend to fulfill them:
 Deon Li - lideon - 1003349263\
 Cherie Kong - kongcher - 1004800986\
 Raymond Chen - chenray5 - 1005333337\
-Andy PhyLim - phyiman - 1005157937\
+Andy PhyLim - phyliman - 1005157937\
 Alex Wan - wanalex- 1004382562\
 Alexis Yang - yangale8 - 1005350111\
 Hongfei Chen - chenho50 - 1002917025\
