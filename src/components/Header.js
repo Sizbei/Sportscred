@@ -68,6 +68,7 @@ function User() {
       </div>
       <Link to={'/profile/' + authContext.user.username} className="profile-link"><span>
         <p className="username"> {authContext.user.username} </p></span></Link>
+      
     </div>
   );
 }

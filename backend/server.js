@@ -21,9 +21,6 @@ connection.once('open', () => {
 
 //Adds routes for express to use
 //Example route: http://localhost:5000/example/add
-const exampleRouter = require('./routes/example');
-app.use('/example', exampleRouter);
-
 const loginRouter = require('./routes/login');
 app.use('/login', loginRouter);
 
