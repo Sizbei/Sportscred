@@ -55,10 +55,7 @@ export default class Profile extends Component {
 
     /************************GET REQUEST FOR USER INFRORMATION ***********************/
     componentDidMount(){ 
-        console.log(this.state.path);
-        console.log(this.state.username);
-        console.log(this.context.user.username);
-        axios.get('http://localhost:5000' + this.state.path + '/' + this.context.user.username)
+        axios.get('http://localhost:5000' + this.state.path)
         .then(response => {
    
             const tag = 10; 
