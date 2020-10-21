@@ -25,9 +25,6 @@ export default function Header() {
 }
 
 function Navbar() {
-  const authContext = useContext(AuthContext);
-  console.log(authContext.user.username);
-
   return (
     <ul className="navbar">
       <li className="navbar-item">
@@ -54,17 +51,12 @@ function User() {
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
-    const body = {
-      params: {
-        username: authContext.user.username
-      }
-    }
-    axios.get("http://localhost:5000/settings/profile", body).then(
-      e => {
-        console.log("headeer data", e.data.image);
-        setImgUrl(e.data.image);
-      } 
-    )
+    fetch('/settings/profile/' + authContext.user.username).then(res => res.json())
+    //axios.get("http://localhost:5000/settings/profile", body)
+      .then(data => {
+        console.log("headeer data", data.image);
+        setImgUrl(data.image);
+      })
   })
   return (
     <div className="user-info">

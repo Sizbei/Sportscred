@@ -1,8 +1,11 @@
 const router = require('express').Router();
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
+const passportConfig = require('../passport');
 let Team = require('../models/team');
 
 //get method
-router.route('/').get((req, res) => {
+router.route('/').get(passport.authenticate('jwt', {session : false}),(req, res) => {
     Team.find()
         .then((team) => res.json(team))
         .catch(err => res.status(400).json('Error: ' + err));

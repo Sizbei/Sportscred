@@ -3,6 +3,7 @@ import toastr from 'toastr'
 import axios from 'axios';
 import '../styling/EditProfile.css'
 import '../styling/toastr.min.css'
+import {AuthContext} from '../Context/AuthContext';
 
 
 import Header from './Header';
@@ -22,6 +23,8 @@ function ErrorMessage(props) {
 } 
 
 export default class EditProfile extends Component {
+    static contextType = AuthContext;
+
     constructor(props) {
         super(props);
 
@@ -38,7 +41,7 @@ export default class EditProfile extends Component {
 
         //variables
         this.state = {
-          username: 'user3',
+          //username: '',
           status: '',
           about: '' ,
           interest: [],
@@ -57,31 +60,27 @@ export default class EditProfile extends Component {
 
     
     componentDidMount() {
-      const send = {
-        params: {
-          username: this.state.username
-        }
-      }
-
-      axios.get('http://localhost:5000/settings/profile', send)
-      .then(response => {
-        console.log(response.data);
-        console.log(response.data.length);
+      fetch('/settings/profile/' + this.context.user.username).then(res => res.json())
+      //axios.get('http://localhost:5000/settings/profile', send)
+      .then(data => {
+        console.log(data);
+        console.log(data.length);
         this.setState({
-          status: response.data.status,
-          about: response.data.about,
-          interest: response.data.interest,
-          image: response.data.image,
-          statusCharacters: 30 - response.data.status.length,
-          aboutCharacters: 300 - response.data.about.length,
-          nextImage: response.data.image
+          status: data.status,
+          about: data.about,
+          interest: data.interest,
+          image: data.image,
+          statusCharacters: 30 - data.status.length,
+          aboutCharacters: 300 - data.about.length,
+          nextImage: data.image
         })
 
-        axios.get('http://localhost:5000/teams/').then(
-          (e) => {
+        fetch('/teams').then(res => res.json())
+        //axios.get('http://localhost:5000/teams/')
+        .then(teams => {
             this.setState({
-              imageSelect: <ImageSelect btntext="Submit!" data={e.data} width={6} 
-              selected={response.data.interest} updateOnClick={true} 
+              imageSelect: <ImageSelect btntext="Submit!" data={teams} width={6} 
+              selected={data.interest} updateOnClick={true} 
               maxTeams={9}
               onSubmit={this.handleImageSelectData} onBlurHandler={this.onBlur} 
               noButton={true}/>
@@ -141,7 +140,7 @@ export default class EditProfile extends Component {
       //Creates a body for a db call with the current variables
 
       const updatedInfo = {
-        username: this.state.username,
+        username: this.context.user.username,
         status: this.state.status,
         about: this.state.about,
         image: this.state.image,
@@ -150,8 +149,15 @@ export default class EditProfile extends Component {
       console.log("submit ", updatedInfo)
 
       //Connects the backend with the frontend
-      axios.post('http://localhost:5000/settings/profile/update', updatedInfo)
-      .then(response => {   
+      fetch('/settings/profile/update', {
+        method :  "post",
+        body : JSON.stringify(updatedInfo),
+        headers: {
+            'Content-Type' : 'application/json'
+        }
+      }).then(res => res.json())
+      //axios.post('http://localhost:5000/settings/profile/update', updatedInfo)
+      .then(data => {console.log(data)
       })
       .catch((error) => {
         console.log(error);

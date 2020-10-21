@@ -54,9 +54,11 @@ export default class Profile extends Component {
     }
 
     /************************GET REQUEST FOR USER INFRORMATION ***********************/
-    componentDidMount(){ 
-        axios.get('http://localhost:5000' + this.state.path)
-        .then(response => {
+    componentDidMount(){
+        //defualt method in fetch is get so no need to put that as param
+        fetch(this.state.path).then(res => res.json())
+        //axios.get('http://localhost:5000' + this.state.path)
+        .then(data => {
    
             const tag = 10; 
             const aad = 15; 
@@ -64,11 +66,11 @@ export default class Profile extends Component {
             const pah = 5;
             //console.log(response.data.interest);
             this.setState({
-                username: response.data.username,
-                status: response.data.status,
-                interest: response.data.interest,
-                about: response.data.about,  
-                image: response.data.image, 
+                username: data.username,
+                status: data.status,
+                interest: data.interest,
+                about: data.about,  
+                image: data.image, 
                 acsChart: [
                     { title: 'Trivia & Games', value: tag, color: '#61b305' },
                     { title: 'Analysis & Debate', value: aad, color: '#f8e871' },
@@ -82,20 +84,19 @@ export default class Profile extends Component {
                     {point: 13 , category: 'Debate', time: '13 hours ago'}, 
                     {point: -3 , category: 'Picks', time: '20 hours ago'}, 
                 ],
-                teams: response.data.teams
+                teams: data.teams
             }) 
         })
-        .then(response => {
+        .then(data => {
             //console.log("interest: " + this.state.interest);
-            const send = {
-                params: {
-                  teams: this.state.interest
-                }
+            const params = {
+                teams: this.state.interest
               }
-            
-            axios.get('http://localhost:5000' + this.state.path + '/teams', send)
-            .then(response => { 
-              const mapped = response.data.map(team => team.image).map((e) => {
+
+            fetch(this.state.path + '/teams?' + new URLSearchParams(params)).then(res => res.json())
+            //axios.get('http://localhost:5000' + this.state.path + '/teams', send)
+            .then(data => { 
+              const mapped = data.map(team => team.image).map((e) => {
                 const obj = {
                   name: "",
                   image: e
