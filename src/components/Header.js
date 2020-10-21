@@ -25,9 +25,6 @@ export default function Header() {
 }
 
 function Navbar() {
-  const authContext = useContext(AuthContext);
-  console.log(authContext.user.username);
-
   return (
     <ul className="navbar">
       <li className="navbar-item">
@@ -81,12 +78,9 @@ function User() {
 
 function LogOut() {
   console.log("Logging out...");
-  
 }
 
 function OptionsMenu() {
-  const authContext = useContext(AuthContext);
-
   return (
     <div className="options">
       <button className="optionsMenu"/>
