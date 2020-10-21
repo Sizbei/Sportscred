@@ -62,14 +62,13 @@ export default class Profile extends Component {
             const aad = 15; 
             const pap = 20; 
             const pah = 5;
-            console.log(response.data.interest);
+            //console.log(response.data.interest);
             this.setState({
                 username: response.data.username,
                 status: response.data.status,
                 interest: response.data.interest,
                 about: response.data.about,  
                 image: response.data.image, 
-                acs: response.data.acs,
                 acsChart: [
                     { title: 'Trivia & Games', value: tag, color: '#61b305' },
                     { title: 'Analysis & Debate', value: aad, color: '#f8e871' },
@@ -87,7 +86,7 @@ export default class Profile extends Component {
             }) 
         })
         .then(response => {
-            console.log("interest: " + this.state.interest);
+            //console.log("interest: " + this.state.interest);
             const send = {
                 params: {
                   teams: this.state.interest
