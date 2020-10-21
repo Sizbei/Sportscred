@@ -80,7 +80,6 @@ function User() {
 }
 
 function OptionsMenu() {
-
   const authContext = useContext(AuthContext);
   console.log(authContext);
 
@@ -93,12 +92,10 @@ function OptionsMenu() {
     }
     });
   }
-
   return (
-
     <div className="options">
-      <button className="optionsMenu"/>
-        <div className="optionsContent">
+      <button className="optionsMenu" />
+          <div className="optionsContent">
           <button className="optionsButtons" onClick={() => LogOut()}>Log Out</button>
         </div>
     </div>
