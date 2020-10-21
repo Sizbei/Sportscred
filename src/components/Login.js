@@ -1,4 +1,3 @@
-//import axios from 'axios';
 import AuthService from '../Services/AuthService';
 import '../styling/Login.css';
 import logo from '../res/images/Logo.png';
@@ -63,25 +62,6 @@ export default class Login extends Component{
                     document.getElementById('password').style.borderColor = "red";
                 }
             })
-        
-        
-        //Creates a body for a db call with the current variabe
-        //const userBody = {params:{
-        //    username: this.state.username,
-        //    password: this.state.password
-        //}}
-       
-        //axios.post('http://localhost:5000/login', userBody)
-        //.then(res => {
-        //    if (res.data.isAuthenticated) {
-        //        window.location.href = '/TheZone'; 
-        //    }
-        //    else {
-        //         document.getElementById('username').style.borderColor = "red";
-        //        document.getElementById('password').style.borderColor = "red";
-        //    }
-        //});
-        //console.log(userBody);
     }
 
     render() {

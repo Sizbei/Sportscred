@@ -15,6 +15,7 @@ export default function Header() {
       <Link to="/" className="navbar-brand"><img src={logo} className="logo" alt="SportCred" href="the_zone"/></Link>
       <Navbar />
       <User />
+      <OptionsMenu />
       </div>
     );
   } else {
@@ -65,10 +66,6 @@ function User() {
       } 
     )
   })
-
-
-
-
   return (
     <div className="user-info">
       <div className="user-photo">
@@ -78,6 +75,24 @@ function User() {
       <Link to={'/profile/' + authContext.user.username} className="profile-link"><span>
         <p className="username"> {authContext.user.username} </p></span></Link>
       
+    </div>
+  );
+}
+
+function LogOut() {
+  console.log("Logging out...");
+  
+}
+
+function OptionsMenu() {
+  const authContext = useContext(AuthContext);
+
+  return (
+    <div className="options">
+      <button className="optionsMenu"/>
+        <div className="optionsContent">
+          <button className="optionsButtons" onClick={LogOut()}>Log Out</button>
+        </div>
     </div>
   );
 }
