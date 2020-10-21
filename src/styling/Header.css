@@ -102,7 +102,7 @@
 }
 
 .optionsContent {
-  display: none;
+  display: block;
   position: absolute;
   background-color: #747474;
   border-radius:10px;

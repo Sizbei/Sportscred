@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../res/SportCredLogo.png';
 import axios from 'axios';
 import {AuthContext} from '../Context/AuthContext';
-
+import AuthService from '../Services/AuthService';
 import '../styling/Header.css'
 
 export default function Header() {
@@ -81,12 +81,16 @@ function User() {
 
 function LogOut() {
   console.log("Logging out...");
-  
+  const authContext = useContext(AuthContext);
+  // AuthService.logout().then((data) => {
+  //   if(data.success){
+  //     authContext.setUser(data.user);
+  //     authContext.setIsAuthenticated(false);
+  //   }
+  // });
 }
 
 function OptionsMenu() {
-  const authContext = useContext(AuthContext);
-
   return (
     <div className="options">
       <button className="optionsMenu"/>
