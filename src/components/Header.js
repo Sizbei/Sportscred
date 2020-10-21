@@ -79,23 +79,27 @@ function User() {
   );
 }
 
-function LogOut() {
-  console.log("Logging out...");
-  const authContext = useContext(AuthContext);
-  // AuthService.logout().then((data) => {
-  //   if(data.success){
-  //     authContext.setUser(data.user);
-  //     authContext.setIsAuthenticated(false);
-  //   }
-  // });
-}
-
 function OptionsMenu() {
+
+  const authContext = useContext(AuthContext);
+  console.log(authContext);
+
+  const LogOut = () => {
+    console.log("Logging out...");
+    AuthService.logout().then((data) => {
+    if(data.success){
+      authContext.setUser(data.user);
+      authContext.setIsAuthenticated(false);
+    }
+    });
+  }
+
   return (
+
     <div className="options">
       <button className="optionsMenu"/>
         <div className="optionsContent">
-          <button className="optionsButtons" onClick={LogOut()}>Log Out</button>
+          <button className="optionsButtons" onClick={() => LogOut()}>Log Out</button>
         </div>
     </div>
   );
