@@ -7,13 +7,20 @@ import {AuthContext} from '../Context/AuthContext';
 import '../styling/Header.css'
 
 export default function Header() {
-  return (    
-    <div className="header">
-    <Link to="/" className="navbar-brand"><img src={logo} className="logo" alt="SportCred" href="the_zone"/></Link>
-    <Navbar />
-    <User />
-    </div>
-  );
+
+  const authContext = useContext(AuthContext);
+  if(authContext.user.username){
+    return (    
+      <div className="header">
+      <Link to="/" className="navbar-brand"><img src={logo} className="logo" alt="SportCred" href="the_zone"/></Link>
+      <Navbar />
+      <User />
+      </div>
+    );
+  } else {
+    return null;
+  }
+  
 }
 
 function Navbar() {
@@ -58,6 +65,8 @@ function User() {
       } 
     )
   })
+
+
 
 
   return (
