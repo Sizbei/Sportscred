@@ -93,9 +93,6 @@ export default class Profile extends Component {
                 teams: this.state.interest
               }
 
-            console.log(params);
-            console.log(new URLSearchParams(params).toString());
-            
             fetch(this.state.path + '/teams?' + new URLSearchParams(params)).then(res => res.json())
             //axios.get('http://localhost:5000' + this.state.path + '/teams', send)
             .then(data => { 
