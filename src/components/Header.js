@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import logo from '../res/SportCredLogo.png';
 import axios from 'axios';
 import {AuthContext} from '../Context/AuthContext';
@@ -73,6 +73,7 @@ function User() {
 
 function OptionsMenu() {
   const authContext = useContext(AuthContext);
+  let history = useHistory(); 
   console.log(authContext);
 
   const LogOut = () => {
@@ -84,13 +85,20 @@ function OptionsMenu() {
     }
     });
   }
+
+  const navigateToSettings = () => {
+    history.push("/settings/profile");
+  }
+
   return (
     <div className="options">
       <button className="optionsMenu" />
           <div className="optionsContent">
-          <button className="optionsButtons" onClick={() => LogOut()}>Log Out</button>
+          <button className="optionsButtons" onClick={navigateToSettings}>Settings</button>
+          <button className="optionsButtons" onClick={LogOut}>Log Out</button>
         </div>
     </div>
   );
 }
+
 

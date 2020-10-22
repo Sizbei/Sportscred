@@ -3,7 +3,6 @@ const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 const passportConfig = require('../passport');
-const User = require('../models/user');
 
 router.route('/').get(passport.authenticate('jwt', {session : false}), (req, res) => {
     res.clearCookie('access_token');

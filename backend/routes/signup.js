@@ -1,5 +1,6 @@
 const router = require('Express').Router();
 let user = require('../models/user');
+let profile = require('../models/profile')
 
 router.route('/').get((req, res) => {
     user.find()
@@ -104,10 +105,20 @@ router.route('/add').post((req, res) =>{
         gender: gender,
         lastName: lastName,
         firstName: firstName,
-    })
+    });
+    const newProfile = new profile({
+        username: username
+    });
     newUser.save()
-        .then(() => res.json('Added User'))
-        .catch(err => res.status(400).json('Error: ' + err));
+      .then(() => {
+          newProfile.save()
+          .then(res.json("Added Actor"))
+          .catch((err) => 
+            {
+                user.deleteOne({username: username})
+                res.status(400).json('Error: ' + err)})
+      })
+     .catch(err => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;

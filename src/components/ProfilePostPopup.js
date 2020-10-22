@@ -1,16 +1,20 @@
 import { render } from "@testing-library/react";
 import axios from "axios";
 import React from 'react';  
-import '../styling/ProfilePopup.css'  
+import '../styling/ProfilePopup.css';
+import {AuthContext} from '../Context/AuthContext';
 
 class Popup extends React.Component {  
+  static contextType = AuthContext;
+
   constructor(props){
     super(props);
     this.state = {
-      user: 'user3',
+      //user: 'user1',
       body: '', 
       postCharacters: 500, 
       done: false,
+      showError: false, 
 
     }
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,27 +37,36 @@ class Popup extends React.Component {
 
   }
   handleSubmit(event) {
-    console.log(this.state.body)
-    const body = {
-      body: {
-        poster: this.state.user,
+    if (/^\s+$/.test(this.state.body) || !this.state.body) {
+      this.setState ({
+        showError: true,  
+      })
+      console.log("popup-error:" + this.state.showError); 
+    }
+    else { 
+      const body = {
+        poster: this.context.user.username,
         body: this.state.body 
       }
-    }
-    this.setState ({
-      done: true, 
-    })
-    /*
-    axios.post('http://localhost:5000/profile/addPost', body)
-    .then(response => {
-      this.setState ({
-        done: true, 
+      fetch('/post/add', {
+        method :  "post",
+        body : JSON.stringify(body),
+        headers: {
+            'Content-Type' : 'application/json'
+        }
+      }).then(res => res.json())
+      //axios.post('http://localhost:5000/post/add', body)
+      .then(data => {
+        this.setState ({
+          done: true, 
+          showError:false, 
+        })
+      }) 
+      .catch((error) => {
+        console.log(error);
       })
-    }) 
-    .catch((error) => {
-      console.log(error);
-    })
-    */
+    }
+    
 
     
   }
@@ -68,16 +81,16 @@ class Popup extends React.Component {
         <div className="profile-popup-content"> 
           <h1> Post submitted! </h1>
         </div>
-  
-       : <div className="profile-popup-content"> 
-          <h1> Create a Post </h1>
-          <input type="text" id="timer" maxLength="500" onChange={this.onChangeBody} className="profile-popup-input" name="post-content" />
-          <label className="profile-popup-input-characters" >Characters remaining: {this.state.postCharacters} </label>
-          <button className="profile-popup-submit-button" onClick={this.handleSubmit}> Post </button>
-        </div>
-      }
+      :
+      <div className="profile-popup-content"> 
+        <h1> Create a Post </h1>
+        <input type="text" id="timer" maxLength="500" onChange={this.onChangeBody} className="profile-popup-input" name="post-content" />
+        <label className="profile-popup-input-characters" >Characters remaining: {this.state.postCharacters} </label>
+        <button className="profile-popup-submit-button" onClick={this.handleSubmit}> Post </button>
+        {this.state.showError && <label > Cannot post an empty post! </label> } 
+      </div>
       
-
+      }
     </div>  
   </div>  
   );  

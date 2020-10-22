@@ -9,7 +9,6 @@ const profileSchema = new Schema({
     required: true,
     unique: true,
     trim: true,
-    minlength: 3
   },
   about: {
     type: String,

@@ -85,6 +85,13 @@
   padding-bottom: 0.4em;
   background-color: black;
 }
+.options {
+  display: inline-block;
+}
+
+.options:hover .optionsContent {
+  display: block;
+}
 
 .options {
   display: inline-block;
@@ -120,7 +127,7 @@
 .optionsButtons {
   position: relative;
   border: none;
-  padding:30px;
+  padding:20px;
   width:100%;
   color:white;
   font-size: 15px;
