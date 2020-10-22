@@ -85,6 +85,13 @@
   padding-bottom: 0.4em;
   background-color: black;
 }
+.options {
+  display: inline-block;
+}
+
+.options:hover .optionsContent {
+  display: block;
+}
 
 .optionsMenu {
   height: 1.5em;
@@ -105,35 +112,27 @@
   display: none;
   position: absolute;
   background-color: #747474;
-  border-radius:10px;
-  margin: 0.5% 0% 0% -5%;
-}
-
-.optionsMenu:focus {
-  outline:none;
-}
-
-.optionsMenu:focus + .optionsContent {
-  display:block;
+  border-radius: 10px;
+  margin: 0% 0% 0% -5%;
 }
 
 .optionsButtons {
   position: relative;
   border: none;
-  padding:30px;
+  padding:20px;
   width:100%;
   color:white;
-  font-size:20px;
+  font-size: 15px;
   background-color: transparent;
-}
-
-.optionsButtons:focus {
-  outline: none;
 }
 
 .optionsButtons:hover {
   background-color: #222629;
   border-radius: 10px;
+}
+
+.optionsButtons:focus {
+  outline: none;
 }
 
 @font-face {

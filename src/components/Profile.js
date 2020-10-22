@@ -25,7 +25,7 @@ export default class Profile extends Component {
             status: '',
             about: '' ,
             interest: [],
-            image: 'https://i.imgur.com/55sUslQ.png',
+            image: '',
             acs: 0,  
             acsChart: [], 
             acsHistory: [],

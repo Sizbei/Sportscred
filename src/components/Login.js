@@ -85,7 +85,7 @@ export default class Login extends Component{
                             type="password"
                             value={this.state.password}
                             onChange={this.onChangePassword}/>
-                        <a href="" className="passwordlink">Forgot Password?</a>
+                        {/* <a href="" className="passwordlink">Forgot Password?</a> */}
                     </div>
                     <button className="loginBtn" onClick={this.onLogin}>Log In</button>
                     <br></br>
