@@ -19,6 +19,7 @@ export default class Login extends Component{
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onLogin = this.onLogin.bind(this);
+        this.onEnter = this.onEnter.bind(this);
 
         //variables
         this.state = {
@@ -45,6 +46,28 @@ export default class Login extends Component{
         document.getElementById('password').style.borderColor = "transparent";
     }
 
+    onEnter(e) {
+        if(e.keyCode === 13) {
+            AuthService.login({username: this.state.username, password: this.state.password})
+            .then(data => {
+                const isAuthenticated = data.isAuthenticated;
+                const user = data.user;
+                if(isAuthenticated) {
+                    this.context.setUser(user);
+                    this.context.setIsAuthenticated(isAuthenticated);
+                    this.props.history.push('/TheZone');
+                } else {
+                    document.getElementById('username').style.borderColor = "red";
+                    document.getElementById('password').style.borderColor = "red";
+                }
+            })
+            .catch(() => {
+                document.getElementById('username').style.borderColor = "red";
+                document.getElementById('password').style.borderColor = "red";
+            });
+        }
+    }
+
     onLogin(e) {
         //prevents default html form submit from taking place
         e.preventDefault();
@@ -62,6 +85,10 @@ export default class Login extends Component{
                     document.getElementById('password').style.borderColor = "red";
                 }
             })
+            .catch(() => {
+                document.getElementById('username').style.borderColor = "red";
+                document.getElementById('password').style.borderColor = "red";
+            });
     }
 
     render() {
@@ -84,15 +111,17 @@ export default class Login extends Component{
                             id="password"
                             type="password"
                             value={this.state.password}
-                            onChange={this.onChangePassword}/>
+                            onChange={this.onChangePassword}
+                            onKeyUp={this.onEnter} />
                         {/* <a href="" className="passwordlink">Forgot Password?</a> */}
                     </div>
+                    <br></br>
                     <button className="loginBtn" onClick={this.onLogin}>Log In</button>
                     <br></br>
-                        <label className="boldtext">Not a Member?</label>
-                        <div className="signup">
-                            <Signup />
-                        </div>
+                    <label className="boldtext">Not a Member?</label>
+                    <div className="signup">
+                        <Signup />
+                    </div>
                 </div>
             </div>
         );

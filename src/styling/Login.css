@@ -49,9 +49,11 @@
 
 .input {
     width:100%;
-    height:50px;
-    font-size:25px;
-    border-width:5px;
+    height:25px;
+    font-size:20px;
+    border-width:4px;
+    border-color:transparent;
+    border-radius:5px;
 }
 
 .input:focus {
@@ -102,23 +104,6 @@
     font-weight: 600;
     font-size:25px;
     font-family: 'CommissionerMedium';
-}
-
-.signuplink {
-    color: #FF7e1F;
-    font-size:24px;
-    font-family: 'CommissionerMedium';
-    font-weight: 700;
-    text-decoration: none;
-    
-}
-
-.signuplink:hover {
-    color: #FF7e1F;
-    font-size:24px;
-    font-family: 'CommissionerMedium';
-    font-weight: 700;
-    text-decoration: none;
 }
 
 .signup {
