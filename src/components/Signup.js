@@ -42,14 +42,10 @@ export default function Popup() {
   }
 
   const submitData = (data) => {
-    console.log("To submit", data);
     axios.post('http://localhost:5000/signup/add', data).then(processResponse).catch(processError);
   }
 
   const processResponse = res => {
-    console.log("Got:");
-    console.log(res.data);
-    console.log(res.status)
     if (res.status == 200) {
       console.log("New user has been added!");
       history.push("/profile/" + formData["username"]);
@@ -66,9 +62,6 @@ export default function Popup() {
     if (usernameExists || usernameIllegal || emailExists) {
       return;
     }
-    console.log("data", data);
-    console.log("formState",  formState);
-    console.log("formData", formData);
 
     Object.keys(data).forEach((name, val) => {
       formData[name] = data[name];
@@ -78,10 +71,6 @@ export default function Popup() {
   }
 
   const submitForm1 = data => {
-    console.log("data", data);
-    console.log("formState",  formState);
-    console.log("formData", formData);
-
     Object.keys(data).forEach((name, val) => {
       formData[name] = data[name];
     }) 
@@ -90,13 +79,7 @@ export default function Popup() {
   }
 
   const submitForm2 = data => {
-    console.log("data", data);
-    console.log("formState",  formState);
-    console.log("formData", formData);
-
-    formData["favoriteTeam"] = data;
-
-    console.log("finalFormData", formData);
+    formData.favoriteTeam = data;
     submitData(formData);
   }
 
@@ -116,7 +99,7 @@ export default function Popup() {
     const username = e.target.value;
     setUsernameExists(await checkUsernameExists(username));
 
-    if (bannedUsernames.some(v => {console.log(v); return v === username.toLowerCase()})) {
+    if (bannedUsernames.some(v => {return v === username.toLowerCase()})) {
       setUsernameIllegal(true);
     } else {
       setUsernameIllegal(false);
@@ -144,14 +127,13 @@ export default function Popup() {
   const [imageSelect, setImageSelect] = useState(null);
 
   const handleImageSelectData = (result) => {
-    console.log(result);
     submitForm2(result);
   }
 
   useEffect(() => {
     axios.get('http://localhost:5000/teams/', "").then(
       (e) => {
-        setImageSelect(<ImageSelect btntext="Finish!" data={e.data} width={6} onSubmit={handleImageSelectData} />)
+        setImageSelect(<ImageSelect btntext="Finish!" data={e.data} width={6} onSubmit={handleImageSelectData} maxTeams={9} />)
       }
     ); 
   }, [])
@@ -183,15 +165,15 @@ export default function Popup() {
                 </div>
               </div>
 
-              <input name="username" className="input-field" placeholder="Username" ref={register({ required: true })} onInput={handleUsernameChange} />
+              <input name="username" className="signup-input-field" placeholder="Username" ref={register({ required: true })} onInput={handleUsernameChange} />
               <ErrorMessage flag={usernameExists} text="This username already exists." />
               <ErrorMessage flag={usernameIllegal} text='Illegal username.' />
               {errors.username && <span className="error-message">This field is required.</span>}
 
-              <input type="password" className="input-field" placeholder="Password" name="password" ref={ register({ required: true }) } />
+              <input type="password" className="signup-input-field" placeholder="Password" name="password" ref={ register({ required: true }) } />
               {errors.password && <span className="error-message">This field is required.</span>}
 
-              <input name="email" className="input-field" placeholder="Email" ref={register({ required: true,
+              <input name="email" className="signup-input-field" placeholder="Email" ref={register({ required: true,
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
               }})} onInput={handleEmailChange} />
@@ -200,7 +182,7 @@ export default function Popup() {
               {errors.email && errors.email.type === "required" && <span className="error-message">This field is required.</span>}
               {errors.email && errors.email.type === "pattern" && <span className="error-message">Invalid email address.</span>}
 
-              <input name="phoneNumber" className="input-field" placeholder="Phone Number (optional)" ref={register} />
+              <input name="phoneNumber" className="signup-input-field" placeholder="Phone Number (optional)" ref={register} />
 
               <label className="form-label">Birthday:</label>
               <div className="birthdate-container">
@@ -270,16 +252,22 @@ export default function Popup() {
 
           <form className="form" onSubmit={handleSubmit(submitForm1)}>
             <label className="form-question">Favorite sport?</label>
-            <input name="favoriteSport" className="input-field" ref={register({ required: true })} />
+            <input name="favoriteSport" key="favoriteSport" className="signup-input-field" defaultValue="" ref={register({ required: true })} />
             {errors.favoriteSport && <span className="error-message">This field is required.</span>}
 
             <label className="form-question">What sport would you like to know more about?</label>
-            <input name="sportInterest" className="input-field" ref={register({ required: true })} />
-            {errors.favoriteSport && <span className="error-message">Tell us!</span>}
+            <input name="sportInterest" key="sportInterest" className="signup-input-field" defaultValue="" ref={register({ required: true })} />
+            {errors.sportInterest && <span className="error-message">Tell us!</span>}
 
             <label className="form-question">What is your highest level of play in any sport?</label>
-            <input name="highestLevelOfPlay" className="input-field" ref={register({ required: true })} />
-            {errors.favoriteSport && <span className="error-message">This field is required.</span>}
+
+            <select name="highestLevelOfPlay" ref={register} className="select-highestLevelOfPlay" >
+              <option value="noHistory" key="noHistory"> No History </option>
+              <option value="highschool">High School</option>
+              <option value="university">University</option>
+              <option value="professional">Professional</option>
+            </select>
+            
 
             <input type="submit" className="submit" value="Continue" /> 
           </form>
@@ -300,7 +288,9 @@ export default function Popup() {
           </div>
 
           <label className="form-question">What are your favorite teams?</label>
-          {imageSelect}
+          <div className="signup-imageselect-container">
+            {imageSelect}
+          </div>
         </div>
       </div>
     </div>
