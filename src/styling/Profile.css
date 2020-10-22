@@ -205,7 +205,8 @@
   background-color: #747474;
   color: white; 
   display: flex;
-  max-width: 1100px;
+  max-width: 790px;
+  min-width: 790px;
 
 }
 .prof-acs-content td {
