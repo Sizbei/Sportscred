@@ -14,7 +14,7 @@
   left: 25%;  
   right: 25%;  
   top: 25%;  
-  bottom: 25%;  
+  bottom: 30%;  
   margin: auto;  
   border-radius: 10px;  
   background: #747474;   
@@ -39,10 +39,10 @@
 }
 .profile-popup-input {
   word-break: break-all;
-  padding-bottom: 250px;  
+  padding-bottom: 15%;  
 }
 .profile-popup-submit-button {
-  margin-top: 10px;
+  margin-top: 1%;
   align-self: flex-end;
   padding: 5px , 10px; 
   width: 100px; 
