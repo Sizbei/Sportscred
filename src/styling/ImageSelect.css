@@ -1,0 +1,57 @@
+.div-test {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #313538;
+}
+
+.imageselect-table {
+  border-spacing: 0;
+  border: 1;
+  border-collapse: collapse;
+}
+
+.imageselect-tile {
+  display: table-cell;
+  padding: 0;
+  padding-left: 1px;
+  padding-top: 1px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
+
+.image-tile-unselected {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 80px;
+  height: 80px;
+
+  border-radius: 5%;
+  border: 1px solid black;
+
+  background-color: white;
+}
+
+.image-tile-selected {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 80px;
+  height: 80px;
+
+  border-radius: 5%;
+  border: 1px solid black;
+
+  background-color: lightskyblue;
+}
+
+.imageselect-image {
+  max-height: 60px;
+  max-width: 60px;
+}
