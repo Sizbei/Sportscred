@@ -107,7 +107,8 @@ router.route('/add').post((req, res) =>{
         firstName: firstName,
     });
     const newProfile = new profile({
-        username: username
+        username: username,
+        interest: favoriteTeam
     });
     newUser.save()
       .then(() => {
