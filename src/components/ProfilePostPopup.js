@@ -72,11 +72,9 @@ class Popup extends React.Component {
   }
   render() {  
   return (  
-  <div className='profile-popup'>  
-    <div className='profile-popup-popup-content'>  
-      <div>
-        <button className="profile-popup-close-button" onClick={this.props.closePopup}> X </button>  
-      </div>
+  <div className='profile-popup' onClick={this.props.closePopup}>
+      <div className='profile-popup-popup-content' onClick = {(e) => { e.stopPropagation(); }}>
+      
       {this.state.done ? 
         <div className="profile-popup-content"> 
           <h1> Post submitted! </h1>
