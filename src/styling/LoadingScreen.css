@@ -1,0 +1,37 @@
+.LoadingPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.Loading {
+    position:absolute;
+    margin-bottom: 20%;
+    font-family: 'CommissionerMedium';
+    font-size: 3vw;
+    color: #ff6600;
+    transition: 0.5s;
+    -webkit-animation: fadeinout 4s linear 100 forwards;
+    animation: fadeinout 4s linear 100 forwards;
+    opacity: 0;
+}
+
+@-webkit-keyframes fadeinout {
+    50% { opacity: 1; }
+  }
+  
+  @keyframes fadeinout {
+    50% { opacity: 1; }
+  }
+
+@font-face {
+    font-family: 'CommissionerMedium';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+  }

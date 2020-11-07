@@ -1,0 +1,76 @@
+/*************** PAGINATION CSS **********************/
+.radar-list-pagination { 
+  display: flex; 
+  font-family:"CommissionerMedium";
+  flex-direction: row;
+  
+}
+
+.radar-list-page-box button{
+  padding: 5px 10px ; 
+  background-color: #FF7e1F; 
+  color: white; 
+  border-style: solid; 
+  cursor: pointer; 
+}
+
+.radar-list-page-box button:hover{
+  color: #FF7e1F; 
+  background-color: white; 
+  border-style: solid; 
+}
+/*************** POST CSS **********************/
+
+.radar-list-popup-table {  
+  color: white;  
+  max-height: 400px; 
+  min-height: 400px; 
+}
+
+.radar-list-popup-table-username:hover, .radar-list-table-username:hover {
+  color: #FF7e1F; 
+  cursor: pointer; 
+}
+.radar-list-table-username {
+  margin-right: 100px;
+}
+.radar-list-popup-img {
+  margin-left: 13px;
+  margin-top: 15px;
+
+  display: block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+
+  text-indent: -10000px; /* A hack to hide the broken image icon */ 
+  background-image: url('../res/account-circle.svg');
+  background-size: contain; 
+}
+
+.radar-list-profile-preview {
+  display: flex;
+}
+
+.radar-list-photo {
+  height: 70px;
+  width: 70px;
+  display: block;
+  background-image: url('../res/ACSBorder.png');
+  background-size: contain;
+}
+/******** RADAR LIST CSS *********************/
+.radar-list-container {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column;
+}
+
+.radar-list-h1 {
+  font-family:"CommissionerMedium"
+}
+@font-face {
+  font-family: 'CommissionerMedium';
+  src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+}

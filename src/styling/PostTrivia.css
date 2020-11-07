@@ -1,0 +1,169 @@
+.post-popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, 0.5);
+  }
+  
+.post-popup_inner {
+    position: absolute;  
+    height: 40%;
+    width: 25%;
+    left: 25%;  
+    right: 25%;  
+    top: 10%;  
+    bottom: 35%;  
+    margin: auto;  
+    padding-left: 6em;
+    padding-right: 6em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    border-radius: 1.05263157895vw;
+    background: #313538;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.post-header {
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  font-family: 'CommissionerMedium';
+}
+
+.post-header-block {
+  margin-top: 5%; 
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-header-them {
+}
+
+.post-header-username {
+  margin-left: 0.2vw; /* counteract acs change */
+  display: inline-block;
+  white-space: nowrap;
+  color: white;
+  margin-top: 10%;
+  font-size: 1.2vw;
+  
+}
+
+.post-header-acs {
+  display: inline-block;
+  color: white;
+  color: rgb(95, 91, 91);
+  font-size: 1.0vw;
+  font-weight: 500;
+}
+
+.post-header-acschange-zero, .post-header-acschange-positive, .post-header-acschange-negative {
+  display: inline-block;
+  font-size: 0.9vw;
+} 
+
+.post-header-acschange-positive {
+  display: inline-block;
+  font-size: 0.9vw;
+  color: rgb(64, 175, 64);
+}
+
+.post-header-acschange-negative {
+  color: crimson;
+}
+
+.post-header-score {
+  color: white;
+  font-size: 2.5vw;
+  margin-top: 2%;
+  font-weight: 600;
+  line-height: 1vw;
+}
+
+.post-nav-trivia {
+  width: 90%;
+  margin-top: 3vw;
+  margin-left: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-winner {
+  margin-top: 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-win {
+  font-size: 2vw;
+  font-family: 'CommissionerMedium';
+  color: green;
+}
+
+.post-tie {
+  font-size: 2vw;
+  font-family: 'CommissionerMedium';
+  color: white;
+}
+
+.post-loss {
+  font-size: 2vw;
+  font-family: 'CommissionerMedium';
+  color: crimson;
+}
+
+.post-nav {
+  margin-top: 2vw;
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-nav-button {
+  height: 3vw;
+  width: 8vw;
+  background-color: #e06c16;
+  border-radius: 0.42105263157vw;
+  border: none;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.post-nav-button:hover {
+  background-color: #c45d12;
+}
+
+.post-nav-button:focus {
+    outline: none;
+}
+
+.post-nav-button-label {
+    color:white;
+    font-family: 'CommissionerMedium';
+    font-size: 1vw;
+}
+
+@font-face {
+    font-family: 'CommissionerMedium';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+}
+

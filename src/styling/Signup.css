@@ -1,4 +1,4 @@
-.popup {
+.signup-popup {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +14,7 @@
   background-color: rgba(0,0,0, 0.5);
 }
 
-.popup_inner {
+.signup-popup_inner {
   padding-left: 6em;
   padding-right: 6em;
   padding-top: 1.5em;
@@ -30,6 +30,10 @@
   text-align: left;
 }
 
+.form-center-col {
+  display: flex;
+  flex-direction: column;
+}
 /* Example css for .SignUpBtn */
 .SignUpBtn {
   padding-left: 2em;
@@ -45,6 +49,11 @@
   font-size: 32px;
   font-weight: 650;
 } 
+
+.SignUpBtn:hover {
+    color: #c8651b;
+    cursor:pointer;
+}
 
 .SignUpBtn:focus {
   outline: none;

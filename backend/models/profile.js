@@ -15,29 +15,35 @@ const profileSchema = new Schema({
     required: false,
     unique: false,
     trim: true,
-    maxlength: 300
+    maxlength: 300,
+    default: ""
   },
   interest: {
     type: [String],
     required: false,
     unique: false,
     trim: true,
+    default: []
   },
   status: {
     type: String,
     required: false,
     unique: false,
     trim: true,
-    maxlength: 30
+    maxlength: 30,
+    default: ""
   },
   image: {
     type: String,
     required: false,
     unique: false,
     trim: true,
+    default: "https://png.pngtree.com/svg/20161027/631929649c.svg" 
+  },
+  radarList: {
+    type: [String],
+    unique: false
   }
-  
-  
 }, {
   timestamps: true,
 });

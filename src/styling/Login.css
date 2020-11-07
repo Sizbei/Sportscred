@@ -93,6 +93,11 @@
     margin: 20px;
 }
 
+.loginBtn:hover {
+    background-color: #c8651b;
+    cursor:pointer;
+}
+
 .loginBtn:focus {
     outline:none;
 }

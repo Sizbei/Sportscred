@@ -1,0 +1,23 @@
+.pp-div {
+  width: 6vw;
+  height: 6vw;
+  /* padding-bottom: 50%; */
+
+  display: flex;
+  align-items: center;
+  display: block;
+  background-image: url('../res/ACSBorder.png');
+  background-size: contain;
+}
+
+.pp-photo {
+  margin-left: 16.5%;
+  margin-top: 19.9%;
+  height: 60%;
+  width: 61%;
+
+  border-radius: 50%;
+  text-indent: -10000px; /* A hack to hide the broken image icon */ 
+  background-image: url('../res/account-circle.svg');
+  background-size: contain;
+}

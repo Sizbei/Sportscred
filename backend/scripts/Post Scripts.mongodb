@@ -1,0 +1,94 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('SportCred');
+
+db.posts.deleteMany({})
+
+db.posts.insertMany([
+
+    {likes: 0,
+    comments: [],
+    poster: "user3",
+    body: "testing 1234",
+    upvoted: [],
+    downvoted: [],
+    createdAt: new Date("2020-10-20T17:43:23.809+00:00")},
+
+    {likes: 0,
+    comments: [],
+    poster: "user3",
+    body: "writing a post just because ",
+    upvoted: [],
+    downvoted: [],
+    createdAt: new Date("2020-10-20T20:19:28.364+00:00")},
+
+    {likes: 0,
+    comments: [],
+    poster: "user3",
+    body: "Another Post",
+    upvoted: [],
+    downvoted: [],
+    createdAt: new Date("2020-10-20T21:16:04.102+00:00")},
+
+    {likes: 0,
+    comments: [],
+    poster: "user3",
+    body: "Hello I am very hungry",
+    upvoted: [],
+    downvoted: [],
+    createdAt: new Date("2020-10-22T04:42:37.197+00:00")},
+
+    {likes: 0,
+    comments: [],
+    poster: "user1",
+    body: "Post from user1 to test the function - Frank",
+    upvoted: [],
+    downvoted: [],
+    createdAt: new Date("2020-10-22T05:11:19.233+00:00")},
+
+    {likes: 0,
+    comments: [],
+    poster: "user1",
+    body: "Wow, I sure love basketball <3",
+    upvoted: [],
+    downvoted: [],
+    createdAt: new Date("2020-10-23T01:32:39.989+00:00")},
+
+    {likes: 0,
+    comments: [],
+    poster: "user1",
+    body: "I like basketball!",
+    upvoted: [],
+    downvoted: [],
+    createdAt: new Date("2020-10-23T01:54:14.705+00:00")},
+
+    {likes: 0,
+    comments: [],
+    poster: "user1",
+    body: "I love basketball!",
+    upvoted: [],
+    downvoted: [],
+    createdAt: new Date("2020-10-23T02:13:06.858+00:00")},
+
+    {likes: 0,
+    comments: [],
+    poster: "user1",
+    body: "yeet",
+    upvoted: [],
+    downvoted: [],
+    createdAt: new Date("2020-10-28T02:11:59.276+00:00")}
+])
+
+db.comments.insertOne({
+    likes: 0,
+    commenter: "user1",
+    body: "I do too!",
+    post: ObjectId('5f9ef5615edae35730410775'),
+    upvoted:[],
+    downvoted:[],
+    createdAt: new Date("2020-11-01T02:11:59.276+00:00")
+})

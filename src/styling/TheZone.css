@@ -1,0 +1,164 @@
+.tzone-page{
+  width:100%;
+  height: 100%; 
+  background-color: #222629;
+  font-family: 'CommissionerMedium';
+  padding-top: 30px;
+  padding-bottom: 50px;
+  position: fixed;
+  margin: auto;
+  overflow: auto;
+  z-index: -1;
+}
+
+/****************************** Create Post CSS **************************************/
+.tzone-create-post-btn{
+  background-color: white;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: grey;
+  font-size: 1.3vw;
+  font-family: 'CommissionerMedium';
+  display: block;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  height: 38px;
+  margin-right: 8px;
+  outline: none;
+  border-radius: 8px;
+  padding-bottom: 30px;
+}
+.tzone-create-post-btn:hover {
+    background-color: lightgrey;
+    cursor:pointer;
+}
+
+.tzone-post-body{
+  background-color: grey;
+  border-radius: 8px;
+  border: 1px solid;
+  display: flex;
+  margin-bottom: 16px;
+  padding: 8px;
+}
+
+
+
+/**************************** Display Post Related ***********************************/
+
+.tzone-all-posts{
+  margin:auto;
+  width: 35%;
+  height: 100%;
+}
+
+.tzone-post-container { 
+  flex-direction: column;
+  display: flex;
+  background-color: grey; 
+  padding: 0% 3%;
+  padding-top: 2%; 
+  width: 93%;
+  font-size: 1.3vw; 
+  font-family: 'CommissionerMedium';
+  border-radius: 8px; 
+}
+
+.tzone-link {
+  color: white;
+  font-size: 1.1em;
+  display: block;
+  margin-left: 2em;
+  text-decoration: none;
+}
+
+.tzone-profile-link {
+  text-decoration: none;
+  color: white;
+}
+
+.tzone-profile-link:hover {
+  color: lightgrey;
+}
+
+.tzone-post-number { 
+  color: white;
+  font-size: 1.3vw; 
+  font-family: 'CommissionerMedium';
+  padding-bottom: 20px;
+}
+
+.tzone-overall-container{
+  text-decoration: none;
+}
+/******************************* Single Post CSS *************************************/
+.tzone-user-info {
+  display: flex;
+  border-radius: 8px; 
+}
+
+.tzone-post-info {
+  color: white; 
+  padding-bottom: 4px; 
+  padding-left: 0%; 
+}
+
+.tzone-post-buttons {
+  display: flex; 
+  border-radius: 8px; 
+  padding-bottom: 3%; 
+}
+
+.tzone-post-button-agree ,.tzone-post-button-disagree, .tzone-post-button-agree-selected , .tzone-post-button-disagree-selected { 
+  margin-top: 2%; 
+  margin-left: 2%;
+  padding: 2%; 
+  outline: none; 
+  color: white; 
+  width: 15vw;
+  font-size: 1.3vw;
+  border-radius: 8px;  
+  cursor: pointer; 
+  font-family: 'CommissionerMedium';
+}
+.tzone-comment-agree-disagree {
+  display: flex;
+}
+.tzone-post-button-agree {
+  background-color: #61b305;
+  border-style: none; 
+}
+
+.tzone-post-button-agree-selected {
+  background-color: #61b305; 
+  border-color: #57A105;  
+  border-width: 5px;
+}
+.tzone-post-button-disagree {
+  background-color: #d30909;
+  border-style: none; 
+}
+.tzone-post-button-disagree-selected {
+  background-color: #d30909; 
+  border-color: #A20909; 
+  border-width: 5px;
+
+}
+.tzone-likes { 
+  background-color: #ff7e1f; 
+  font-size: 1vw; 
+  width: 3vw; 
+  height: 3vw; 
+  border-radius: 50%;
+  margin-left: 50%;
+  text-align: center
+}
+.tzone-likes label { 
+  margin:auto;
+  padding-top: 13px;
+}
+
+@font-face {
+  font-family: 'CommissionerMedium';
+  src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+}

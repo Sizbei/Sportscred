@@ -15,9 +15,15 @@ const postSchema = new Schema({
         required: true,
         default: 0
     },
-    interacted: {
-        type:[{String}],
-        required: false
+    upvoted: {
+        type:[String],
+        required: false,
+        default: []
+    },
+    downvoted: {
+        type:[String],
+        required: false,
+        default: []
     },
     comments: [{type: Schema.ObjectId, ref:"comment"}]
 },{

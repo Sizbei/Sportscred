@@ -2,8 +2,6 @@ import React, { Component, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, useHistory} from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-import Header from './Header';
-import Registration from './Registration'
 import ImageSelect from './ImageSelect'
 import logo from '../res/SportCredLogo.png';
 
@@ -147,8 +145,8 @@ export default function Popup() {
       <div>
         <button className="SignUpBtn" onClick={() => {}}> Sign up </button>
       
-        <div className='popup' onClick={() => setFormState("button")}>
-          <div className='popup_inner' onClick = {(e) => { e.stopPropagation(); }}>
+        <div className='signup-popup' onClick={() => setFormState("button")}>
+          <div className='signup-popup_inner' onClick = {(e) => { e.stopPropagation(); }}>
             <div className="signup-logo-container">
               <img src={logo} className="signup-logo" alt="SportCred" href="the_zone"/>
               <span className="slogan">Start Building Your ACS Score</span>
@@ -166,12 +164,11 @@ export default function Popup() {
                   {errors.lastName && <span className="error-message">This field is required.</span>}
                 </div>
               </div>
-
+              <div className="form-center-col">
               <input name="username" className="signup-input-field" placeholder="Username" ref={register({ required: true })} onInput={handleUsernameChange} />
               <ErrorMessage flag={usernameExists} text="This username already exists." />
               <ErrorMessage flag={usernameIllegal} text='Illegal username.' />
               {errors.username && <span className="error-message">This field is required.</span>}
-
               <input type="password" className="signup-input-field" placeholder="Password" name="password" ref={ register({ required: true }) } />
               {errors.password && <span className="error-message">This field is required.</span>}
 
@@ -185,7 +182,10 @@ export default function Popup() {
               {errors.email && errors.email.type === "pattern" && <span className="error-message">Invalid email address.</span>}
 
               <input name="phoneNumber" className="signup-input-field" placeholder="Phone Number (optional)" ref={register} />
+              </div>
+              
 
+              <div>
               <label className="form-label">Birthday:</label>
               <div className="birthdate-container">
                 <select name="month" ref={register} className="select-month" >
@@ -217,7 +217,9 @@ export default function Popup() {
                   }
                 </select>
               </div>
+              </div>
 
+              <div>
               <label className="form-label">Gender:</label>
               <div className="gender-container">
                   <span className="radio-container" onClick={ () => setGenderState("male") }> 
@@ -233,6 +235,7 @@ export default function Popup() {
                     <input type="radio" name="gender-other" className="gender-radio" checked={genderState === "other"} readOnly></input>
                   </span>
               </div>
+              </div>
 
               <input type="submit" className="submit" value="Continue" /> 
             </form>
@@ -244,33 +247,30 @@ export default function Popup() {
     return (
       <div>
       <button className="SignUpBtn" onClick={() => {}}> Sign up </button>
-    
-      <div className='popup' onClick={() => setFormState("button")}>
-        <div className='popup_inner' onClick = {(e) => { e.stopPropagation(); }}>
+      <div className='signup-popup' onClick={() => setFormState("button")}>
+        <div className='signup-popup_inner' onClick = {(e) => { e.stopPropagation(); }}>
           <div className="signup-logo-container">
             <img src={logo} className="signup-logo" alt="SportCred" href="the_zone"/>
             <span className="slogan">Start Building Your ACS Score</span>
           </div>
-
           <form className="form" onSubmit={handleSubmit(submitForm1)}>
+            <div className="form-center-col">
             <label className="form-question">Favorite sport?</label>
             <input name="favoriteSport" key="favoriteSport" className="signup-input-field" defaultValue="" ref={register({ required: true })} />
             {errors.favoriteSport && <span className="error-message">This field is required.</span>}
-
+            <br></br>
             <label className="form-question">What sport would you like to know more about?</label>
             <input name="sportInterest" key="sportInterest" className="signup-input-field" defaultValue="" ref={register({ required: true })} />
             {errors.sportInterest && <span className="error-message">Tell us!</span>}
-
+            <br></br>
             <label className="form-question">What is your highest level of play in any sport?</label>
-
             <select name="highestLevelOfPlay" ref={register} className="select-highestLevelOfPlay" >
               <option value="noHistory" key="noHistory"> No History </option>
               <option value="highschool">High School</option>
               <option value="university">University</option>
               <option value="professional">Professional</option>
             </select>
-            
-
+            </div>
             <input type="submit" className="submit" value="Continue" /> 
           </form>
         </div>
@@ -281,14 +281,12 @@ export default function Popup() {
     return (
       <div>
         <button className="SignUpBtn" onClick={() => {}}> Sign up </button>
-
-        <div className='popup' onClick={() => setFormState("button")}>
-        <div className='popup_inner' onClick = {(e) => { e.stopPropagation(); }}>
+        <div className='signup-popup' onClick={() => setFormState("button")}>
+        <div className='signup-popup_inner' onClick = {(e) => { e.stopPropagation(); }}>
           <div className="signup-logo-container">
             <img src={logo} className="signup-logo" alt="SportCred" href="the_zone"/>
             <span className="slogan">Start Building Your ACS Score</span>
           </div>
-
           <label className="form-question">What are your favorite teams?</label>
           <div className="signup-imageselect-container">
             {imageSelect}

@@ -1,0 +1,98 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('SportCred');
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against proper database and collection.
+db.acs.deleteOne({username: "user1"})
+db.acs.deleteOne({username: "user2"})
+db.acs.deleteOne({username: "user3"})
+
+db.acs.insertMany([
+  {
+    username: "user1",
+    acsHistory:[{category: "Picks & Prediction", points: -5, date: new Date("2020-09-01T16:00:00Z")},
+              {category: "Trivia & Games", points: 3, date: new Date("2020-09-22T16:00:00Z")}, 
+              {category: "Analysis & Debate", points: 8, date: new Date("2020-10-10T16:00:00Z")}, 
+              {category: "Participation & History", points: 7, date: new Date("2020-10-18T16:00:00Z")}, 
+              {category: "Trivia & Games", points: -5, date: new Date("2020-10-27T16:00:00Z")},
+              {category: "Trivia & Games", points: 4, date: new Date("2020-10-29T16:00:00Z")}],
+    acsTotal: {
+      total: 20,
+      triviaGames: 2,
+      analysisDebate: 8,
+      picksPrediction: 1,
+      participationHistory: 9
+    }
+  }, 
+  {username: "user2",
+    acsHistory:[{category: "Picks & Prediction", points: -3, date: new Date("2020-05-18T16:00:00Z")},
+              {category: "Trivia & Games", points: 2, date: new Date("2020-06-18T16:00:00Z")}, 
+              {category: "Analysis & Debate", points: 4, date: new Date("2020-07-18T16:00:00Z")}, 
+              {category: "Trivia & Games", points: 7, date: new Date("2020-09-23T16:00:00Z")}],
+    acsTotal: {
+      total: 13,
+      triviaGames: 5,
+      analysisDebate: 4,
+      picksPrediction: 1,
+      participationHistory: 3
+    }
+  },
+  {
+    username: "user3",
+    acsHistory:[{category: "Picks & Prediction", points: -2, date: new Date("2020-05-18T16:00:00Z")},
+              {category: "Trivia & Games", points: 4, date: new Date("2020-06-18T16:00:00Z")}, 
+              {category: "Analysis & Debate", points: 3, date: new Date("2020-07-18T16:00:00Z")}, 
+              {category: "Participation & History", points: 8, date: new Date("2020-08-18T16:00:00Z")}, 
+              {category: "Trivia & Games", points: -1, date: new Date("2020-08-19T16:00:00Z")}],
+    acsTotal: {
+      total: 16,
+      triviaGames: 4,
+      analysisDebate: 3,
+      picksPrediction: 7,
+      participationHistory: 2
+    }
+  }
+])
+
+db.acs.deleteOne({username:"user4"})
+db.acs.insertOne({
+    username: "user4",
+    acsHistory: [],
+    acsTotal: {
+      total: 0,
+      triviaGames: 0,
+      analysisDebate: 0,
+      picksPrediction: 0,
+      participationHistory: 0
+    }
+})
+
+db.profiles.deleteOne({username: "user1"})
+db.profiles.deleteOne({username: "user2"})
+db.profiles.deleteOne({username: "user3"})
+
+db.profiles.insertMany([
+  {username: "user1",
+   about: "",
+   interests: ["ChicagoBulls","HoustonRockets","MilwaukeeBucks","NewYorkKnicks","PhoenixSuns"],
+   image: "https://www.citypng.com/public/uploads/preview/-41601313914ox6c3d6e4n.png",
+   status: "I like red!!!",
+   radarList: []},
+  {username: "user2",
+   about: "Chocolate",
+   interests: ["76ers","AtlantaHawks","BostonCeltics","BrooklynNets","ClevelandChandeliers","DallasMavericks","DenverNuggets","DetroitPistons"],
+   image: "https://www.citypng.com/public/uploads/preview/-41601313914ox6c3d6e4n.png",
+   status: "Icecream!!!",
+   radarList: []},
+  {username: "user3",
+   about: "Something New!",
+   interests: ["GoldenStateWarriors","LosAngelesClippers","MemphisGrizzles","NewYorkKnicks","OrlandoMagic"],
+   image: "https://static1.squarespace.com/static/5862795920099ed77517b349/58ab59bb86e6c0c373a99e85/597f9403f7e0ab30563332af/1595134876923/Zoey+Jordan2.jpg?format=1500w",
+   status: "Wow",
+   radarList: ["user1", "user2"]}
+])

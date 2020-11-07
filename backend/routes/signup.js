@@ -1,6 +1,7 @@
 const router = require('Express').Router();
 let user = require('../models/user');
-let profile = require('../models/profile')
+let profile = require('../models/profile');
+const acs = require('../models/acs');
 
 router.route('/').get((req, res) => {
     user.find()
@@ -9,9 +10,7 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/existingUsername').get((req,res) => {
-    console.log(req);
     const username = req.query.username;
-    console.log(username);
     user.findOne({username: username})
         .then((result) => {
             if (result) {
@@ -110,10 +109,21 @@ router.route('/add').post((req, res) =>{
         username: username,
         interest: favoriteTeam
     });
+    const newACS = new acs({
+        username: username
+    });
     newUser.save()
       .then(() => {
           newProfile.save()
-          .then(res.json("Added Actor"))
+          .then(
+              newACS.save()
+              .then(res.json("Added Actor"))
+              .catch((err) => {
+                user.deleteOne({username: username})
+                profile.deleteOne({username: username})
+                res.status(400).json('Error: ' + err)
+              })
+              )
           .catch((err) => 
             {
                 user.deleteOne({username: username})

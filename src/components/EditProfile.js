@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
 import toastr from 'toastr'
-import axios from 'axios';
-import '../styling/EditProfile.css'
+import '../styling/Settings.css'
 import '../styling/toastr.min.css'
 import {AuthContext} from '../Context/AuthContext';
 
-
-import Header from './Header';
 import ImageSelect from './ImageSelect'
-
 
 
 function ErrorMessage(props) {
@@ -221,16 +217,16 @@ export default class EditProfile extends Component {
       let imgSubmitBtn;
 
       if (this.state.showImageSubmit) {
-        imgSubmitBtn = <button className="image-submit" onClick={this.handleImageSubmit}>Update</button>
+        imgSubmitBtn = <button className="settings-submit" onClick={this.handleImageSubmit}>Update</button>
       } else {
         imgSubmitBtn = null;
       }
       
       return (
-        <div className="editprofile-container">
-          <div className="editprofile-container-mid"> 
+        <div className="profile-container">
+          <div className="settings-container-mid"> 
               
-              <div className="info"> 
+              <div className="information-container"> 
               <h1 className="editProfile-h1"> {'Profile Settings'} </h1> 
                   <div className="editPP-container">
                     <h2 className="editProfile-h2">Profile Picture</h2>
@@ -252,12 +248,12 @@ export default class EditProfile extends Component {
                   </div>
 
                   <hr className="settings-hr"></hr>
-                  <h2 className="editProfile-h2">Status (optional)</h2>
+                  <h2 className="settings-h2">Status (optional)</h2>
                   <input type="text" placeholder="Status (optional)" id="timer" className="status-edit" maxLength="30" onBlur={this.onBlur} onChange={this.onChangeStatus} value={this.state.status}></input>
                   <label className="characters">Characters remaining: {this.state.statusCharacters}</label>
                   
                   <hr className="settings-hr"></hr>
-                  <h2 className="editProfile-h2"> About (optional)</h2>
+                  <h2 className="settings-h2"> About (optional)</h2>
                   <textarea type="text" placeholder="About (optional)" id="timer" className="about-edit" maxLength="300" onBlur={this.onBlur} onChange={this.onChangeAbout} value={this.state.about}></textarea>
                   <label className="characters">Characters remaining: {this.state.aboutCharacters}</label>
                   

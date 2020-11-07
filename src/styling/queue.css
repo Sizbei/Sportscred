@@ -1,0 +1,67 @@
+.queue-popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+}
+
+.queue-popup_inner {
+  position: absolute;  
+  height: 25%;
+  width: 25%;
+  left: 25%;  
+  right: 25%;  
+ 
+  bottom: 35%;  
+  margin: auto;  
+  padding-left: 6em;
+  padding-right: 6em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  border-radius: 1.05263157895vw;
+  background: #313538;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.queue-Confirm {
+  height: 3vw;
+  width: 8vw;
+  background-color: #e06c16;
+  color:white;
+  border-radius: 0.42105263157vw;
+  border: none;
+  font-family: 'CommissionerMedium';
+  font-size: 1vw;
+}
+
+
+.queue-Confirm:hover {
+  background-color: #c45d12;
+}
+
+.queue-Confirm:focus {
+    outline: none;
+}
+
+.queue-text {
+  color: white;
+  font-family: 'CommissionerMedium';
+  font-size: 2vw;
+}
+
+@font-face {
+  font-family: 'CommissionerMedium';
+  src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+}

@@ -1,0 +1,277 @@
+.TSB-div {
+  box-sizing: border-box;
+  margin-top: 5%;
+  margin-right: 13%;
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  border-radius: 0.42105vw;
+  background-color: #1b1a18;
+}
+
+.TSB-header {
+  margin-top: 0.6315789vw;
+  margin-bottom: 0.42105vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TSB-header-text {
+  margin-bottom: 0.6315789vw;
+  color: white;
+  font-size: 1.68421vw;
+  font-weight: 700;
+}
+
+.TSB-header-icon {
+  width: 7.8947vw;
+  height: 7.8947vw;
+  margin-left: 1.05263vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('../res/images/puzzle-piece.png');
+}
+
+.TSB-direct-div {
+  margin-top: 1.0526vw;
+  margin-left: 0.73684vw;
+  margin-right: 0.73684vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TSB-temporaryDiv {
+  margin-top: 11vw;
+}
+
+.TSB-direct-item {
+  margin-bottom: 0.5263157vw;
+  display: flex;
+  width: 100%;
+  height: 4.73684vw;
+  background-color: #272727;
+  border-radius: 0.42105vw;
+  align-items: center;
+} 
+
+.TSB-direct-item:hover {
+  background-color: #383531;
+}
+
+.TSB-direct-icon {
+  width: 3.42105vw;
+  height: 3.42105vw;
+  margin: 0.7894736vw;
+  /* background-size: 100% 100%; */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* background-image: url('../res/images/76ers.png'); */
+}
+
+.TSB-direct-icon-online {
+  background-image: url('../res/images/competition.png');
+}
+
+.TSB-direct-icon-single {
+  background-image: url('../res/images/running.png');
+}
+
+.TSB-direct-icon-send {
+  background-image: url('../res/images/cooperation.png');
+}
+
+.TSB-direct-icon-solo {
+  background-image: url('../res/images/dumbbell.png');
+}
+
+.TSB-direct-text {
+  color: white;
+  font-size: 1.5vw;
+  font-weight: 450;
+}
+
+.TSB-direct-timer {
+  color: white;
+  margin-left: auto;
+  margin-right: 10%;
+  font-size: 2vw;
+  font-weight: 650;
+}
+
+/*------------IN-GAME VIEW-------------*/
+
+.TSBG-header {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.TSBG-header-block {
+  margin-top: 1%; 
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.TSBG-header-them {
+}
+
+.TSBG-header-username {
+  margin-left: 0.2vw; /* counteract acs change */
+  display: inline-block;
+  white-space: nowrap;
+  color: white;
+  font-size: 1.2vw;
+}
+
+.TSBG-header-acs {
+  display: inline-block;
+  color: white;
+  color: rgb(95, 91, 91);
+  font-size: 1.0vw;
+  font-weight: 500;
+}
+
+.TSBG-header-acschange-zero, .TSBG-header-acschange-positive, .TSBG-header-acschange-negative {
+  display: inline-block;
+  font-size: 0.9vw;
+} 
+
+.TSBG-header-acschange-positive {
+  display: inline-block;
+  font-size: 0.9vw;
+  color: rgb(64, 175, 64);
+}
+
+.TSBG-header-acschange-negative {
+  color: crimson;
+}
+
+.TSBG-header-score {
+  color: white;
+  font-size: 2.5vw;
+  font-weight: 600;
+  line-height: 1vw;
+}
+
+.TSBG-list {
+}
+
+.TSBG-list-icons-div {
+  display: flex;
+  margin-bottom: 0.2632vw;
+}
+
+.TSBG-list-icons {
+  margin-left: auto;
+  padding-right: 0.25263vw;
+  /* width: auto; */
+  height: 1.57895vw;
+  
+  display: flex;
+}
+
+.TSBG-list-icon-div {
+  margin-left: 0.526316vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.TSBG-list-icon {
+  width: 1.57895vw;
+  height: 1.57895vw;
+  border-radius: 50%; 
+}
+
+.TSBG-list-item {
+  max-width: 100%;
+  padding: 0.36316vw;
+  padding-left: 0.605263vw;
+  display: flex;
+  align-items: center;
+  background-color: rgb(46, 43, 43);
+}
+
+.TSBG-list-item-baseline {
+  display: flex;
+  overflow: hidden;
+  align-items: baseline;
+}
+
+.TSBG-list-item-o {
+  background-color: rgb(48, 48, 49);  
+}
+
+.TSBG-list-item-number {
+  font-size: 1.0vw;
+  font-weight: 400;
+  color: rgb(185, 185, 185);
+}
+
+.TSBG-list-item-text {
+  font-size: 0.78vw;
+  color: rgb(202, 202, 202);
+}
+
+.TSBG-list-item-mark-div {
+  margin-left: 0.52631vw; 
+}
+
+.TSBG-list-item-checks {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.TSBG-list-item-checkmark-div {
+  margin-left: 0.52631vw; 
+  margin-right: 0.52631vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -0.1052632vw;
+  margin-bottom: 0.15789473vw;
+} 
+
+.TSBG-list-item-checkmark {
+  display: inline-block;
+  position: relative;
+  transform: rotate(45deg);
+  height: 0.78947vw;
+  width: 0.36842vw;
+  border-bottom: 0.157895vw solid #78b13f;
+  border-right: 0.157895vw solid #78b13f;
+}
+
+.TSBG-list-item-crossmark {
+  width: 1.57895vw;
+  margin-left: 0.52631vw;
+  display: inline-block;
+  font-size: 1.842105vw;
+  height: 1.0vw;
+  line-height: 0.73684vw;
+  font-weight: 600;
+  color: crimson;
+  text-align: center;
+}
+
+.TSBG-list-item-empty {
+  margin-left: 1.0vw;
+  margin-right: 0.42105vw;
+  width: 0.736842vw;
+  margin-top: -0.526316vw;
+  margin-bottom: -0.526316vw;
+  /* height: 47px; */
+  border-bottom: 0.05263158vw solid rgb(158, 158, 158);
+}

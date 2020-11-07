@@ -2,116 +2,117 @@
 .prof-background { 
   background-size: cover; 
   background-color: #222629;
-  padding-bottom: 50px;
+  padding-bottom: 10%;
   color: white;  
 }
 .prof-container-middle-section, .prof-container-profile{ 
   justify-content: center;
   display: flex;
+
 }
 
 .prof-container-middle-section{ 
   flex-wrap: column;
+  height: 100%;   
+  background-color: #222629;
 }
 
 
 .prof-interest-content, .prof-picks-content , .prof-radar-list-content, .prof-about-content, .prof-acs-content { 
-  border-radius: 8px;
-  padding: 12px;
+  border-radius: 3%;
+  padding: 3.5%;
+}
+
+.prof-title {
+  font-size: 2vw; 
 }
 /******************************STYLES FOR FEATURE POSITIONING **********************************/
 .prof-left-content{
   order: 1; 
   padding: 0% 1%; 
+  width: 20%; 
+  height: 100%; 
+
 }
 
 .prof-right-content {
   order: 2;
+  width: 60%; 
+  height: 100%; 
 }
 .prof-bottom-right-content {
   display: flex; 
+  width: 100%; 
 }
 
 /**************************** STYLING FOR PROFILE  ***********************************/
-.prof-profile-preview{
-  display: flex;
-}
-.prof-profile-photo {
-  height: 230px;
-  width: 230px;
-  display: block;
-  background-image: url('../res/ACSBorder.png');
-  background-size: contain;
-}
 
-.prof-profile-user-given-photo {
-  margin-left: 35px;
-  margin-top: 43px;
-
-  display: block;
-  height: 140px;
-  width: 140px;
-  border-radius: 50%;
-
-  text-indent: -10000px; /* A hack to hide the broken image icon */ 
-  background-image: url('../res/account-circle.svg');
-  background-size: contain;
-}
 .prof-profile-user-score{ 
-  margin-top: -85px ; 
-  margin-left: 200px;
+  margin-top: -10%; 
+  margin-left: 15%;
+  font-size: 1.2vw;
   position: absolute;
 }
 .prof-profile-info {
-  padding-left: 50px; 
-
+  font-size: 1.2vw; 
+  padding-left: 2%; 
+  width: 53%; 
+  position :relative;
 }
 
 .prof-profile-info h1 {
   color:  #61b305;
 }
 .prof-edit-profile {
-  
   align-self: flex-end ; 
-  margin-left: 600px;
-  margin-bottom: 10px; 
+  margin-bottom: 0.5%; 
+  width: 10%  
 
 }
 
-.prof-edit-profile button, .prof-create-post-button{
-  padding: 10px 20px; 
+.prof-create-post-button{
+  padding: 1.5% 3%; 
+  color: white; 
+  background-color: #61b305;
+  border-color: transparent;
+  border-radius: 5%; 
+  font-size: 1vw;
+}
+
+.prof-edit-profile button {
+  font-size: 1vw; 
+  padding: 8% 14%;
   color: white; 
   background-color: #61b305;
   border-color: transparent;
   border-radius: 5%; 
 }
-
 .prof-edit-profile button:hover ,.prof-create-post-button:hover{
   background-color: #539B04;
+  cursor:pointer;
  
 }
 /**************************** STYLING FOR ABOUT + RADAR LIST***********************************/
  
 .prof-about-content{ 
-  background-color: #747474;
-  min-height: 250px;
-  max-height: 250px;  
-  min-width: 250px ;
-  max-width: 250px;      
+  background-color: #747474; 
+  font-size: 1vw;
+  height: 16vw; 
   word-break:break-all;  
 }
 
 .prof-radar-list-content {
-  background-color: #747474;
-  min-height: 450px; 
-  max-height: 450px; 
+  background-color: #747474; 
   display: flex;
+  height: 36vw; 
+  flex-direction: column;
   
 }
 .prof-radar-list-content button {
+  font-size: 1vw;
   align-self: flex-end;
-  padding: 2px 10px;
-  margin-left: 40px; 
+  padding: 0.5% 3%;
+  margin-left: 5%; 
   border-color: white; 
   border-style: solid; 
   background-color:  #747474;
@@ -121,8 +122,15 @@
   border-color: white; 
   border-style: solid; 
   color:  #747474;
-  background-color: white;  
+  background-color: white; 
+  cursor:pointer; 
 }
+.prof-radar-list-table { 
+  font-size: 1.2vw;
+  height: 34vw; 
+}
+
+
 /********************************** STYLING FOR INTEREST + PICKS ***********************************************************/
 
 .prof-picks{
@@ -137,21 +145,19 @@
 
 .prof-interest-content, .prof-picks-content{
   background-color: #747474;
-  min-height: 400px; 
-  max-height: 400px; 
-  min-width: 375px ; 
-  max-width: 375px; 
+  height: 30vw; 
+  width: 27.5vw; 
   word-break:break-all; 
 }
 
 .prof-interest-content .imageselect-tile {
   display: table-cell;
   padding: 0;
-  padding-left: 1px;
-  padding-top: 1px;
+  padding-left: 1%;
+  padding-top: 1%;
   padding-right: 0px;
   padding-bottom: 0px;
-  padding: 7px;
+  padding: 2%;
 }
 
 .prof-interest-content .image-tile-selected {
@@ -160,8 +166,8 @@
   justify-content: center;
   align-items: center;
 
-  width: 107px;
-  height: 107px;
+  width: 7vw;
+  height: 7vw;
 
   border-radius: 5%;
   border: 1px solid black;
@@ -175,8 +181,8 @@
   justify-content: center;
   align-items: center;
 
-  width: 107px;
-  height: 107px;
+  width: 7vw;
+  height: 7vw;
 
   border-radius: 5%;
   border: 1px solid black;
@@ -185,35 +191,42 @@
 }
 
 .prof-interest-content .imageselect-image {
-  max-height: px;
-  max-width: 80px;
+  max-height: 6vw;
+}
+
+.prof-picks {
+  margin-left: 3%;
 }
 
 
-
-
 /*********************STYLES FOR ACS HISTORY*********************/
+
 .prof-piechart {
-  padding-left: 50px ; 
-  padding-right: 100px ; 
-  padding-top: 50px; 
-  padding-bottom: 50px;
-  height: 200px;
-  width: 200px;
+  padding-left: 0% ; 
+  padding-right: 0%; 
+  padding-top: 2%; 
+  padding-bottom: 2%;
+  width: 25%; 
+  height: 25%;
 }
 .prof-acs-content {
   background-color: #747474;
   color: white; 
   display: flex;
-  max-width: 790px;
-  min-width: 790px;
 
 }
-.prof-acs-content td {
-  padding: 10px; 
+.prof-acs-content table { 
+  margin-left: 6%; 
+  height: 17vw; 
+  
 }
-.prof-acs-content th {
-  padding: 10px; 
+
+.prof-acs-content td {
+  font-size: 1.2vw;
+  margin-left: 10px;
+  padding-left: 1.5em; 
+  border-spacing: 4% 0%;
+
 }
 .prof-score-content-pos { 
   color:#61b305;
@@ -229,7 +242,7 @@
 }
 
 @font-face {
-  font-family: 'CommissionerMedium';
+  font-family: 'CommissionerMedium' ;
   src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
 }
 

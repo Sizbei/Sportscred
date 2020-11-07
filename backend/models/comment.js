@@ -1,27 +1,36 @@
+const { post } = require('jquery');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
     commenter: {
-        type: ObjectID,
-        ref: "user",
+        type: String,
         required: true
+    },
+    post: {
+        type: Schema.ObjectId,
+        required: true,
+        ref: "post"
     },
     body: {
         type: String,
         required: true
     },
     likes: {
-        type: number,
+        type: Number,
         required: true,
         default: 0
     },
-    interacted: {
-        type:[{ObjectID, ref:"user"}]
+    upvoted: {
+        type:[String],
+        required: false,
+        default: []
     },
-    comments: {
-        type:[{ObjectID, ref:"comment"}]
-    }
+    downvoted: {
+        type:[String],
+        required: false,
+        default: []
+    },
 },{
     timestamps:true
 });

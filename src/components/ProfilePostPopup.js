@@ -1,5 +1,3 @@
-import { render } from "@testing-library/react";
-import axios from "axios";
 import React from 'react';  
 import '../styling/ProfilePopup.css';
 import {AuthContext} from '../Context/AuthContext';
@@ -73,7 +71,7 @@ class Popup extends React.Component {
   render() {  
   return (  
   <div className='profile-popup' onClick={this.props.closePopup}>
-      <div className='profile-popup-popup-content' onClick = {(e) => { e.stopPropagation(); }}>
+      <div className='profile-post-popup-content' onClick = {(e) => { e.stopPropagation(); }}>
       
       {this.state.done ? 
         <div className="profile-popup-content"> 

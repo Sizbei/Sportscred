@@ -1,5 +1,6 @@
 import React, {createContext, useState, useEffect} from 'react';
 import AuthService from '../Services/AuthService';
+import '../styling/LoadingScreen.css'
 
 // initialize the provider and consumer
 export const AuthContext = createContext();
@@ -21,7 +22,10 @@ export default ({ children }) => {
 
     return (
         <div>
-            {!isLoaded ? <h1>Loading</h1> 
+            {!isLoaded ?  <div className="LoadingPage"> 
+                <label className='Loading'>Loading...</label>
+                <img src="https://cdn.dribbble.com/users/195056/screenshots/2379959/bouncy-ball.gif"/>
+            </div>
                 : <AuthContext.Provider value={{user, setUser, isAuthenticated, setIsAuthenticated}}>
                     { children } </AuthContext.Provider>}
         </div>

@@ -28,19 +28,16 @@ function Navbar() {
   return (
     <ul className="navbar">
       <li className="navbar-item">
-      <Link to="/" className="nav-link">The Zone</Link>
+        <Link to="/" className="nav-link">The Zone</Link>
       </li>
       <li className="navbar-item">
-      <Link to="/trivia" className="nav-link">Trivia</Link>
+        <Link to={{pathname: "/trivia", key: Math.random(), state: {applied: true}}} key={Math.random()} className="nav-link">Trivia</Link>
       </li>
       <li className="navbar-item">
-      <Link to="/analysis" className="nav-link">Analysis</Link>
+        <Link to="/analysis" className="nav-link">Analysis</Link>
       </li>
       <li className="navbar-item">
-      <Link to="/picksandpredictions" className="nav-link">Picks/Predictions</Link>
-      </li>
-      <li className="navbar-item">
-      <Link to="/registration" className="nav-link">Registration</Link>
+        <Link to="/picksandpredictions" className="nav-link">Picks/Predictions</Link>
       </li>
     </ul>
   );
@@ -87,15 +84,20 @@ function OptionsMenu() {
   }
 
   const navigateToSettings = () => {
-    history.push("/settings/profile");
+    history.push("/settings/account");
+  }
+
+  const navigateToCitations = () => {
+    history.push("/citations");
   }
 
   return (
     <div className="options">
       <button className="optionsMenu" />
           <div className="optionsContent">
-          <button className="optionsButtons" onClick={navigateToSettings}>Settings</button>
-          <button className="optionsButtons" onClick={LogOut}>Log Out</button>
+          <button className="optionsButtonsTopEnd" onClick={navigateToSettings}>Settings</button>
+          <button className="optionsButtons" onClick={navigateToCitations}>Citations</button>
+          <button className="optionsButtonsBotEnd" onClick={LogOut}>Log Out</button>
         </div>
     </div>
   );

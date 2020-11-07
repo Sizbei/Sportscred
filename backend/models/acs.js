@@ -1,7 +1,14 @@
 //Start every model with this line
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const acsSchema = new Schema({
+
+  username: {
+    type:String,
+    unique:true,
+    required:true
+  },
 
   acsHistory: [{
     category: {
@@ -18,33 +25,33 @@ const acsSchema = new Schema({
     }
   }],
 
-  acsTotal: [{
+  acsTotal: {
     total: {
       type: Number,
       required: true,
       default: 0
     },
-    triviaGamesPc: {
+    triviaGames: {
       type: Number,
       required: true,
       default: 0
     },
-    analysisDebatePc: {
+    analysisDebate: {
       type: Number,
       required: true,
       default: 0
     },
-    picksPredicitonPc: {
+    picksPrediction: {
       type: Number,
       required: true,
       default: 0
     },
-    participationHistoryPc: {
+    participationHistory: {
       type: Number,
       required: true,
       default: 0
     }
-  }]
+  }
 
 })
 
