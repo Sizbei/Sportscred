@@ -64,9 +64,19 @@
   text-decoration: none;
 }
 
+.user-text {
+  display: flex;
+  align-items: baseline;
+}
+
 .username {
   color: white;
   margin-left: 1.5em;
+}
+
+.user-acs {
+  color: grey;
+  font-size: 12px;
 }
 
 .header {

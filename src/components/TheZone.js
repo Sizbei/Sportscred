@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import '../styling/TheZone.css';
 import PostPopup from './ProfilePostPopup';
+import ReportPopup from './TheZoneReportPopup';
 import { AuthContext } from '../Context/AuthContext';
 import ProfilePicture from './ProfilePicture'
 import { Link } from 'react-router-dom';
@@ -11,16 +12,25 @@ export default function TheZone(props) {
     const authContext = useContext(AuthContext);
     const postId = props.location.pathname.slice(17, props.location.pathname.length);
     const path = ' /zone/display/' + authContext.user.username + '/' + postId;
-
+    
+    
     const [username, setUsername] = useState('');
     const [likes, setLikes] = useState(0);
     const [acs, setAcs] = useState(0);
     const [content, setContent] = useState('');
     const [agree, setAgree] = useState(false);
     const [disagree, setDisagree] = useState(false);
+    const [rId, setRId] = useState('');
+    const [reported, setReported] = useState(false);
+    const [type, setType] = useState('');
+
+
+
     const [posts, setPosts] = useState([]);
 
     const [showPostPopup, setPostPopup] = useState(false);
+    const [showReportPopup, setReportPopup] = useState(false);
+   
 
     useEffect(() => {
         fetch(path).then(res => res.json())
@@ -33,7 +43,6 @@ export default function TheZone(props) {
                 setAgree(data.posts.upvoted);
                 setDisagree(data.posts.downvoted);
                 
-                
             })
             .catch((error) => {
                 console.log(error);
@@ -43,6 +52,15 @@ export default function TheZone(props) {
     const togglePostPopup = () => {
        setPostPopup(!showPostPopup);
     }
+
+    const toggleReportPopup = (rId, type) => {
+        setRId(rId);
+        setType(type);
+        
+        setReportPopup(!showReportPopup);
+    }
+
+    
    
     const handlePostAgree = (data, index) => {
 
@@ -133,6 +151,10 @@ export default function TheZone(props) {
                     : null
                 }
 
+                {showReportPopup ? <ReportPopup closePopup={toggleReportPopup} rId = {rId} type = {type} />
+                    : null
+                }
+
                 <div class="tzone-post-body">
                     <button class="tzone-create-post-btn" onClick={togglePostPopup}>  {"What's on your mind, " + (authContext.user.username) + "?"}
                     </button>
@@ -145,22 +167,29 @@ export default function TheZone(props) {
                             <div className="tzone-post-container">
 
                                 <div className="tzone-user-info">
-                                    <Link to={'/profile/' + data.poster.username} className="tzone-profile-link">
+                                    <Link className="tzone-profile-pic">
                                     <ProfilePicture username={data.poster.username} />
                                     </Link>
-                                    
-                                    <label> <Link to={'/profile/' + data.poster.username} className="tzone-profile-link">{data.poster.username} ({data.poster.acs})  
-                                    </Link>
+                                   
+                                    <label className="tzone-profile-link" >{data.poster.username} ({data.poster.acs})  
                                     </label>
+
+                                    
                                     
                                     <div className="tzone-likes"> <label> {data.likes} </label></div>
                                     </div>
+
+                                {data.reported ? <label className="tzone-reported"> Post Reported </label> : <button className="tzone-report-btn" onClick={() => toggleReportPopup( data._id, "post")} >{"Report Post"}</button>
+                                   }
+                               
+                                    
                                     <div className="tzone-post-info">      
                                     <Link to={"/theZone/display/" + (data._id)} className="tzone-link">
                                         <p> {data.body} </p>
                                     </Link>
-                                </div> 
-                        </div>
+
+                                    </div> 
+                                 </div>
                         <div className="tzone-post-buttons">
                                 <a onClick={() => handlePostAgree(data, index)} className={data.agree ? "tzone-post-button-agree-selected" : "tzone-post-button-agree"}> Agree </a>
                                 <a onClick={() => handlePostDisagree(data, index)} className={data.disagree ? "tzone-post-button-disagree-selected" : "tzone-post-button-disagree"}> Disagree </a>

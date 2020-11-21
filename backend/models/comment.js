@@ -31,6 +31,16 @@ const commentSchema = new Schema({
         required: false,
         default: []
     },
+    totalReports: {
+        type: Number,
+        required: false,
+        default: 0
+    },
+    reported: {
+        type:[String],
+        required: false,
+        default: []
+    }
 },{
     timestamps:true
 });

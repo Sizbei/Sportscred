@@ -181,7 +181,7 @@ export default function InGameTrivia(props) {
     }
   }, [endState])
 
-  const timeClassName = timeValue == "Waiting for other User..." ? "trivia-wait" : "time"
+  const timeClassName = timeValue == "Waiting for other User..." ? "trivia-wait" : "timeValue"
 
   return(
       <div className='trivia-background'>

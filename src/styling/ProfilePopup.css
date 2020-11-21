@@ -51,9 +51,23 @@ h1 {
   padding-bottom: 15%;  
   font-size:20px;
   border-radius: 8px;
-  font-family:"CommissionerMedium"
-  
+  font-family:"CommissionerMedium";
+  padding-left: 8px;
+  padding-top: 8px;
+  color: grey;
+
 }
+
+.profile-popup-input-characters {
+  word-break: break-all;
+  padding-top: 10px;
+  
+  font-size:20px;
+  border-radius: 8px;
+  font-family:"CommissionerMedium";
+  color: #FF7e1F;
+}
+
 .profile-popup-submit-button {
   margin-top: 1%;
   align-self: flex-end;
@@ -73,6 +87,7 @@ h1 {
 .profile-popup-close-button:hover , .profile-popup-submit-button:hover { 
   color: #747474;
   background-color: white; 
+  cursor: pointer;
 }
 
 .profile-rl-popup-content {
@@ -88,3 +103,9 @@ h1 {
   font-family: 'CommissionerMedium';
   src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'CommissionerBold';
+  src: local('CommissionerBold'), url(../res/fonts/Commissioner/Commissioner-Bold.ttf) format('truetype');
+}
+

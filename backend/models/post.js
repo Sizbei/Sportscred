@@ -25,6 +25,16 @@ const postSchema = new Schema({
         required: false,
         default: []
     },
+    totalReports:{
+        type:Number,
+        required: false,
+        default: 0
+    },
+    reported: {
+        type:[String],
+        required: false,
+        default: []
+    },
     comments: [{type: Schema.ObjectId, ref:"comment"}]
 },{
     timestamps:true

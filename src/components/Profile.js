@@ -221,9 +221,9 @@ export default class Profile extends Component {
                             <button className ="prof-create-post-button" onClick={this.togglePostPopup.bind(this)}>Create Post</button> 
                             : 
                             (this.state.following ? 
-                                <button className="prof-create-post-button" onClick={this.handleDeleteRadarList.bind(this)}> Unfollow </button>
+                                <button className="prof-create-post-button" onClick={this.handleDeleteRadarList.bind(this)}> UnTrack </button>
                                 : 
-                                <button className="prof-create-post-button" onClick={this.handleAddRadarList.bind(this)}> Follow </button>
+                                <button className="prof-create-post-button" onClick={this.handleAddRadarList.bind(this)}> Track </button>
                             )                     
                         }      
                     </div>

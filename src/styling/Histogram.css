@@ -1,0 +1,6 @@
+.histogram-div {
+  border-left: 0.053vw solid rgba(200,67,23,0.2);
+  border-bottom: 0.053vw solid rgba(200,67,23,0.2);
+  position: relative;
+  overflow: hidden;
+}

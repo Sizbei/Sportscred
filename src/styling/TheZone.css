@@ -4,8 +4,8 @@
   background-color: #222629;
   font-family: 'CommissionerMedium';
   padding-top: 30px;
-  padding-bottom: 50px;
-  position: fixed;
+
+
   margin: auto;
   overflow: auto;
   z-index: -1;
@@ -28,8 +28,10 @@
   border-radius: 8px;
   padding-bottom: 30px;
 }
+
 .tzone-create-post-btn:hover {
     background-color: lightgrey;
+    color: black;
     cursor:pointer;
 }
 
@@ -42,7 +44,38 @@
   padding: 8px;
 }
 
+/****************************** Report Post CSS **************************************/
+.tzone-report-btn{
+  background-color: grey;
+  border-radius: 8px;
+  border: 1px solid;
+  color: white;
+  font-size: 1.3vw;
+  font-family: 'CommissionerMedium';
+  text-align: center;
+  padding-bottom: 5px;
 
+  width: 160px;
+}
+
+.tzone-report-btn:hover{
+  background-color: white;
+  color: grey;
+  cursor: pointer;
+}
+
+.tzone-reported{
+  background-color: grey;
+  border-radius: 8px;
+  border: 1px solid;
+  color: red;
+  font-size: 1.3vw;
+  font-family: 'CommissionerBold';
+  text-align: center;
+  padding-bottom: 5px;
+
+  width: 160px;
+}
 
 /**************************** Display Post Related ***********************************/
 
@@ -68,16 +101,23 @@
   color: white;
   font-size: 1.1em;
   display: block;
-  margin-left: 2em;
+  text-indent: 2em;
+  margin-left: 10px;
   text-decoration: none;
 }
 
 .tzone-profile-link {
+  margin-top: 2.5%;
   text-decoration: none;
   color: white;
 }
 
-.tzone-profile-link:hover {
+.tzone-profile-pic {
+  text-decoration: none;
+  color: white;
+}
+
+.tzone-profile-pic:hover {
   color: lightgrey;
 }
 
@@ -99,8 +139,8 @@
 
 .tzone-post-info {
   color: white; 
-  padding-bottom: 4px; 
-  padding-left: 0%; 
+  padding-bottom: 5%; 
+  border-radius: 8px;
 }
 
 .tzone-post-buttons {
@@ -120,6 +160,7 @@
   border-radius: 8px;  
   cursor: pointer; 
   font-family: 'CommissionerMedium';
+  text-align: center;
 }
 .tzone-comment-agree-disagree {
   display: flex;
@@ -149,16 +190,24 @@
   font-size: 1vw; 
   width: 3vw; 
   height: 3vw; 
+  line-height: 2.7vw;
   border-radius: 50%;
   margin-left: 50%;
-  text-align: center
+  margin-top:3%;
+  text-align: center;
+  color: white;
+  font-family: 'CommissionerBold';
 }
 .tzone-likes label { 
-  margin:auto;
-  padding-top: 13px;
+  margin: auto;
 }
 
 @font-face {
   font-family: 'CommissionerMedium';
   src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'CommissionerBold';
+  src: local('CommissionerBold'), url(../res/fonts/Commissioner/Commissioner-Bold.ttf) format('truetype');
 }

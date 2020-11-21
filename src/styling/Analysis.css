@@ -1,0 +1,151 @@
+body {
+  width: 100%;
+  height: 100%; 
+  background-color: #222629;
+  background-size: cover; 
+  padding-bottom: 2%;
+}
+
+.analysis-page{
+  font-family: 'CommissionerMedium';
+  padding-top: 30px;
+
+  overflow: auto;
+  z-index: -1;
+  
+}
+
+.analysis-container {
+  margin:auto;
+  width: 85%;
+  height: 100%;
+  color: white;
+  font-size: 1.0vw;
+  font-family: 'CommissionerMedium';
+}
+
+.analysis-category-div {
+  background-color: rgb(44, 43, 43);
+  border-radius: 8px;
+  border: 1px solid;
+  margin-bottom: 16px;
+  padding: 8px;
+}
+
+.analysis-title {
+  color: white;
+  font-size: 1.4vw;
+  font-family: 'CommissionerMedium';
+  margin-bottom: 30px;
+}
+
+.analysis-category-label {
+  color: white;
+  font-size: 0.8vw;
+  font-family: 'CommissionerMedium';
+}
+
+.analysis-post-container {
+  background-color: grey;
+  border-radius: 8px;
+  border: 1px solid;
+  margin-bottom: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+.analysis-post-container:hover {
+  background-color: rgb(92, 91, 91);
+  cursor: pointer;
+}
+
+.tier-div{
+  margin: 7px 5px 5px 5px;
+  padding: 5px 2px 5px 2px;
+  border-radius: 8px;
+  border: 1px solid;
+  width: 9%;
+  overflow: hidden;
+  text-align: center;
+  font-size: 0.8vw;
+  font-family: 'CommissionerMedium';
+}
+
+.expert-analyst-div {
+  background-color: green;
+}
+
+.pro-analyst-div {
+  background-color: yellowgreen;
+}
+
+.analyst-div {
+  background-color: orange;
+}
+
+.fanalyst-div {
+  background-color: red;
+}
+
+.time-left {
+  margin: 5px 5px 5px 5px;
+  padding: 2px 5px 0px 0px;
+  border-radius: 8px;
+  border: 1px solid;
+  background-color: rgb(105, 104, 104);
+  overflow: hidden;
+  text-align: center;
+  justify-content: flex-start;
+  display: inline-block;
+  width: 11%;
+  display: flex;
+}
+
+.time {
+  font-family: 'CommissionerMedium';
+  font-size: 0.8vw;
+  margin-left: 5px;
+  padding-top: 3px;
+  padding-right: 2px;
+
+}
+
+.clockIcon {
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+.analysis-question {
+  margin: 7px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+  font-size: 0.8vw;
+  font-family: 'CommissionerMedium';
+  float: left;
+  text-align: center;
+}
+
+.analysis-post-front {
+  padding-left: 5px;
+  display: flex;
+  width: 85%;
+  height: 100%;
+  color: white;
+  font-size: 1.0vw;
+  font-family: 'CommissionerMedium';
+
+}
+
+.analysis-post-container + .analysis-category-div {
+  margin-top: 50px;
+}
+
+.analysis-pagination {
+  margin-top: 10px;
+  float: right;
+  background-color: rgb(105, 104, 104);
+  border-radius: 8px;
+  border: 1px solid;
+
+}

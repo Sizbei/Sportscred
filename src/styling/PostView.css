@@ -27,9 +27,11 @@
   font-family: 'CommissionerMedium';
   border-radius: 8px;
   padding-bottom: 10px;
+
 }
 
 .tzpv-comments-container { 
+
   width: 50%; 
   background-color: grey; 
   padding: 0% 3%;
@@ -63,6 +65,9 @@
   color: white; 
   padding-bottom: 5%; 
   border-radius: 8px;
+  text-indent: 2em;
+  margin-left: 10px;
+  flex: 20%;
 }
 
 .tzpv-post-buttons {
@@ -93,7 +98,7 @@
 .tzpv-post-button-agree-selected {
   background-color: #61b305; 
   border-color: #57A105;  
-  border-width: 5px;
+  border-width: 8px;
 }
 .tzpv-post-button-disagree {
   background-color: #d30909;
@@ -102,23 +107,30 @@
 .tzpv-post-button-disagree-selected {
   background-color: #d30909; 
   border-color: #A20909; 
-  border-width: 5px;
+  border-width: 8px;
 
 }
+
 .tzpv-likes { 
   background-color: #ff7e1f; 
-  font-size: 1vw; 
-  width: 3vw; 
-  height: 3vw; 
-  border-radius: 50%;
-  margin-left: 50%;
-  text-align: center
-  
+  font-size: 1.5vw; 
+  width: 4vw; 
+  height: 4vw; 
+  line-height: 3.8vw;
+  border-radius: 75%;
+  margin-top: 1.7%;
+  margin-left: 65%;
+
+  text-align: center;
+  color: white;
+  font-family: 'CommissionerBold';
 }
+
 .tzpv-likes label { 
-  margin:auto;
-  padding-top: 13px;
+  margin: auto;
 }
+
+
 /************ CSS POST COMMENT **********/ 
 .tzpv-post-comment-container input {
   padding-bottom: 10%;
@@ -150,6 +162,7 @@
   background-color: white; 
   border-radius: 8px;
   font-family: 'CommissionerMedium';
+  cursor: pointer;
 }
 
 /****************** CSS FOR COMMENT *********************/
@@ -186,17 +199,103 @@
 }
 
 .tzpv-profile-link {
+  margin-top: 2.5%;
+  text-decoration: none;
+  color: white;
+}
+.tzpv-profile-pic {
   text-decoration: none;
   color: white;
 }
 
-.tzpv-profile-link:hover {
-  color: lightgrey;
+
+.tzpv-profile-user {
+  margin-top: 2.5%;
+  text-decoration: none;
+  color: white;
+}
+
+
+
+
+.tzpv-report-btn{
+  background-color: grey;
+  border-radius: 8px;
+  border: 1px solid;
+  color: white;
+  display: flex;
+  font-size: 1.3vw;
+  font-family: 'CommissionerMedium';
+  text-align: center;
+  width: 140px;
+}
+
+.tzpv-creport-btn{
+  background-color: grey;
+  border-radius: 8px;
+  border: 1px solid;
+  color: white;
+  display: absolute;
+  font-size: 1.1vw;
+  font-family: 'CommissionerBold';
+  text-align: center;
+  width: 180px;
+}
+
+
+.tzpv-report-btn:hover, .tzpv-creport-btn:hover{
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+
+.tzpv-reported{
+  background-color: grey;
+  border-radius: 8px;
+  border: 1px solid;
+  color: red;
+  font-size: 1.3vw;
+  font-family: 'CommissionerBold';
+  text-align: center;
+  padding-bottom: 5px;
+
+  width: 160px;
+}
+
+.tzpv-creported{
+  background-color: grey;
+  border-radius: 8px;
+  border: 1px solid;
+  color: red;
+  display: absolute;
+  font-size: 1.1vw;
+  font-family: 'CommissionerBold';
+  text-align: center;
+  width: 200px;
+}
+
+.tzpv-id-label { 
+  color: white;
+  font-family:'CommissionerBold';  
 }
 
 @font-face {
   font-family: 'CommissionerMedium';
   src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
 }
+
+
+@font-face {
+  font-family: 'CommissionerBold';
+  src: local('CommissionerBold'), url(../res/fonts/Commissioner/Commissioner-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'CommissionerSemiBold';
+  src: local('CommissionerSemiBold'), url(../res/fonts/Commissioner/Commissioner-SemiBold.ttf) format('truetype');
+}
+
+
+
 
 

@@ -60,6 +60,9 @@ class Popup extends React.Component {
           showError:false, 
         })
       }) 
+        .then(data => {
+          window.location.reload();
+        }) 
       .catch((error) => {
         console.log(error);
       })

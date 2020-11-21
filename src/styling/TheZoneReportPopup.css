@@ -1,0 +1,95 @@
+.tzrp-popup  {  
+  display: absolute;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;  
+  width: 100%;  
+  height: 100%;  
+  top: 0;  
+  left: 0;  
+  right: 0;  
+  bottom: 0;  
+  margin: auto;  
+  background-color: rgba(0,0,0, 0.5);  
+}  
+
+.tzrp-post-popup-content {   
+  position: absolute;  
+  left: 25%;  
+  right: 25%;  
+  top: 25%;  
+  
+   
+  margin: auto;  
+  border-radius: 8px;  
+  background: #41474b;   
+}
+
+.tzrp-popup-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  
+  order: 3; 
+  flex-grow: 5;
+  padding: 2% 13%; 
+}
+
+h1 {
+  color: #FF7e1F;
+}
+
+
+.tzrp-popup-submit-button{
+  margin-top: 2%;
+  margin-bottom: 3%;
+margin-left: -5%;
+  
+    background-color: #FF7e1F;
+    border: none;
+    border-radius: 50px;
+    height: 40px;
+    width: 20%;
+    color: white;
+    font-family: 'CommissionerMedium';
+    text-align: center;
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.tzrp-popup-close-button {
+  margin-top: 2%;
+  margin-bottom: 4%;
+  margin-left: 16%;
+  padding: 5px , 10px; 
+    background-color: #FF7e1F;
+    border: none;
+    border-radius: 50px;
+    height: 40px;
+    width: 20%;
+    color: white;
+    font-family: 'CommissionerMedium';
+    text-align: center;
+    font-size: 20px;
+    font-weight: 650;
+    margin-right:20%;
+}
+
+.tzrp-popup-close-button:hover , .tzrp-popup-submit-button:hover { 
+  color: #747474;
+  background-color: white; 
+  cursor: pointer;
+}
+
+.tzrp-post-buttons {
+  display: flex; 
+  border-radius: 8px; 
+  padding-bottom: 3%; 
+  margin: center;
+}
+
+@font-face {
+  font-family: 'CommissionerMedium';
+  src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+}

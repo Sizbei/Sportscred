@@ -1,0 +1,97 @@
+.reports-background { 
+    z-index: -1;
+    width:100%;
+    height:100%;
+    overflow: auto; 
+    background-color: #222629;
+    background-size: cover;
+    font-family: 'CommissionerBold';
+    color: white; 
+    padding-bottom: 15%; 
+}
+
+.reports-container { 
+  display:flex; 
+  justify-content: center;
+  
+}
+
+.reports-background h1 { 
+  border-bottom: 2px solid white ;
+ 
+}
+
+.reports-selection select{
+  height: 3vw;
+  width: 10vw;  
+  background-color: #747474; 
+  Border: none; 
+  color: white; 
+  font-family: 'CommissionerBold';
+}
+
+.reports-selection-option { 
+  background-color: #747474; 
+  height: 3vw;
+  width: 10vw;  
+}
+.reports-selection-option:hover{ 
+  background-color: #222629; 
+  height: 3vw;
+  width: 10vw;  
+  cursor: pointer;
+}
+
+.reports-body-container {
+  display: flex;
+  flex-direction: column; 
+  width: 40vw ; 
+  border-bottom: 2px solid white ;
+}
+
+.reports-buttons {
+  align-self: flex-end; 
+}
+.reports-body-container a {
+  color: #ff7e1f; 
+}
+.reports-body-header-container {
+  display:flex; 
+  
+}
+
+.reports-body-header-container h5 { 
+  margin-left: 30%;
+}
+
+.reports-buttons button{
+  border-radius: 7%;
+  border: none;   
+  height:2vw;  
+  width: 8vw;
+  font-size: 0.9vw; 
+  background-color: #222629;
+  color: white; 
+  border-color: white;
+  border-style: solid; 
+  font-family: 'CommissionerBold';
+}
+.reports-buttons button:hover{ 
+  color: #222629;
+  background-color: white; 
+  cursor: pointer; 
+}
+.MuiPagination-ul Button{ 
+  color: white; 
+  font-family: 'CommissionerBold';
+}
+
+@font-face {
+  font-family: 'CommissionerMedium';
+  src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'CommissionerBold';
+  src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Bold.ttf) format('truetype');
+}

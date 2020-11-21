@@ -1,0 +1,67 @@
+.slider-container {
+  margin-left: 0%;
+  margin-top: -55%;
+  position: relative;
+
+  /* background-color: red; */
+}
+
+.slider-arrow {
+  width: 0; 
+  height: 0; 
+  margin-left: auto;
+  margin-right: 21%;
+  transform: rotate(270deg);
+}
+
+.slider-arrow-ghost {
+  width: 0; 
+  height: 0; 
+  margin-left: auto;
+  margin-right: 21%;
+  transform: rotate(270deg);
+  opacity: 0.4;
+}
+
+.slider-arrow-container {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.slider-arrow-ghost-container {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.slider-mouse-container {
+  position: absolute;
+  /* background-color: green; */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scaleX(-1);
+  transform: scaleY(-1);
+}
+
+.slider {
+  background-image: url('../res/ACSBorder.png');
+  background-size: contain;
+  display: flex;
+  /* transform: scaleX(-1);
+  transform: scaleY(-1); */
+}
+
+.slider-percent {
+  margin-left: auto;
+  margin-right: 25%;
+  margin-bottom: auto;
+  margin-top: 37%;
+  font-weight: 750;
+  transform: scaleX(-1);
+  transform: scaleY(-1);
+}

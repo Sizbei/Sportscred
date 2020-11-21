@@ -79,7 +79,7 @@ export default class Login extends Component{
                 if(isAuthenticated) {
                     this.context.setUser(user);
                     this.context.setIsAuthenticated(isAuthenticated);
-                    this.props.history.push('/Profile/' + this.state.username);
+                    this.props.history.push('/TheZone');
                 } else {
                     document.getElementById('username').style.borderColor = "red";
                     document.getElementById('password').style.borderColor = "red";

@@ -45,25 +45,36 @@ function Navbar() {
 
 function User() {
   const [imgUrl, setImgUrl] = useState("");
+  const [ACS, setACS] = useState("");
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
-    fetch('/settings/profile/' + authContext.user.username).then(res => res.json())
-    //axios.get("http://localhost:5000/settings/profile", body)
+    const repeat = setInterval(() => {
+      fetch('/settings/profile/' + authContext.user.username).then(res => res.json())
+      //axios.get("http://localhost:5000/settings/profile", body)
+        .then(data => {
+          setImgUrl(data.image);
+        })
+
+      fetch( "/profile/" + authContext.user.username + "/acs").then(res => res.json()) 
       .then(data => {
-        console.log("headeer data", data.image);
-        setImgUrl(data.image);
+          setACS(data.acsTotal);
       })
-  })
+    }, 500)
+    return () => clearInterval(repeat)
+  }, [])
   return (
     <div className="user-info">
       <div className="user-photo">
         <Link to={'/profile/' + authContext.user.username} className="profile-link">
           <img src={imgUrl} className="user-given-photo" alt="" /></Link>
       </div>
-      <Link to={'/profile/' + authContext.user.username} className="profile-link"><span>
-        <p className="username"> {authContext.user.username} </p></span></Link>
-      
+      <div className="user-text">
+        <Link to={'/profile/' + authContext.user.username} className="profile-link"><span>
+          <p className="username"> {authContext.user.username} </p></span></Link>
+        
+        <span className="user-acs">&nbsp;&nbsp; ({ACS})</span>
+      </div>
     </div>
   );
 }
@@ -91,12 +102,17 @@ function OptionsMenu() {
     history.push("/citations");
   }
 
+  const navigateToReports = () => {
+    history.push("/reports/post");
+  }
+
   return (
     <div className="options">
       <button className="optionsMenu" />
           <div className="optionsContent">
           <button className="optionsButtonsTopEnd" onClick={navigateToSettings}>Settings</button>
           <button className="optionsButtons" onClick={navigateToCitations}>Citations</button>
+          {authContext.user.permissions === "Moderator" ? <button className="optionsButtons" onClick={navigateToReports}> Reports </button> : null }
           <button className="optionsButtonsBotEnd" onClick={LogOut}>Log Out</button>
         </div>
     </div>

@@ -1,7 +1,5 @@
 import React, {  useState } from 'react';
 import '../styling/RadarList.css';  
-import PropTypes from "prop-types";
-import { withRouter } from "react-router";
 
 /*{pictureUrl: "https://i.imgur.com/55sUslQ.png", username: "user1",acs: 20},
       {pictureUrl: "https://i.imgur.com/55sUslQ.png", username: "user2",acs: 21},
