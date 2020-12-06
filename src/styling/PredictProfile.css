@@ -1,0 +1,113 @@
+.pp-background { 
+  display: flex; 
+  color: white; 
+  justify-content: center;
+  font-family: 'CommissionerBold'; 
+}
+
+.pp-full-container { 
+  
+  align-self: center;
+
+}
+
+.pp-pagination { 
+  
+  margin-left: 20%;
+
+}
+
+
+.pp-matches-container { 
+  flex-direction: column; 
+  margin-left: -30px;
+}
+.pp-match-row-container { 
+  border-bottom: 2px solid white; 
+  padding-top: 3%;
+  padding-bottom: 3%;
+  color: white;
+  display:flex; 
+  align-content: space-between;
+  align-items: center;
+
+}
+
+.pp-header-section  {
+  border-bottom: 5px solid white; 
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pp-date-label label{ 
+  margin-top: 5px;
+ 
+}
+
+.pp-match-date{
+  margin-top: 1.4%;
+  margin-left: 5%;
+  margin-bottom: -1.4%;
+}
+
+.pp-matches-info {
+  margin-right: 4%;
+  display: flex;
+  align-items: center;
+  
+}
+.pp-matches-info-button,  .pp-matches-info-button-selected , .pp-matches-info-button-correct, .ip-matches-info-button-incorrect{ 
+  margin-left: 2%;
+  margin-right: 2%;
+  border: none; 
+  outline: none; 
+  padding-top: 2%; 
+  padding-bottom: 2%; 
+  border-radius: 5%;
+}
+
+.pp-matches-info-button {
+  background-color: transparent;
+}
+
+.pp-matches-info-button-selected {
+  background-color: rgb(76, 135, 245);
+}
+
+.pp-matches-info-button-correct {
+  background-color: rgb(92, 155, 92);
+}
+
+.pp-matches-info-button-incorrect {
+  background-color: rgb(165, 40, 40);
+}
+.pp-header-section select {
+  background-color: #222629;
+  color: white; 
+  font-family: 'ComissionerBold'; 
+  outline: none; 
+}
+.pp-navigation-buttons { 
+  background-color: #222629;
+  color: white; 
+  border: none;
+  cursor:pointer;
+  font-family: 'CommissionerBold';
+  outline: none;
+  cursor: pointer;
+}
+
+.pp-navigation-buttons:hover {
+  color:  #ff7e1f; 
+}
+
+.pp-matches-info TeamBox {
+  cursor: pointer; 
+  color: #FF7e1F;
+  word-wrap: break-word;
+}
+
+@font-face {
+  font-family: 'CommissionerBold';
+  src: local('CommissionerBold'), url(../res/fonts/Commissioner/Commissioner-Bold.ttf) format('truetype');
+}

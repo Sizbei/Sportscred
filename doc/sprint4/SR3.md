@@ -1,4 +1,4 @@
-## Sprint #1 Planning Meeting
+## Sprint #3 Planning Meeting
 ### Team BBQED
 ### Date: 2020-11-17
 --------------------

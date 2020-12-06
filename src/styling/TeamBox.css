@@ -1,0 +1,57 @@
+.TeamBox {
+    border-radius: 0.25vw;
+    box-sizing: border-box;
+    padding: 0.4vw;
+}
+
+.TB-teamImage {
+    height:100%;
+    width: 30%;
+    float:left;
+}
+
+.TB-image {
+    height: 100%;
+    width:100%;
+}
+
+.TB-teamName-left {
+    height:100%;
+    width: 67%;
+    float:left;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.TB-teamName-right {
+    height:100%;
+    width: 67%;
+    float:left;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+}
+
+.TB-name-left {
+    font-family:'CommissionerMedium';
+    margin-left: 1vw;
+    color: white;
+}
+
+.TB-name-right {
+    font-family:'CommissionerMedium';
+    margin-right: 1vw;
+    color: white;
+}
+
+@font-face {
+    font-family: 'CommissionerMedium';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+  }
+  
+
+
+

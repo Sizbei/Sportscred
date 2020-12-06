@@ -80,7 +80,7 @@
   margin-left: 2%;
   padding: 2%; 
   outline: none; 
-  color: white; 
+  color: lightgrey; 
   width: 15vw;
   font-size: 1.3vw;
   border-radius: 8px;  
@@ -89,26 +89,29 @@
 }
 .tzpv-comment-agree-disagree {
   display: flex;
+   border-style: none; 
 }
 .tzpv-post-button-agree {
   background-color: #61b305;
   border-style: none; 
 }
-
 .tzpv-post-button-agree-selected {
   background-color: #61b305; 
-  border-color: #57A105;  
-  border-width: 8px;
+  font-family: 'CommissionerBold';
+  color: white; 
+   border-style: none; 
+  
 }
 .tzpv-post-button-disagree {
   background-color: #d30909;
   border-style: none; 
 }
 .tzpv-post-button-disagree-selected {
-  background-color: #d30909; 
-  border-color: #A20909; 
-  border-width: 8px;
-
+  background-color: #d30909;
+  font-family: 'CommissionerBold';
+  color: white; 
+   border-style: none; 
+ 
 }
 
 .tzpv-likes { 

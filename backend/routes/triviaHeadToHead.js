@@ -157,7 +157,7 @@ router.route('/createGame').post((req, res) => {
 //-------------------------------------------------
 
 const acsUpdate = game => {
-    const pointReward = 2;
+    const pointReward = 20;
     if(game.points[0] > game.points[1]) {
         game.acsChange = [pointReward, -pointReward];
     } else if(game.points[0] == game.points[1]) {
@@ -339,7 +339,7 @@ router.route('/update').put(passport.authenticate('jwt', {session : false}),(req
                     date: new Date()
                 }
                 userAcs.acsHistory.push(entry);
-                userAcs.acsTotal.total += game.acsChange[i];
+                userAcs.acsTotal.total += game.acsChange[i]/10;
                 userAcs.acsTotal.triviaGames += game.acsChange[i];
 
                 userAcs.save();

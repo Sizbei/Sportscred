@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 export default function View(props) {
     const authContext = useContext(AuthContext); 
     const postId = props.location.pathname.slice(17, props.location.pathname.length); 
-    const path = ' /zone/display/' + authContext.user.username + '/' + postId ; 
+    const path = ' /post/display/post/'+ postId ; 
     const [commentBody, setCommentBody] = useState(''); 
     const [username, setUsername] = useState(''); 
     const [likes, setLikes] = useState(0); 
@@ -30,10 +30,11 @@ export default function View(props) {
     const [showReportBtn, setShowReportBtn] = useState(false);
 
     useEffect(() => {
-      
+        console.log(path);
         fetch(path).then(res => res.json())
         .then(data => {
           console.log(data); 
+          
           setUsername(data.posts.poster.username); 
           setAcs(data.posts.poster.acs); 
           setLikes(data.posts.likes); 
@@ -41,11 +42,12 @@ export default function View(props) {
           setAgree(data.posts.upvoted); 
           setDisagree(data.posts.downvoted); 
           setComments(data.posts.comments); 
-          setReported(data.posts.reported)
-        })
-        .catch((error) => {
-          console.log(error); 
-        })
+          setReported(data.posts.reported);
+        
+          })
+            .catch((error) => {
+              console.log(error); 
+            })
         
       }, [])
     
@@ -130,12 +132,14 @@ export default function View(props) {
           "commenter": {
             "username": data.commenter.username, 
             "image": data.commenter.image,
-            "acs": data.commenter.acs
+            "acs": data.commenter.acs,
+            
           },
           "body": data.body, 
           "likes": updatedData.likes, 
           "upvoted": updatedData.upvoted, 
-          "downvoted": updatedData.downvoted
+          "downvoted": updatedData.downvoted,
+          "reported": data.reported,
         }
         const newComments = [
           ...comments.slice(0, index),
@@ -170,12 +174,14 @@ export default function View(props) {
           "commenter": {
             "username": data.commenter.username, 
             "image": data.commenter.image,
-            "acs": data.commenter.acs
+            "acs": data.commenter.acs,
+        
           },
           "body": data.body, 
           "likes": updatedData.likes, 
           "upvoted": updatedData.upvoted, 
-          "downvoted": updatedData.downvoted
+          "downvoted": updatedData.downvoted,
+          "reported": data.reported,
         }
         const newComments = [
           ...comments.slice(0, index),
@@ -267,6 +273,7 @@ export default function View(props) {
                         {data.commenter.username} ({data.commenter.acs}) </Link> </label>
                       <Link  className="tzpv-profile-link">
                             <ProfilePicture scale={0.8} username={data.commenter.username}/> </Link>
+                           
                            {data.reported ? <button className="tzpv-creported"> Comment reported </button> : <button className="tzpv-creport-btn" onClick={() => toggleReportPopup(data._id, "comment")} >{"Report Comment"}</button>
                             }
                             

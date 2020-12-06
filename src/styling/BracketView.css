@@ -1,0 +1,27 @@
+.bracketview-center {
+  height: 100%;
+  height: calc(100vh - 117.3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bracketview-div {
+  position: relative;
+}
+
+.rect {
+  position: absolute;
+  top: 0;
+  background-color: grey;
+  border-radius: 0.25vw;
+}
+
+.rect-content {
+  color: white;
+}
+
+.bracket {
+  position: absolute;
+  top: 0;
+}

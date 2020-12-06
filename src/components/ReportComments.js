@@ -34,7 +34,7 @@ export default function Report(props) {
           activePage={currentPage}
           */
   const handleComments = async (page) => { 
-    await fetch("/zone/display/" + authContext.user.username + "/reportedComments/" + page).then(response => response.json()) 
+    await fetch("/report/reportedComments/" + page).then(response => response.json()) 
     .then (data => {
       setReportList(data.comments);
       setTotalNumber(data.reports); 

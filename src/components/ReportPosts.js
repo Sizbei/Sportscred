@@ -31,7 +31,7 @@ export default function Report(props) {
   }
   
   const handlePosts=  async (page) => {
-    await fetch("/zone/display/" + authContext.user.username + "/reportedPosts/" + page).then(response => response.json()) 
+    await fetch("/report/reportedPosts/" + page).then(response => response.json()) 
     .then( data => {
       setReportList(data.posts); 
       setTotalNumber(data.reports); 

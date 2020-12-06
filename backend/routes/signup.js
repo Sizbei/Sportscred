@@ -110,7 +110,14 @@ router.route('/add').post((req, res) =>{
         interest: favoriteTeam
     });
     const newACS = new acs({
-        username: username
+        username: username,
+        acsTotal: {
+            total: 200,
+            triviaGames: 200,
+            analysisDebate: 200,
+            picksPrediction: 200,
+            participationHistory: 200
+        }
     });
     newUser.save()
       .then(() => {

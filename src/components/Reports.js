@@ -13,7 +13,7 @@ export default function Reports(props){
     const body = {
       _id: postId, 
     }
-    fetch('/zone/display/clearPost', {
+    fetch('/report/clearPost', {
       method :  "post",
       body : JSON.stringify(body),
       headers: {
@@ -34,7 +34,7 @@ export default function Reports(props){
     const body = {
       _id: commentId, 
     }
-    fetch('/zone/display/clearComment', {
+    fetch('/report/clearComment', {
       method :  "post",
       body : JSON.stringify(body),
       headers: {
@@ -55,7 +55,7 @@ export default function Reports(props){
     const body = {
       _id: postId, 
     }
-    fetch('/zone/display/' + authContext.user.username +'/deletePost', {
+    fetch('/report/deletePost', {
       method :  "delete",
       body : JSON.stringify(body),
       headers: {
@@ -76,7 +76,7 @@ export default function Reports(props){
     const body = {
       _id: commentId, 
     }
-    fetch('/zone/display/' + authContext.user.username +'/deleteComment', {
+    fetch('/report/deleteComment', {
       method :  "delete",
       body : JSON.stringify(body),
       headers: {

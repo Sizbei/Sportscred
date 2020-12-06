@@ -57,6 +57,23 @@ app.use('/analysis', analysisRouter)
 const analysisPostRouter = require('./routes/analysisPost');
 app.use('/analysis/post', analysisPostRouter)
 
+const playoffRouter = require('./routes/playoff');
+app.use('/playoff', playoffRouter)
+
+const playoffPredictionRouter = require('./routes/playoffPrediction');
+app.use('/prediction/playoff', playoffPredictionRouter)
+const leaderboardRouter = require('./routes/leaderboard');
+app.use('/prediction/leaderboard', leaderboardRouter)
+
+const predictionRouter = require('./routes/prediction');
+app.use('/prediction', predictionRouter)
+
+const regularSeasonRouter = require('./routes/regularSeason');
+app.use('/prediction/season', regularSeasonRouter)
+
+const reportRouter = require('./routes/report');
+app.use('/report', reportRouter)
+
 //App is now listening for calls
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

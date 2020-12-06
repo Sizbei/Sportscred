@@ -9,10 +9,10 @@ const jwt = require('jsonwebtoken');
 const passportConfig = require('../passport');
 
 const acsTiers = {
-    "Fanalyst": [100, 300],
+    "Fanalyst": [-99999999, 300],
     "Analyst": [300, 600],
     "Pro Analyst": [600, 900],
-    "Expert Analyst": [900, 1100] 
+    "Expert Analyst": [900, 99999999] 
 }
 
 const getTier = async (username) => {

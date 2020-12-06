@@ -1,0 +1,162 @@
+.predictionBox-popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0,0,0, 0.5);
+}
+
+.predictionBox-popup_inner {
+  padding-left: 6em;
+  padding-right: 6em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+
+  position: absolute;
+  margin: auto;
+  border-radius: 20px;
+  background: #313538;
+}
+
+.center-predictionBox {
+    padding-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.predictionBox {
+    height:42vw;
+    width:60vw;
+    padding: 2.5%;
+    background-color: #1b1a18;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gamePredictionBox {
+    width: 80%;
+    height: 10%;
+    padding: 1%;
+}
+
+.gameNumber {
+    width: 10%;
+    height:100%;
+    float:left;
+    font-family: 'CommissionerMedium';
+    font-size: 0.8vw;
+}
+
+.predictTeams {
+    width:80%;
+    height:100%;
+    float:left;
+    display:flex;
+    justify-content: center;
+
+}
+ 
+.resultPredictionImage {
+    width:10%;
+    height:100%;
+    float:left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'CommissionerMedium';
+    font-size: 0.8vw;
+
+}
+
+.minispaceAllotted {
+    width: 3%;
+}
+
+.spaceAllotted {
+    width: 7%;
+}
+
+.darkened {
+    filter: brightness(50%);
+}
+
+.predictionHeader {
+    width: 90%;
+    height: 12%;
+}
+
+.predictionTeamName {
+    font-family: 'CommissionerMedium';
+    font-size: 2vw;
+    color:white;
+}
+
+.predictionVersus {
+    font-family: 'CommissionerMedium';
+    font-size: 1vw;
+    color:white;
+}
+
+.predictionScore {
+    font-family: 'CommissionerMedium';
+    font-size: 3vw;
+    color:white;
+    padding-bottom: 5vw;
+}
+
+.predictionVS {
+    width: 5%;
+    height: 100%;
+    text-align: center;
+    float:left;
+    padding-top:1vw;
+    
+}
+
+.predictionLeft {
+    width: 47%;
+    height: 100%;
+    text-align: right;
+    display:flex;
+    justify-content: space-between;
+    float:left;
+}
+
+.predictionRight {
+    width: 47%;
+    height: 100%;
+    text-align: left;
+    display:flex;
+    justify-content: space-between;
+
+    float:left;
+}
+
+.predictionResult {
+    font-family: "CommissionerMedium";
+    font-size: 1vw;
+}
+
+.align-result-right {
+    text-align: right;
+    width: 76.5%;
+}
+
+@font-face {
+    font-family: 'CommissionerMedium';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+}

@@ -6,7 +6,7 @@
   color: white;  
 }
 .prof-container-middle-section, .prof-container-profile{ 
-  justify-content: center;
+  margin-left: 8%; 
   display: flex;
 
 }
@@ -135,6 +135,7 @@
 
 .prof-picks{
   padding-left: 2%;
+  flex-grow: 1;
 }
 
 .prof-interest-content {
@@ -143,10 +144,17 @@
   align-items: center;
 }
 
-.prof-interest-content, .prof-picks-content{
+.prof-interest-content{
   background-color: #747474;
-  height: 30vw; 
-  width: 27.5vw; 
+  height: 32vw; 
+  width: 22.5vw; 
+  word-break:break-all; 
+}
+
+.prof-picks-content{
+  background-color: #747474;
+  height: 31.22vw;
+  width: 34.5vw;
   word-break:break-all; 
 }
 
@@ -155,7 +163,7 @@
   padding: 0;
   padding-left: 1%;
   padding-top: 1%;
-  padding-right: 0px;
+  padding-right: 2px;
   padding-bottom: 0px;
   padding: 2%;
 }
@@ -196,13 +204,14 @@
 
 .prof-picks {
   margin-left: 3%;
+  
 }
 
 
 /*********************STYLES FOR ACS HISTORY*********************/
 
 .prof-piechart {
-  padding-left: 0% ; 
+  padding-left: 13% ; 
   padding-right: 0%; 
   padding-top: 2%; 
   padding-bottom: 2%;
@@ -213,6 +222,7 @@
   background-color: #747474;
   color: white; 
   display: flex;
+  width: 58.4vw;
 
 }
 .prof-acs-content table { 

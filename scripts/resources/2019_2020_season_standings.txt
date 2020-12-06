@@ -1,0 +1,33 @@
+easternConference
+1,Milwaukee Bucks
+2,Toronto Raptors
+3,Boston Celtics
+4,Indiana Pacers
+5,Miami Heat
+6,Philadelphia 76ers
+7,Brooklyn Nets
+8,Orlando Magic
+9,Washington Wizards
+10,Charlotte Hornets
+11,Chicago Bulls
+12,New York Knicks
+13,Detroit Pistons
+14,Atlanta Hawks
+15,Cleveland Cavaliers
+
+westernConference
+1,Los Angeles Lakers
+2,Los Angeles Clippers
+3,Denver Nuggets
+4,Houston Rockets
+5,Oklahoma City Thunder
+6,Utah Jazz
+7,Dallas Mavericks
+8,Portland Trail Blazers
+9,Memphis Grizzlies
+10,Phoenix Suns
+11,San Antonio Spurs
+12,Sacramento Kings
+13,New Orleans Pelicans
+14,Minnesota Timberwolves
+15,Golden State Warriors

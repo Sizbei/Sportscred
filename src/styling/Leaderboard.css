@@ -1,0 +1,158 @@
+.leaderboardRadar {
+    position:absolute;
+    margin-top:5%;
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderboardGlobal {
+    position:absolute;
+    margin-top:5%;
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.Leaderboard {
+    height: 110%;
+    width: 83%;
+    background-color:  #1b1a18;
+}
+
+.Leaderboard-row {
+    padding-left:4%;
+    padding-right: 4%;
+    padding-top: 2%;
+    padding-bottom: 4%;
+}
+
+.L-col-Global {
+    width: 20%;
+    height: 100%;
+    color:white;
+    float: left;
+    font-size: 1.2vw;
+    font-family: 'CommissionerMedium';
+    display: flex;
+    justify-content: center;
+}
+
+.L-col-Radar {
+    width: 30%;
+    height: 100%;
+    color:white;
+    text-align: center;
+    float: left;
+    font-size: 1.2vw;
+    font-family: 'CommissionerMedium';
+    display: flex;
+    justify-content: center;
+}
+
+.L-col-Radar-Space {
+    width: 2vw;
+    float:left;
+    color:#1b1a18;
+}
+
+.L-col-Radar-Image {
+    width: 2vw;
+    height: 2vw;
+    float:left;
+    display: flex;
+    justify-content: center;
+}
+
+.leaderboardButton {
+    width: 30%;
+    height: 2.5vw;
+    border-top-left-radius: 5vw;
+    border-top-right-radius: 5vw;
+    border:none;
+    background-color: #0B0A0A;
+    color: white;
+    font-family: 'CommissionerMedium';
+    text-align: center;
+    font-size: 1vw;
+}
+
+.yearButton {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 5vw;
+    border-top-right-radius: 5vw;
+    border:none;
+    background-color: #c8651b;
+    color: white;
+    font-family: 'CommissionerMedium';
+    text-align: center;
+    font-size: 1vw;
+}
+
+.leaderboardButtonDiv {
+    width:83%;
+    height:5%;
+    display: flex;
+    justify-content: center;
+}
+
+.centerSpace {
+    width:100%;
+    float: left;
+}
+
+.leaderboardButton:focus {
+    outline:none;
+}
+
+.yearButton:focus {
+    outline:none;
+}
+
+.yearButtonDiv {
+    width: 30%;
+    height: 2.5vw;
+    display: inline-block;
+}
+
+  .yearButtonDiv:hover .yearOptions {
+      display: block;
+  }
+  
+  .yearOptions {
+    display: none;
+    position: absolute;
+    width:9.75%;
+  }
+  
+  .yearOptionsButton {
+    width: 100%;
+    height: 2vw;
+    border:none;
+    background-color: #AB5815;
+    color: white;
+    font-family: 'CommissionerMedium';
+    text-align: center;
+    font-size: 1vw;
+  }
+
+  .yearOptionsButton:hover {
+    background-color: #c8651b;
+  }
+
+  .yearOptionsButton:focus {
+    outline:none;
+  }
+
+@font-face {
+    font-family: 'CommissionerMedium';
+    src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
+}

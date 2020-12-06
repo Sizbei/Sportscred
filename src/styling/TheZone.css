@@ -54,7 +54,6 @@
   font-family: 'CommissionerMedium';
   text-align: center;
   padding-bottom: 5px;
-
   width: 160px;
 }
 
@@ -83,6 +82,7 @@
   margin:auto;
   width: 35%;
   height: 100%;
+  
 }
 
 .tzone-post-container { 
@@ -104,12 +104,14 @@
   text-indent: 2em;
   margin-left: 10px;
   text-decoration: none;
+  font-family: 'CommissionerSemiBold';
 }
 
 .tzone-profile-link {
   margin-top: 2.5%;
   text-decoration: none;
   color: white;
+  
 }
 
 .tzone-profile-pic {
@@ -124,13 +126,151 @@
 .tzone-post-number { 
   color: white;
   font-size: 1.3vw; 
-  font-family: 'CommissionerMedium';
+  font-family: 'CommissionerSemiBold';
   padding-bottom: 20px;
+  text-align: center
+
 }
 
 .tzone-overall-container{
   text-decoration: none;
 }
+
+/**************************** Sort Post Related ***********************************/
+
+/* div for dropdowns */
+.tzone-dropbtns {
+  margin-bottom: 20px;
+  
+  
+}
+
+/* Dropdown Button */
+.tzone-dropbtn1 {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  font-size: 1vw;
+  font-family: 'CommissionerMedium';
+  border: none;
+  z-index: 0;
+  margin-right: 10px;
+  border-radius: 8px;
+  text-align: center;
+  width: 130px;
+  border-bottom: 1px solid black;
+}
+
+.tzone-sort {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  font-size: 1vw;
+  font-family: 'CommissionerMedium';
+  border: none;
+  z-index: 0;
+  margin-right: 10px;
+  border-radius: 8px;
+  text-align: center;
+  
+}
+
+.tzone-sort-clicked {
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  font-size: 1vw;
+  font-family: 'CommissionerMedium';
+  border: none;
+  z-index: 0;
+  margin-right: 10px;
+  border-radius: 8px;
+}
+
+.tzone-dropbtn1:hover {
+  cursor: pointer;
+  
+}
+
+
+.tzone-path-btn{
+  background-color: white;
+  color: black;
+  padding: 10px;
+  font-size: 1vw;
+  font-family: 'CommissionerMedium';
+  border: none;
+  z-index: 0;
+  margin-right: 10px;
+  border-radius: 8px;
+  text-align: center;
+  width: 110px;
+  border-bottom: 1px solid black;
+}
+.tzone-path-btn:hover {
+  background-color: lightgrey;
+  color: black;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.tzone-path-clicked{
+  background-color: rgb(36, 35, 35);
+  color: white;
+  padding: 10px;
+  font-size: 1vw;
+  font-family: 'CommissionerMedium';
+  border: none;
+  z-index: 0;
+  margin-right: 10px;
+  border-radius: 8px;
+  text-align: center;
+  width: 110px;
+  border-bottom: 1px solid black;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.tzone-dropdown1 {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.tzone-dropdown-content1 {
+  display: none;
+  position: absolute;
+  background-color: none;
+  min-width: 110px;
+  z-index: 0;
+  border-style: none;
+}
+
+
+/* Links inside the dropdown */
+.tzone-dropdown-content1 a {
+  text-decoration: none;
+  display: block;
+  border-style: none;
+}
+
+
+/* Show the dropdown menu on hover */
+.tzone-dropdown1:hover .tzone-dropdown-content1 {
+  display: block;
+  cursor: pointer;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+.tzone-sort-btns {
+  position: relative;
+  display: inline-block;
+ 
+}
+
+
+
 /******************************* Single Post CSS *************************************/
 .tzone-user-info {
   display: flex;
@@ -154,7 +294,7 @@
   margin-left: 2%;
   padding: 2%; 
   outline: none; 
-  color: white; 
+  color: lightgrey; 
   width: 15vw;
   font-size: 1.3vw;
   border-radius: 8px;  
@@ -165,26 +305,28 @@
 .tzone-comment-agree-disagree {
   display: flex;
 }
+
 .tzone-post-button-agree {
   background-color: #61b305;
   border-style: none; 
 }
-
 .tzone-post-button-agree-selected {
   background-color: #61b305; 
-  border-color: #57A105;  
-  border-width: 5px;
+  font-family: 'CommissionerBold';
+  color: white; 
+  
 }
 .tzone-post-button-disagree {
   background-color: #d30909;
   border-style: none; 
 }
 .tzone-post-button-disagree-selected {
-  background-color: #d30909; 
-  border-color: #A20909; 
-  border-width: 5px;
-
+  background-color: #d30909;
+  font-family: 'CommissionerBold';
+  color: white; 
+ 
 }
+
 .tzone-likes { 
   background-color: #ff7e1f; 
   font-size: 1vw; 
@@ -202,6 +344,12 @@
   margin: auto;
 }
 
+.pagination-center {
+  margin-bottom: 2vh;
+  display: flex;
+  justify-content: center;
+}
+
 @font-face {
   font-family: 'CommissionerMedium';
   src: local('Commissioner'), url(../res/fonts/Commissioner/Commissioner-Medium.ttf) format('truetype');
@@ -210,4 +358,9 @@
 @font-face {
   font-family: 'CommissionerBold';
   src: local('CommissionerBold'), url(../res/fonts/Commissioner/Commissioner-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'CommissionerSemiBold';
+  src: local('CommissionerSemiBold'), url(../res/fonts/Commissioner/Commissioner-SemiBold.ttf) format('truetype');
 }

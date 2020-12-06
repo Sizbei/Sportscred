@@ -74,7 +74,7 @@ router.route('/next').put((req, res) => {
         }
 
         userACS.acsHistory.push(entry);
-        userACS.acsTotal.total += game.points;
+        userACS.acsTotal.total += game.points/10;
         userACS.acsTotal.triviaGames += game.points;
         
         game.inProgress = false;

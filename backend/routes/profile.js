@@ -29,6 +29,11 @@ router.route('/:username/radarlist').get(passport.authenticate('jwt', {session :
     var radarList = [];
     for (var i = 0; i < user.radarList.length; i++) {
       tempAcs = await Acs.findOne({username:user.radarList[i]}).then(acs => {return acs.acsTotal.total});
+      if (tempAcs < 100) {
+        tempAcs = 100;
+      } else if (tempAcs > 1100) {
+        tempAcs = 1100
+      }
       tempPic = await Profile.findOne({username: user.radarList[i]}).then(profile => {return profile.image});
         radarList[i] = {username: user.radarList[i], acs:tempAcs, profilePic:tempPic}
     }
@@ -65,17 +70,23 @@ router.route('/:username/acs').get(passport.authenticate('jwt', {session : false
   await Acs.findOne({username:req.params.username}).then(
     (user) => {
       var acsChart = []
-      acsChart[0] = {title: "Trivia & Games", value: user.acsTotal.triviaGames/user.acsTotal.total}
-      acsChart[1] = {title: "Analysis & Debate", value: user.acsTotal.analysisDebate/user.acsTotal.total}
-      acsChart[2] = {title: "Picks & Prediction", value: user.acsTotal.picksPrediction/user.acsTotal.total}
-      acsChart[3] = {title: "Participation & History", value: user.acsTotal.participationHistory/user.acsTotal.total}
+      acsChart[0] = {title: "Trivia & Games", value: user.acsTotal.triviaGames*0.1/user.acsTotal.total}
+      acsChart[1] = {title: "Analysis & Debate", value: user.acsTotal.analysisDebate*0.3/user.acsTotal.total}
+      acsChart[2] = {title: "Picks & Prediction", value: user.acsTotal.picksPrediction*0.5/user.acsTotal.total}
+      acsChart[3] = {title: "Participation & History", value: user.acsTotal.participationHistory*0.1/user.acsTotal.total}
       var currentTime = Date.now()
       var toProcess = user.acsHistory.slice(Math.max(user.acsHistory.length - 5, 0))
       var newEditedAcsHistory = []
       for (var i = 0; i < toProcess.length; i++) {
         newEditedAcsHistory[i] = {category: toProcess[i].category, points: toProcess[i].points, date: dateDifference(currentTime, toProcess[i].date)}
       }
-      var acs = {acsChart: acsChart, acsHistory: newEditedAcsHistory.reverse(), acsTotal:user.acsTotal.total}
+      var acsTotal = user.acsTotal.total;
+      if (acsTotal < 100) {
+        acsTotal = 100
+      } else if (acsTotal > 1100) {
+        acsTotal = 1100
+      }
+      var acs = {acsChart: acsChart, acsHistory: newEditedAcsHistory.reverse(), acsTotal:acsTotal}
       res.json(acs)
     }
   ).catch(err => res.status(400).json('Error ' + err));

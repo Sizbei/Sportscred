@@ -9,25 +9,30 @@ let Profile = require('../models/profile')
 let Acs = require('../models/acs')
 const mongoose = require('mongoose');
 
-router.route('/display/:username/focused').get(passport.authenticate('jwt', { session: false }), async(req, res) => {
-    var radarList = await Profile.findOne({username: req.params.username}).then((user) => {
+router.route('/display/focused/:page/:sortedBy').get(passport.authenticate('jwt', { session: false }), async(req, res) => {
+    var radarList = await Profile.findOne({username: req.user.username}).then((user) => {
         return user.radarList;
     });
-    var recentPosts = await Post.find({poster: {$in: radarList}}).sort({'createdAt':'desc'}).then((post) => {
-        return post;
-    })
-    console.log(post);
-});
-
-router.route('/display/:username').get(passport.authenticate('jwt', { session: false }), async(req, res) => {
-    let recentPosts = await Post.find({}, "likes _id poster body upvoted downvoted reported" ).sort({'createdAt':'desc'}).limit(10).then(async (post) => {
-        return post
+    let sortedBy = req.params.sortedBy
+    let page = req.params.page
+    let recentPosts = null;
+    let post_count = await Post.count({poster:{$in:radarList}}).then((total) => {
+        return total
     }).catch((err) => {res.status(400).json('Error ' + err)})
+    if (sortedBy === 'createdAt') {
+        recentPosts = await Post.find({poster:{$in:radarList}}, "likes _id poster body upvoted downvoted reported" ).sort({'createdAt':'desc'}).skip(10*page).limit(10).then(async (post) => {
+            return post
+        }).catch((err) => {res.status(400).json('Error ' + err)})
+    } else {
+        recentPosts = await Post.find({poster:{$in:radarList}}, "likes _id poster body upvoted downvoted reported" ).sort({'likes':'desc'}).skip(10*page).limit(10).then(async (post) => {
+            return post
+        }).catch((err) => {res.status(400).json('Error ' + err)})
+    }
     let newPostsList = []
     for (var i = 0; i < recentPosts.length; i++) {
-        let upvoted = recentPosts[i].upvoted.includes(req.params.username)
-        let downvoted = recentPosts[i].downvoted.includes(req.params.username)
-        let reported = recentPosts[i].reported.includes(req.params.username)
+        let upvoted = recentPosts[i].upvoted.includes(req.user.username)
+        let downvoted = recentPosts[i].downvoted.includes(req.user.username)
+        let reported = recentPosts[i].reported.includes(req.user.username)
         let newPost = {}
         newPost._id = recentPosts[i]._id
         newPost.likes = recentPosts[i].likes
@@ -40,6 +45,11 @@ router.route('/display/:username').get(passport.authenticate('jwt', { session: f
         let acs = await Acs.findOne({username: newPost.poster.username}, "acsTotal.total").then((acsobj) => {
             return acsobj.acsTotal.total
         }).catch((err) => {res.status(400).json('Error ' + err)})
+        if (acs < 100) {
+            acs = 100
+        } else if (acs >= 1100) {
+            acs = 1100
+        }
         newPost.poster.acs = acs
         newPost.body = recentPosts[i].body
         newPost.upvoted = upvoted
@@ -47,59 +57,56 @@ router.route('/display/:username').get(passport.authenticate('jwt', { session: f
         newPost.reported = reported
         newPostsList[i] = newPost
     }
-    res.json({posts: newPostsList});
-})
+    res.json({posts: newPostsList, post_count: post_count});
+});
 
-router.route('/display/:username/:post').get(passport.authenticate('jwt', { session: false }), async(req, res) => {
-    let singlePost = await Post.findById(req.params.post).then(async (post) => {
-        return post
+router.route('/display/:page/:sortedBy').get(passport.authenticate('jwt', { session: false }), async(req, res) => {
+    let post_count = await Post.count({}).then((total) => {
+        return total
     }).catch((err) => {res.status(400).json('Error ' + err)})
-    let newComments = []
-    let comments = await Comment.find({post: req.params.post}, "commenter _id body likes upvoted downvoted reported").sort({'likes':'desc', 'createdAt': 'desc'}).then((comment) => {
-        return comment;
-    }).catch((err) => {res.status(400).json('Error ' + err)})
-    for (var j = 0; j < comments.length; j++) {
-        let newComment = {}
-        newComment._id = comments[j]._id
-        newComment.commenter = {}
-        newComment.commenter.username = comments[j].commenter
-        let image = await Profile.findOne({username: newComment.commenter.username}, "image").then((user) => {
+    let sortedBy = req.params.sortedBy
+    let page = req.params.page
+    let recentPosts = null;
+    if (sortedBy === 'createdAt') {
+        recentPosts = await Post.find({}, "likes _id poster body upvoted downvoted reported" ).sort({'createdAt':'desc'}).skip(10*page).limit(10).then(async (post) => {
+            return post
+        }).catch((err) => {res.status(400).json('Error ' + err)})
+    } else {
+        recentPosts = await Post.find({}, "likes _id poster body upvoted downvoted reported" ).sort({'likes':'desc'}).skip(10*page).limit(10).then(async (post) => {
+            return post
+        }).catch((err) => {res.status(400).json('Error ' + err)})
+    }
+
+    let newPostsList = []
+    for (var i = 0; i < recentPosts.length; i++) {
+        let upvoted = recentPosts[i].upvoted.includes(req.user.username)
+        let downvoted = recentPosts[i].downvoted.includes(req.user.username)
+        let reported = recentPosts[i].reported.includes(req.user.username)
+        let newPost = {}
+        newPost._id = recentPosts[i]._id
+        newPost.likes = recentPosts[i].likes
+        newPost.poster = {}
+        newPost.poster.username = recentPosts[i].poster
+        let image = await Profile.findOne({username: newPost.poster.username}, "image").then((user) => {
             return user.image
         }).catch((err) => {res.status(400).json('Error ' + err)})
-        newComment.commenter.image = image
-        let acs = await Acs.findOne({username: newComment.commenter.username}, 'acsTotal.total').then((acsobj) => {
+        newPost.poster.image = image;
+        let acs = await Acs.findOne({username: newPost.poster.username}, "acsTotal.total").then((acsobj) => {
             return acsobj.acsTotal.total
         }).catch((err) => {res.status(400).json('Error ' + err)})
-        newComment.commenter.acs = acs
-        newComment.likes = comments[j].likes
-        newComment.body = comments[j].body
-        newComment.upvoted = comments[j].upvoted.includes(req.params.username);
-        newComment.downvoted = comments[j].downvoted.includes(req.params.username);
-        newComment.reported = comments[j].reported.includes(req.params.username)
-        newComments[j] = newComment
+        if (acs < 100) {
+            acs = 100
+        } else if (acs >= 1100) {
+            acs = 1100
+        }
+        newPost.poster.acs = acs
+        newPost.body = recentPosts[i].body
+        newPost.upvoted = upvoted
+        newPost.downvoted = downvoted
+        newPost.reported = reported
+        newPostsList[i] = newPost
     }
-    let upvoted = singlePost.upvoted.includes(req.params.username)
-    let downvoted = singlePost.downvoted.includes(req.params.username)
-    let reported = singlePost.reported.includes(req.params.username)
-    let newPost = {}
-    newPost._id = singlePost._id
-    newPost.likes = singlePost.likes
-    newPost.poster = {}
-    newPost.poster.username = singlePost.poster
-    let image = await Profile.findOne({username: newPost.poster.username}, "image").then((user) => {
-        return user.image
-    }).catch((err) => {res.status(400).json('Error ' + err)})
-    newPost.poster.image = image;
-    let acs = await Acs.findOne({username: newPost.poster.username}, 'acsTotal.total').then((acsobj) => {
-        return acsobj.acsTotal.total
-    }).catch((err) => {res.status(400).json('Error ' + err)})
-    newPost.poster.acs = acs
-    newPost.body = singlePost.body
-    newPost.upvoted = upvoted
-    newPost.downvoted = downvoted
-    newPost.comments = newComments
-    newPost.reported = reported
-    res.json({posts: newPost});
+    res.json({posts: newPostsList, post_count:post_count});
 })
 
 router.route('/addComment').post(passport.authenticate('jwt', { session: false }), async(req, res) => {
@@ -235,76 +242,6 @@ router.route("/reportComment").post(async(req, res) => {
     }).catch((err) => {
         res.status(400).json('Error: ' + err)
     })
-})
-router.route('/display/:username/reportedPosts/:page').get(async(req, res) => {
-    let page = req.params.page
-    let reports = await Post.count({totalReports:{$gt:0}}).then((total) => {
-        return total
-    }).catch((err) => {res.status(400).json('Error ' + err)})
-    let recentPosts = await Post.find({totalReports:{$gt:0}}, "_id poster reported totalReports")
-    .sort({'totalReports':'desc'})
-    .skip(10*page)
-    .limit(10)
-    .then((posts) => {
-        return posts
-    }).catch((err) => {res.status(400).json('Error ' + err)})
-    let newPostsList = []
-    for (var i = 0; i < recentPosts.length; i++) {
-        let newPost = {}
-        newPost._id = recentPosts[i]._id
-        newPost.totalReports = recentPosts[i].totalReports
-        newPostsList[i] = newPost
-    }
-    res.json({posts: newPostsList, reports:reports});
-})
-
-router.route('/display/:username/reportedComments/:page').get(async(req, res) => {
-    let page = req.params.page
-    let reports = await Comment.count({totalReports:{$gt:0}}).then((total) => {
-        return total
-    }).catch((err) => {res.status(400).json('Error ' + err)})
-    let recentComments = await Comment.find({totalReports:{$gt:0}}, "_id post commenter reported totalReports")
-    .sort({'totalReports':'desc'})
-    .skip(10*page)
-    .limit(10)
-    .then((comments) => {
-        return comments
-    }).catch((err) => {res.status(400).json('Error ' + err)})
-    let newCommentsList = []
-    for (var i = 0; i < recentComments.length; i++) {
-        let newComment = {}
-        newComment._id = recentComments[i]._id
-        newComment.post = recentComments[i].post
-        newComment.reports = recentComments[i].totalReports
-        newCommentsList[i] = newComment
-    }
-    res.json({comments: newCommentsList, reports:reports});
-})
-
-router.route('/display/:username/deletePost').delete(async(req, res) => {
-    await Post.deleteOne({_id: req.body._id}).then(async () => {
-        await Comment.deleteMany({post: req.body._id}).then(() => {
-            res.status(200).json("Deleted")
-        }).catch((err) => {res.status(400).json('Error ' + err)})
-    }).catch((err) => {res.status(400).json('Error ' + err)})
-})
-
-router.route('/display/:username/deleteComment').delete(async(req, res) => {
-    await Comment.deleteOne({_id: req.body._id}).then(() => {
-        res.status(200).json("Deleted")
-    }).catch((err) => {res.status(400).json('Error ' + err)})
-})
-
-router.route('/display/clearPost').post(async(req, res) => {
-    await Post.updateOne({_id: req.body._id}, {$set:{reported:[], totalReports:0}}).then(() => {
-        res.status(200).json("cleared")
-    }).catch((err) => {res.status(400).json('Error ' + err)})
-})
-
-router.route('/display/clearComment').post(async(req, res) => {
-    await Comment.updateOne({_id: req.body._id}, {$set:{reported:[], totalReports:0}}).then(() => {
-        res.status(200).json("Cleared")
-    }).catch((err) => {res.status(400).json('Error ' + err)})
 })
 
 module.exports = router;
